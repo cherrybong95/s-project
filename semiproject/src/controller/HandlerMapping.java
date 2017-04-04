@@ -1,0 +1,19 @@
+package controller;
+
+public class HandlerMapping {
+	private static HandlerMapping instance = new HandlerMapping();
+
+	protected static HandlerMapping getInstance() {
+		return instance;
+	}
+
+	public Controller create(String command) {
+		
+		Controller c = null;
+		if(command.equals("list")){
+			//c= new ListController();
+		}
+		return c;
+	}
+
+}
