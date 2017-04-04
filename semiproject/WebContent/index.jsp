@@ -37,26 +37,96 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <div class="w3-hide-large" style="margin-top:83px"></div>
   
   <!-- Photo grid -->
-  <div class="w3-row">
-    <div class="w3-third">
-      <img src="img/안경.jpg" style="width:100%" onclick="onClick(this)" alt="A boy surrounded by beautiful nature">
-     <img src="img/귀요미.jpg" style="width:100%" onclick="onClick(this)" alt="The Beach. Me. Alone. Beautiful">
-      <img src="img/팔찌.jpg" style="width:100%" onclick="onClick(this)" alt="The Beach. Me. Alone. Beautiful">
-    </div>
+  		<div class="w3-row">
+			<div class="w3-third">
+				<div class="w3-one">
+					<img src="img/안경.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="A boy surrounded by beautiful nature">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="w3-one">
+					<img src="img/귀요미.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="What a beautiful scenery this sunset">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="w3-one">
+					<img src="img/팔찌.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="The Beach. Me. Alone. Beautiful">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    <div class="w3-third">
-      <img src="img/팔찌2.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful">
-        <img src="img/명함지갑.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful">
-        <img src="img/상자.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful">
-    </div>
-    
-    <div class="w3-third">
-       <img src="img/지갑.jpg" style="width:100%" onclick="onClick(this)" alt="What a beautiful scenery this sunset">
-         <img src="img/신발.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful">
-           <img src="img/카드지갑.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful">
-    </div>
-  </div>
-
+			<div class="w3-third">
+				<div class="w3-one">
+					<img src="img/팔찌2.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="A boy surrounded by beautiful nature">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="w3-one">
+					<img src="img/명함지갑.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="What a beautiful scenery this sunset">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="w3-one">
+					<img src="img/상자.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="The Beach. Me. Alone. Beautiful">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="w3-third">
+				<div class="w3-one">
+					<img src="img/지갑.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="A boy surrounded by beautiful nature">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="w3-one">
+					<img src="img/신발.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="What a beautiful scenery this sunset">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="w3-one">
+					<img src="img/카드지갑.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="The Beach. Me. Alone. Beautiful">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품<p>&nbsp; &nbsp;&nbsp;30000원</p><p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
   <!-- Pagination -->
   <div class="w3-center w3-padding-32">
     <div class="w3-bar">
