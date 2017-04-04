@@ -151,7 +151,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <!-- About section -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
     <h3><b>About Us</b></h3>
-    <img src="img/pk-6.jpg" alt="Me" class="w3-image w3-padding-32" width="400" height="450">
+    <img src="img/pk6_logo.jpg" alt="Me" class="w3-image w3-padding-32" width="400" height="450">
     <div class="w3-content w3-justify" style="max-width:600px">
       <h4>My Name &nbsp;<small>is 바이핸드</small></h4>
       <p>
