@@ -299,7 +299,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 				</h4>
 				<p>Do you want to buy some unique items? Fill out the form and
 					fill me in with the details :) I love meeting new people!</p>
-				<form action="/action_page.php" target="_blank">
+				<form action="DispatcherServlet" method="post" target="_blank" id="loginForm">
 					<div class="w3-section">
 						<label>Id</label> <input class="w3-input w3-border" type="text"
 							name="Id" required>
@@ -314,7 +314,9 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 				</form>
 			</div>
 		</div>
-
+		
+	
+			
 		<!-- Footer -->
 		<footer class="w3-container w3-padding-32 w3-grey">
 			<div class="w3-row-padding">
