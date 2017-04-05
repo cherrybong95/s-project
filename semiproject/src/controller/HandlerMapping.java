@@ -11,7 +11,8 @@ public class HandlerMapping {
 		
 		Controller c = null;
 		if(command.equals("list")){
-			//c= new ListController();
+			c= new ListController();
+			System.out.println(command);
 		}
 		return c;
 	}
