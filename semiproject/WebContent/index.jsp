@@ -202,7 +202,6 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		</div>
 
 
-
 		<!-- Pagination -->
 		<div class="w3-center w3-padding-32">
 			<div class="w3-bar">
@@ -227,44 +226,34 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		</div>
 
 		<!-- About section -->
-		<div
-			class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32"
-			id="about">
-			<h3>
-				<b>About Us</b>
-			</h3>
-			<img src="img/pk-6.jpg" alt="Me" class="w3-image w3-padding-32"
-				width="400" height="450">
-			<div class="w3-content w3-justify" style="max-width: 600px">
-				<h4>
-					My Name &nbsp;<small>is 바이핸드</small>
-				</h4>
-				<p>
-					바이핸드는 핸드메이드 상품을 뜻하는 'by hand'와 핸드메이드 상품을 구매한다는 'buy hand'의 뜻으로
-					PK-6에 의해 고안된 소비자와 생산자를 잇는 직거래 마켓입니다.<br> 유니크한 아이템을 지금 바로
-					구매하세요!
-				</p>
-				<p>mail: example@example.com</p>
-				<p>tel: 5353 35531</p>
-				<hr class="w3-opacity">
-				<h4 class="w3-padding-16">Technical Skills</h4>
-				<p class="w3-wide">Photography</p>
-				<div class="w3-white">
-					<div class="w3-container w3-padding-small w3-center w3-grey"
-						style="width: 95%">95%</div>
-				</div>
-				<p class="w3-wide">Web Design</p>
-				<div class="w3-white">
-					<div class="w3-container w3-padding-small w3-center w3-grey"
-						style="width: 85%">85%</div>
-				</div>
-				<p class="w3-wide">Photoshop</p>
-				<div class="w3-white">
-					<div class="w3-container w3-padding-small w3-center w3-grey"
-						style="width: 80%">80%</div>
-				</div>
-				<!-- <p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button></p> -->
-				<hr class="w3-opacity">
+		<div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+    <h3><b>About Us</b></h3>
+    <img src="img/pk6_logo.jpg" alt="Me" class="w3-image w3-padding-32" width="400" height="450">
+    <div class="w3-content w3-justify" style="max-width:600px">
+      <h4>My Name &nbsp;<small>is 바이핸드</small></h4>
+      <p>
+		바이핸드는 핸드메이드 상품을 뜻하는 'by hand'와 핸드메이드 상품을 구매한다는 'buy hand'의 뜻으로
+		PK-6에 의해 고안된 소비자와 생산자를 잇는 직거래 마켓입니다.<br>
+		유니크한 아이템을 지금 바로 구매하세요!
+      </p>
+      <p>mail: example@example.com</p>
+      <p>tel: 5353 35531</p>
+      <hr class="w3-opacity">
+      <h4 class="w3-padding-16">Technical Skills</h4>
+      <p class="w3-wide">Photography</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:95%">95%</div>
+      </div>
+      <p class="w3-wide">Web Design</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide">Photoshop</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:80%">80%</div>
+      </div>
+      <!-- <p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button></p> -->
+      <hr class="w3-opacity">
 
 				<h4 class="w3-padding-16">How much I charge</h4>
 				<div class="w3-row-padding" style="margin: 0 -16px">
