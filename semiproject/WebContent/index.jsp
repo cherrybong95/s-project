@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -291,7 +292,13 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		</div>
 
 		<!-- Login section -->
-		<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large"
+		
+		
+				
+		
+			<c:choose>
+				<c:when test="${sessionScope.loginMvo==null }">
+					<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large"
 			id="login">
 			<div class="w3-content" style="max-width: 600px">
 				<h4 class="w3-center">
@@ -299,7 +306,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 				</h4>
 				<p>Do you want to buy some unique items? Fill out the form and
 					fill me in with the details :) I love meeting new people!</p>
-				<form action="DispatcherServlet" method="post" target="_blank" id="loginForm">
+				<form action="DispatcherServlet" method="post" target="_self" id="loginForm">
 					<div class="w3-section">
 						<label>Id</label> <input class="w3-input w3-border" type="text"
 							name="Id" required>
@@ -314,6 +321,14 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 				</form>
 			</div>
 		</div>
+				
+				</c:when>
+				<c:when test="${sessionScope.loginMvo!=null }">
+					로그인했다잉
+				
+				</c:when>
+			</c:choose>
+	
 		
 	
 			
