@@ -16,6 +16,14 @@ public class HandlerMapping {
 		}else if(command.equals("showProductDetail")){
 			c= new ShowProductDetailController();
 			System.out.println(command);
+		}else if(command.equals("showCartList")){
+			c= new ShowCartListController();
+		}else if(command.equals("addCart")){
+			c=new AddCartController();
+		}else if(command.equals("deleteCart")){
+			c=new DeleteCartController();
+		}else if(command.equals("checkCart")){
+			c=new CheckCartController();
 		}
 		return c;
 	}

@@ -10,6 +10,40 @@ public class MockDAO {
 	private static MockDAO instance=new MockDAO();
 	public static MockDAO getInstance(){return instance;}
 	
+	//--------------------장바구니
+	MemberVO mvo = new MemberVO();
+	//--------------------임시멤버
+	public MemberVO createMember(){
+		mvo.setId("java");
+		mvo.setMname("박다혜");
+		return mvo;
+	}
+	//--------------------상품넘버로 상품찾기
+	public ProductVO findProductByNo(String pno) throws SQLException{
+		ProductVO pvo = null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="select pno,pname,price from semi_product where pno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(pno));
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+					pvo=new ProductVO();
+					pvo.setPno(rs.getInt(1));
+					pvo.setPname(rs.getString(2));
+					pvo.setPrice(rs.getInt(3));
+				}
+			}finally{
+				closeAll(rs,pstmt,con);
+			}
+		return pvo;
+	}
+	
+	
+	
 	public int getContentNo() throws SQLException {
 		Connection con=null;
 		PreparedStatement pstmt=null;

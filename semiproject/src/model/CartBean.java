@@ -42,10 +42,7 @@ public class CartBean {
     * @param pvo
     */
    public void addProduct(ProductVO pvo) 
-         throws DuplicateItemException{
-      if(findIndexByNo(pvo.getPno())!=-1){
-         throw new DuplicateItemException();
-      }
+{
       productList.add(pvo);
    }
    /**

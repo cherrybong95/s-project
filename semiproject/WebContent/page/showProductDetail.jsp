@@ -69,6 +69,35 @@ s{
 	
 }
 </style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#addCartBtn").click(function(){
+		var pno =${requestScope.productDetail.pno};  //el로 상품번호 받아오기
+		alert(pno);
+	 		$.ajax({ 			
+				type:"get",
+			url:"${pageContext.request.contextPath}/DispatcherServlet",
+			data:"command=checkCart&pno="+pno,
+			success:function(data){
+				//var flag=false;
+				if(data != "-1" ){ //이미 존재한다면
+/* 						if(confirm("장바구니에 동일한 상품이 존재합니다. 그래도 추가 하시겠습니까?"))
+						flag=true; */
+					alert("이미 존재하는 상품입니다!"); 
+					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList";
+				}else if(confirm("장바구니에 추가하시겠습니까?")){
+					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
+				}
+				/* if(flag==true){
+					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
+				} */
+			}//success
+		});  //ajax
+	}); //click
+});	//ready
+</script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 
 	<!-- Sidebar/menu -->
@@ -106,7 +135,7 @@ s{
       </p>
       <p>재고수량 : ${requestScope.productDetail.total_amount} </p>
       <p>판매자 : ${requestScope.productDetail.maker_id }</p>
-      
+      <button id="addCartBtn">장바구니 담기</button>
 		
 				
 				
@@ -128,6 +157,7 @@ function w3_close() {
 	document.getElementById("mySidebar").style.display = "none";
 	document.getElementById("myOverlay").style.display = "none";
 }
+
 </script>
 </body>
 </html>

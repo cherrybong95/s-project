@@ -8,4 +8,5 @@
   <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">ITEMS</a> 
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a> 
   <a href="#login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+  <a href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList" onclick="w3_close()" class="w3-bar-item w3-button">CART</a>
 </nav>
