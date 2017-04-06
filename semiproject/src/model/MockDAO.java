@@ -19,7 +19,24 @@ public class MockDAO {
 		return productList;
 		
 	}
-
+	public int getContentNo() throws SQLException {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int totalContent=0;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="select count(*) from board_b";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				totalContent=rs.getInt(1);
+			}
+		}finally{
+			closeAll(rs,pstmt,con);
+		}
+		return totalContent;
+	}
 	private void closeAll(ResultSet rs, PreparedStatement pstmt, Connection con) {
 	
 			try {
