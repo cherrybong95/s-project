@@ -101,7 +101,8 @@ create table buyer(
    mcode varchar2(100) not null,
    constraint fk_buyer_mcode foreign key (mcode) references member_code(mcode)
 )
-
+ insert into buyer(buyer_id,password,buyer_name,buyer_add,buyer_tel,mcode)
+ values ('java','1234','김문일','판교','010','2');
 --판매자 테이블
 drop table maker;
 create table maker(

@@ -11,13 +11,13 @@ public class MockDAO {
 	public static MockDAO getInstance(){return instance;}
 	
 	//--------------------장바구니
-	MemberVO mvo = new MemberVO();
+	//MemberVO mvo = new MemberVO();
 	//--------------------임시멤버
-	public MemberVO createMember(){
+/*	public MemberVO createMember(){
 		mvo.setId("java");
 		mvo.setMname("박다혜");
 		return mvo;
-	}
+	}*/
 	//--------------------상품넘버로 상품찾기
 	public ProductVO findProductByNo(String pno) throws SQLException{
 		ProductVO pvo = null;

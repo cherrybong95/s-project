@@ -24,6 +24,12 @@ public class HandlerMapping {
 			c=new DeleteCartController();
 		}else if(command.equals("checkCart")){
 			c=new CheckCartController();
+		}else if(command.equals("buyerLogin")){
+			c= new BuyerLoginController();
+		}else if(command.equals("logout")){
+			c= new LogoutController();
+		}else if(command.equals("makerLogin")){
+			c= new MakerLoginController();
 		}
 		return c;
 	}

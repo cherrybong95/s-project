@@ -223,42 +223,92 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		</div>
 
 		<!-- Login section -->
-		
-		
-				
-		
-			<c:choose>
-				<c:when test="${sessionScope.loginMvo==null }">
-					<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large"
-			id="login">
-			<div class="w3-content" style="max-width: 600px">
-				<h4 class="w3-center">
-					<b>Login</b>
-				</h4>
-				<p>Do you want to buy some unique items? Fill out the form and
-					fill me in with the details :) I love meeting new people!</p>
-				<form action="DispatcherServlet" method="post" target="_self" id="loginForm">
-					<div class="w3-section">
-						<label>Id</label> <input class="w3-input w3-border" type="text"
-							name="Id" required>
-					</div>
-					<div class="w3-section">
-						<label>Password</label> <input class="w3-input w3-border"
-							type="text" name="Password" required>
-					</div>
+		<c:choose>
+			<c:when test="${sessionScope.mvo==null }">
+				<div
+					class="w3-container w3-light-grey w3-padding-32 w3-padding-large"
+					id="login">
+					<div class="w3-content" style="max-width: 600px">
+						<h4 class="w3-center">
+							<b>Login</b>
+						</h4>
+						<p>Do you want to buy some unique items? Fill out the form and
+							fill me in with the details :) I love meeting new people!</p>
+						<form id="loginForm" name="loginForm"
+							onsubmit="return checkForm()" method="post">
+							<script src="//code.jquery.com/jquery.min.js"></script>
+							<div class="w3-section" style="text-align: center">
+								<b> <input type="button" class="btn" id="sellerBtn"
+									value="판매자"></b>&nbsp;&nbsp; <input type="radio"
+									name="mcode" value="1" id="seller"> &nbsp;&nbsp; <b>
+									<input type="button" class="btn" id="buyerBtn" value="구매자">
+								</b>&nbsp;&nbsp; <input type="radio" name="mcode" value="2"
+									id="buyer"><br>
+								<br>
+							</div>
 
-					<button type="submit"
-						class="w3-button w3-block w3-black w3-margin-bottom">Login</button>
-				</form>
-			</div>
-		</div>
-				
-				</c:when>
-				<c:when test="${sessionScope.loginMvo!=null }">
-					로그인했다잉
-				
-				</c:when>
-			</c:choose>
+							<div class="w3-section">
+								<label>Id</label> <input class="w3-input w3-border" type="text"
+									name="Id" required="required">
+							</div>
+							<div class="w3-section">
+								<label>Password</label> <input class="w3-input w3-border"
+									type="text" name="Password" required="required">
+							</div>
+
+							<input type="button"
+								class="w3-button w3-block w3-black w3-margin-bottom"
+								value="Login" onclick="checkForm()">
+
+
+
+
+						</form>
+						<script type="text/javascript">
+							function checkForm() {
+								var lf = document.loginForm;
+								if (lf.mcode.value == 2) {
+									location.href = "DispatcherServlet?command=buyerLogin&Id="
+											+ lf.Id.value
+											+ "&Password="
+											+ lf.Password.value
+											+ "&mcode="
+											+ lf.mcode.value;
+
+								} else if (lf.mcode.value == 1) {
+									location.href = "DispatcherServlet?command=makerLogin&Id="
+											+ lf.Id.value
+											+ "&Password="
+											+ lf.Password.value
+											+ "&mcode="
+											+ lf.mcode.value;
+								} else if (lf.mcode.value == "") {
+									alert("판매자/구매자 선택해주세요");
+								}
+							}
+							$(document).ready(function() {
+								$("#sellerBtn").click(function() {
+									$("#seller").prop("checked", true);
+								});
+								$("#buyerBtn").click(function() {
+									$("#buyer").prop("checked", true);
+								});
+							});
+						</script>
+
+						<a href="page/joinSelect.jsp" style="text-decoration: none">
+							<button class="w3-button w3-block w3-black w3-margin-bottom">
+								Sign Up</button>
+						</a>
+
+					</div>
+				</div>
+
+			</c:when>
+			<c:otherwise>
+			</c:otherwise>
+		</c:choose>
+<!-- login section end -->
 	
 		
 	
