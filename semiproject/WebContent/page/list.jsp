@@ -126,11 +126,19 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		<!-- Pagination -->
 		<div class="w3-center w3-padding-32">
 			<div class="w3-bar">
+			<c:set value="${requestScope.productListVO.pagingBean.nowPage}" var="nowPage"></c:set>
 				<c:if test="${requestScope.productListVO.pagingBean.previousPageGroup==true}">
 				<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.startPageOfPageGroup-1}" class="w3-bar-item w3-button w3-hover-black">«</a> 
 				</c:if>
-				<c:forEach begin="${requestScope.productListVO.pagingBean.startPageOfPageGroup}" end="${requestScope.productListVO.pagingBean.endPageOfPageGroup}" varStatus="index" >
-				<a	href="DispatcherServlet?command=list&pageNo=${index.count}" class="w3-bar-item w3-button w3-hover-black" >${index.count }</a>
+				<c:forEach begin="${requestScope.productListVO.pagingBean.startPageOfPageGroup}" end="${requestScope.productListVO.pagingBean.endPageOfPageGroup}" var="page" >
+				<c:choose>
+					<c:when test="${page==nowPage}">
+						<b class="w3-bar-item w3-button w3-hover-black" >${page}</b>
+					</c:when>	
+					<c:otherwise>
+						<a	href="DispatcherServlet?command=list&pageNo=${page}" class="w3-bar-item w3-button w3-hover-black" >${page}</a>
+					</c:otherwise>	
+				</c:choose>				
 				</c:forEach>
 				<c:if test="${requestScope.productListVO.pagingBean.nextPageGroup==true}">
 				<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.endPageOfPageGroup+1}" class="w3-bar-item w3-button w3-hover-black">»</a> 

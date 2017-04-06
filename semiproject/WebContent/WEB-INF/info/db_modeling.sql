@@ -188,7 +188,72 @@ values(8,'가죽지갑8',35000,5,'핸드메이드 가죽지갑','조녜가죽지
 values(9,'가죽지갑9',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
  insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(10,'가죽지갑10',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+
+insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(11,'가죽지갑11',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(12,'가죽지갑12',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(13,'가죽지갑13',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(14,'가죽지갑14',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(15,'가죽지갑15',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(16,'가죽지갑16',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(17,'가죽지갑17',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(18,'가죽지갑18',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(19,'가죽지갑19',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(20,'가죽지갑20',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
  
+insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(21,'가죽지갑21',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(22,'가죽지갑22',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(23,'가죽지갑23',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(24,'가죽지갑24',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(25,'가죽지갑25',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(26,'가죽지갑26',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(27,'가죽지갑27',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(28,'가죽지갑28',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(29,'가죽지갑29',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(30,'가죽지갑30',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+
+
+insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(31,'가죽지갑31',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(32,'가죽지갑32',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(33,'가죽지갑33',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(34,'가죽지갑34',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(35,'가죽지갑35',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(36,'가죽지갑36',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(37,'가죽지갑37',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(38,'가죽지갑38',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(39,'가죽지갑39',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+ insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(40,'가죽지갑40',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+
+
 --등록상품 조회
 select p.*
 from (select pno,pname,price,total_amount,simple_info,detail_info,maker_id,row_number() over(order by pno desc) as rnum from semi_product) p where rnum between '1' and '4'
