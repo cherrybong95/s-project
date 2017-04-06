@@ -9,18 +9,7 @@ import java.util.ArrayList;
 public class MockDAO {
 	private static MockDAO instance=new MockDAO();
 	public static MockDAO getInstance(){return instance;}
-	public ArrayList<ProductVO> getProductList() throws SQLException{
-		ArrayList<ProductVO> productList=new ArrayList<ProductVO>();
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		ProductVO pvo1=new ProductVO(1,"팔찌",100,10,"팔찌입니다","간지나는 팔찌입니다","java");
-		ProductVO pvo2=new ProductVO(2,"안경",100,10,"안경입니다","간지나는 안경입니다","java");
-		productList.add(pvo1);
-		productList.add(pvo2);
-		return productList;
-		
-	}
+	
 	public int getContentNo() throws SQLException {
 		Connection con=null;
 		PreparedStatement pstmt=null;
