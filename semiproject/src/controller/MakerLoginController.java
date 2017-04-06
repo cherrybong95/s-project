@@ -20,7 +20,7 @@ public class MakerLoginController implements Controller {
 		HttpSession session=request.getSession();
 		session.setAttribute("mvo", vo);
 		return "redirect: index.jsp";
-		}
+		} 
 	}
 
 }
