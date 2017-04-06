@@ -13,6 +13,9 @@ public class HandlerMapping {
 		if(command.equals("list")){
 			c= new ListController();
 			System.out.println(command);
+		}else if(command.equals("showProductDetail")){
+			c= new ShowProductDetailController();
+			System.out.println(command);
 		}
 		return c;
 	}

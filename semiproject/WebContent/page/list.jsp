@@ -102,8 +102,10 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		<c:forEach items="${requestScope.productListVO.list}" var="list">
 		<div class="w3-third">
 			<div class="w3-one">
+				<a href="DispatcherServlet?command=showProductDetail&productNo=${list.pno}">
 					<img src="${list.detail_info}" style="width: 100%" onclick="onClick(this)"
-						alt="A boy surrounded by beautiful nature">
+						alt="A boy surrounded by beautiful nature"> </a>
+						
 					<div class="overlay">
 						<div class="txtOverLay">
 							&nbsp;&nbsp;&nbsp;${list.pname}

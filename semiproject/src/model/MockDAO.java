@@ -75,5 +75,28 @@ public class MockDAO {
 				e.printStackTrace();
 			}
 	}
+
+	public ProductVO getProductDetail(int productNo) throws SQLException {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		ProductVO pvo=null;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			StringBuilder sql=new StringBuilder();
+			sql.append("select pno,pname,price,total_amount,simple_info,detail_info,maker_id ");
+			sql.append("from semi_product ");
+			sql.append("where pno=?");
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setInt(1, productNo);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				pvo=new ProductVO(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7));
+			}
+		}finally{
+			closeAll(rs, pstmt, con);
+		}
+		return pvo;
+	}
 	
 }
