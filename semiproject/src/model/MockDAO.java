@@ -51,10 +51,10 @@ public class MockDAO {
 			StringBuilder sql=new StringBuilder();
 			sql.append("select p.pno,p.pname,p.price,p.total_amount,p.simple_info,p.detail_info,maker_id ");
 			sql.append("from (select pno,pname,price,total_amount,simple_info,detail_info,maker_id,row_number() over(order by pno desc) as rnum from semi_product) p "); 
-			sql.append("where rnum between '1' and '4'");
+			sql.append("where rnum between ? and ?");
 			pstmt=con.prepareStatement(sql.toString());
-			//pstmt.setInt(1, pb.getStartRowNumber());
-		//	pstmt.setInt(2, pb.getEndRowNumber());
+			pstmt.setInt(1, pb.getStartRowNumber());
+			pstmt.setInt(2, pb.getEndRowNumber());
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				pvo=new ProductVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getString(7));
