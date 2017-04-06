@@ -10,10 +10,17 @@ public class ShowProductDetailController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String url="";
 		int productNo=Integer.parseInt(request.getParameter("productNo"));
 		ProductVO pvo=MockDAO.getInstance().getProductDetail(productNo);
-		request.setAttribute("productDetail", pvo);
-		return "page/showProductDetail.jsp";
+		if(pvo==null)
+			url="error.jsp";
+		else {
+			request.setAttribute("productDetail", pvo);
+			url="page/showProductDetail.jsp";
+		}
+		
+		return url;
 	}
 
 }
