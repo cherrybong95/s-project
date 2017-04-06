@@ -23,8 +23,8 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 }
 
 .w3-one img {
-	width: 100%;
-	height: 350px;
+	width: 400px;
+	height: 300px;
 }
 
 .w3-one {
@@ -49,7 +49,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 .overlay {
 	dispaly: block;
 	position: absolute;
-	top: 75%;
+	top: 70%;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -62,6 +62,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	color: white;
 	position: absolute;
 	font-size: 0.875em;
+	
 }
 </style>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
@@ -90,174 +91,51 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		<div class="w3-hide-large" style="margin-top: 83px"></div>
 
 		<!-- Photo grid -->
-		<!-- <div class="w3-row">
-			<div class="w3-third">
-				<div class="w3-one">
-					<img src="img/안경.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="A boy surrounded by beautiful nature">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-				<div class="w3-one">
-					<img src="img/귀요미.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="What a beautiful scenery this sunset">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-				<div class="w3-one">
-					<img src="img/팔찌.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="The Beach. Me. Alone. Beautiful">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="w3-third">
-				<div class="w3-one">
-					<img src="img/팔찌2.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="A boy surrounded by beautiful nature">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-				<div class="w3-one">
-					<img src="img/명함지갑.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="What a beautiful scenery this sunset">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-				<div class="w3-one">
-					<img src="img/상자.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="The Beach. Me. Alone. Beautiful">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="w3-third">
-				<div class="w3-one">
-					<img src="img/지갑.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="A boy surrounded by beautiful nature">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-				<div class="w3-one">
-					<img src="img/신발.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="What a beautiful scenery this sunset">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-				<div class="w3-one">
-					<img src="img/카드지갑.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="The Beach. Me. Alone. Beautiful">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
+		
 		
  		<%-- ${requestScope.productListVO.list}  --%>
-		<img src="${requestScope.productListVO.list[1].detail_info}">
+		<%-- <img src="${requestScope.productListVO.list[1].detail_info}"> --%>
 		
-		<div class="row">
-				<div class="col-sm-4 w3-one">
-					<img src="img/안경.jpg" style="width: 100%" onclick="onClick(this)"
+	<div class="w3-row">
+		
+		
+		<c:forEach items="${requestScope.productListVO.list}" var="list">
+		<div class="w3-third">
+			<div class="w3-one">
+					<img src="${list.detail_info}" style="width: 100%" onclick="onClick(this)"
 						alt="A boy surrounded by beautiful nature">
 					<div class="overlay">
 						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+							&nbsp;&nbsp;&nbsp;${list.pname}
+							<p>&nbsp;&nbsp;&nbsp;${list.price}원</p>
+							<p>&nbsp;&nbsp;&nbsp;${list.simple_info}</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-4 w3-one">
-					<img src="img/귀요미.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="What a beautiful scenery this sunset">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 w3-one">
-					<img src="img/팔찌.jpg" style="width: 100%" onclick="onClick(this)"
-						alt="The Beach. Me. Alone. Beautiful">
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;상품
-							<p>&nbsp; &nbsp;&nbsp;30000원</p>
-							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
-						</div>
-					</div>
-				</div>
-			</div>
+		</div>
+		
+		</c:forEach>
+		
+	
+</div>
 
-	
-	
-	
-	
-	
-	
 	
 	
 		<!-- Pagination -->
 		<div class="w3-center w3-padding-32">
 			<div class="w3-bar">
-				<a href="#" class="w3-bar-item w3-button w3-hover-black">«</a> <a
-					href="#" class="w3-bar-item w3-black w3-button">1</a> <a href="#"
-					class="w3-bar-item w3-button w3-hover-black">2</a> <a href="#"
-					class="w3-bar-item w3-button w3-hover-black">3</a> <a href="#"
-					class="w3-bar-item w3-button w3-hover-black">4</a> <a href="#"
-					class="w3-bar-item w3-button w3-hover-black">»</a>
+				<c:if test="${requestScope.productListVO.pagingBean.previousPageGroup==true}">
+				<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.startPageOfPageGroup-1}" class="w3-bar-item w3-button w3-hover-black">«</a> 
+				</c:if>
+				<c:forEach begin="${requestScope.productListVO.pagingBean.startPageOfPageGroup}" end="${requestScope.productListVO.pagingBean.endPageOfPageGroup}" varStatus="index" >
+				<a	href="DispatcherServlet?command=list&pageNo=${index.count}" class="w3-bar-item w3-button w3-hover-black" >${index.count }</a>
+				</c:forEach>
+				<c:if test="${requestScope.productListVO.pagingBean.nextPageGroup==true}">
+				<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.endPageOfPageGroup+1}" class="w3-bar-item w3-button w3-hover-black">»</a> 
+				</c:if>
+		
 			</div>
 		</div>
-
 		<!-- Modal for full size images on click-->
 		<div id="modal01" class="w3-modal w3-black" style="padding-top: 0"
 			onclick="this.style.display='none'">
@@ -441,13 +319,13 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 			document.getElementById("myOverlay").style.display = "none";
 		}
 
-		// Modal Image Gallery
+	/* 	// Modal Image Gallery
 		function onClick(element) {
 			document.getElementById("img01").src = element.src;
 			document.getElementById("modal01").style.display = "block";
 			var captionText = document.getElementById("caption");
 			captionText.innerHTML = element.alt;
-		}
+		} */
 	</script>
 
 

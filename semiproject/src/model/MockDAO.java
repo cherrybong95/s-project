@@ -52,6 +52,8 @@ public class MockDAO {
 			}
 			listVO.setList(productList);
 			listVO.setPagingBean(pb);
+			System.out.println("시작페이지번호"+pb.getStartPageOfPageGroup());
+			System.out.println("끝페이지번호"+pb.getEndPageOfPageGroup());
 		}finally{
 			closeAll(rs,pstmt,con);
 		}
