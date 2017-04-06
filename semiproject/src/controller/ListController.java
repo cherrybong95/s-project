@@ -14,18 +14,17 @@ public class ListController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int nowPage=0;
+		String nowPage=null;
 		System.out.println("리스트작업 시작");
-		//int nowPage=1;
-	/*	if(request.getParameter("pageNo")!=null)
-			throw new Exception();*/
-		 nowPage=Integer.parseInt(request.getParameter("pageNo"));
-		if(nowPage==0)
-			nowPage=1;
-			
+
+		 nowPage=request.getParameter("pageNo");
+		
+		if(nowPage==null)
+			nowPage="1";
+			System.out.println(nowPage);
 		ListVO listVO=new ListVO();
 		int contentNo=MockDAO.getInstance().getContentNo();
-		PagingBean pagingBean=new PagingBean(contentNo,nowPage);
+		PagingBean pagingBean=new PagingBean(contentNo,Integer.parseInt(nowPage));
 		listVO=MockDAO.getInstance().getAllList(pagingBean);
 		
 		request.setAttribute("productListVO", listVO);

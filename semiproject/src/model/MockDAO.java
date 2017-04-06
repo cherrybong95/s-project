@@ -28,7 +28,7 @@ public class MockDAO {
 		int totalContent=0;
 		try{
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
-			String sql="select count(*) from product";
+			String sql="select count(*) from semi_product";
 			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
@@ -50,11 +50,11 @@ public class MockDAO {
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
 			StringBuilder sql=new StringBuilder();
 			sql.append("select p.pno,p.pname,p.price,p.total_amount,p.simple_info,p.detail_info,maker_id ");
-			sql.append("from (select no,title,id,to_char(time_post,'yyyy/mm/dd HH24:mi') posted_time,hits,row_number() over (order by no desc) as rnum from board_b) b, member_b m ");
-			sql.append("where b.id=m.id and b.rnum between ? and ?");
+			sql.append("from (select pno,pname,price,total_amount,simple_info,detail_info,maker_id,row_number() over(order by pno desc) as rnum from semi_product) p "); 
+			sql.append("where rnum between '1' and '4'");
 			pstmt=con.prepareStatement(sql.toString());
-			pstmt.setInt(1, pb.getStartRowNumber());
-			pstmt.setInt(2, pb.getEndRowNumber());
+			//pstmt.setInt(1, pb.getStartRowNumber());
+		//	pstmt.setInt(2, pb.getEndRowNumber());
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				pvo=new ProductVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getString(7));
