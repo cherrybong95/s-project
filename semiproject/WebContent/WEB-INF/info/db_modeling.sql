@@ -73,11 +73,23 @@ create table transaction(
 insert into transaction(tno,amount,tdate,pno,buyer_id,destination,contact) 
 values(1,2,sysdate,2,'spring','답십리','011');
 --상품리스트
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(3,'가죽지갑3',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(4,'가죽지갑4',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(5,'가죽지갑5',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(6,'가죽지갑6',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(7,'가죽지갑7',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(8,'가죽지갑8',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(9,'가죽지갑9',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+insert into product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
 values(10,'가죽지갑10',35000,5,'핸드메이드 가죽지갑','조녜가죽지갑임','java');
+
+--상품리스트 출력
+select * from product
+

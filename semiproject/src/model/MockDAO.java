@@ -26,7 +26,7 @@ public class MockDAO {
 		int totalContent=0;
 		try{
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
-			String sql="select count(*) from board_b";
+			String sql="select count(*) from product";
 			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
