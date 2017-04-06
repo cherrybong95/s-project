@@ -199,9 +199,53 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 			</div>
 		</div> -->
 		
- 		${requestScope.productListVO.list} 
+ 		<%-- ${requestScope.productListVO.list}  --%>
+		<img src="${requestScope.productListVO.list[1].detail_info}">
+		
+		<div class="row">
+				<div class="col-sm-4 w3-one">
+					<img src="img/안경.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="A boy surrounded by beautiful nature">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품
+							<p>&nbsp; &nbsp;&nbsp;30000원</p>
+							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 w3-one">
+					<img src="img/귀요미.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="What a beautiful scenery this sunset">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품
+							<p>&nbsp; &nbsp;&nbsp;30000원</p>
+							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 w3-one">
+					<img src="img/팔찌.jpg" style="width: 100%" onclick="onClick(this)"
+						alt="The Beach. Me. Alone. Beautiful">
+					<div class="overlay">
+						<div class="txtOverLay">
+							&nbsp;&nbsp;&nbsp;상품
+							<p>&nbsp; &nbsp;&nbsp;30000원</p>
+							<p>&nbsp;&nbsp;&nbsp; 상품입니단~~~~</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-
+	
+	
+	
+	
+	
+	
+	
+	
 		<!-- Pagination -->
 		<div class="w3-center w3-padding-32">
 			<div class="w3-bar">

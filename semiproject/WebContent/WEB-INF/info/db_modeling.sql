@@ -195,3 +195,7 @@ from (select pno,pname,price,total_amount,simple_info,detail_info,maker_id,row_n
 select p.pno,p.pname,p.price,p.total_amount,p.simple_info,p.detail_info,maker_id
 from (select pno,pname,price,total_amount,simple_info,detail_info,maker_id,row_number() over(order by pno desc) as rnum from semi_product) p where rnum between '1' and '4'
 
+--등록상품 detail_info 이미지주소로 변경
+update semi_product set detail_info='uploadImg/카드지갑.jpg' where maker_id='java';
+
+select * from semi_product
