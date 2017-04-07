@@ -73,30 +73,13 @@ s{
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#addCartBtn").click(function(){
-		var pno =${requestScope.productDetail.pno};  //el로 상품번호 받아오기
-		alert(pno);
-	 		$.ajax({ 			
-				type:"get",
-			url:"${pageContext.request.contextPath}/DispatcherServlet",
-			data:"command=checkCart&pno="+pno,
-			success:function(data){
-				//var flag=false;
-				if(data != "-1" ){ //이미 존재한다면
-/* 						if(confirm("장바구니에 동일한 상품이 존재합니다. 그래도 추가 하시겠습니까?"))
-						flag=true; */
-					alert("이미 존재하는 상품입니다!"); 
-					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList";
-				}else if(confirm("장바구니에 추가하시겠습니까?")){
-					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
-				}
-				/* if(flag==true){
-					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
-				} */
-			}//success
-		});  //ajax
-	}); //click
-});	//ready
+	$("#addForm").submit(function(){
+	return confirm("상품을 등록하시겠습니까?");
+	});
+	
+});
+
+
 </script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 
@@ -118,7 +101,7 @@ $(document).ready(function(){
 
 <div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 s" id="top" style="margin-left:300px">
 	<span >
-<h2><b>Detail</b></h2>
+<h2><b>Regist Product</b></h2>
 <hr style="border: solid 3px white;">
 </span>
 </div>
@@ -126,24 +109,27 @@ $(document).ready(function(){
 <div class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32" id="about" >
 
     
-    <img src="${requestScope.productDetail.detail_info}" alt="Me" class="w3-image w3-padding-32" width="400" height="450">
+  
     <div class="w3-content w3-justify" style="max-width:600px">
       <h4>Product Name &nbsp;-&nbsp;<small><b>${requestScope.productDetail.pname }</b></small></h4>
       <p>
-			상품설명 : ${requestScope.productDetail.simple_info}<br><br>
-			가격 : ${requestScope.productDetail.price}<br><br>
-      </p>
-      <p>재고수량 : ${requestScope.productDetail.total_amount} </p>
-      <p>판매자 : ${requestScope.productDetail.maker_id }</p>
-      <button id="addCartBtn">장바구니 담기</button>
+      int pno, String pname, int price, int total_amount, String simple_info, String detail_info,
+		String maker_id
+		<form action="${pageContext.request.contextPath}/DispatcherServlet?command=addProduct" method="post" enctype="multipart/form-data" id="addForm" onsubmit="return checkForm()">
+			상품명 : <input type="text" name="pname" required="required"><br><br>
+			가격 : <input type="text" name="price" required="required"><br><br>
+			등록수량 : <input type="text" name="total_amount" required="required"><br><br>
+			상품설명 : <input type="text" name="simple_info"required="required" ><br><br>
+			상품이미지 : <input type="file" name="file" required="required"><br><br>
+			<input type="submit" value="등록하기" >
+			
+			
+		</form>
 		
-				
+	
+      
 				
 			</div>
-		
-		
-		
-		
 		</div>
 
 

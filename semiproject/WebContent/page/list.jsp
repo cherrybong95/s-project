@@ -85,7 +85,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		id="myOverlay"></div>
 
 	<!-- !PAGE CONTENT! -->
-	<div class="w3-main" style="margin-left: 300px">
+	<div class="w3-main" style="margin-left: 200px">
 
 		<!-- Push down content on small screens -->
 		<div class="w3-hide-large" style="margin-top: 83px"></div>
@@ -103,7 +103,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		<div class="w3-third">
 			<div class="w3-one">
 				<a href="DispatcherServlet?command=showProductDetail&productNo=${list.pno}">
-					<img src="${list.detail_info}" style="width: 100%" onclick="onClick(this)"
+					<img src="${pageContext.request.contextPath}/${list.detail_info}" style="width: 100%" onclick="onClick(this)"
 						alt="A boy surrounded by beautiful nature"> </a>
 						
 					<div class="overlay">

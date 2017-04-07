@@ -265,3 +265,37 @@ from (select pno,pname,price,total_amount,simple_info,detail_info,maker_id,row_n
 update semi_product set detail_info='uploadImg/카드지갑.jpg' where maker_id='java';
 
 select * from semi_product
+
+---상품 번호 sequence생성
+create sequence product_seq
+START WITH 100
+
+
+drop sequence product_seq
+
+
+select * from dual
+
+
+
+
+insert into dual(i) values(product_seq.nextval)
+select i from dual
+
+create table semi_product(
+   pno number primary key,
+   pname varchar2(100) not null,
+   price number not null,
+   total_amount number not null,
+   simple_info varchar2(100) not null,
+   detail_info clob not null,
+   maker_id varchar2(100) not null,
+   constraint fk_maker_id foreign key (maker_id) references maker(maker_id)
+)
+
+insert into semi_product(pno,pname,price,total_amount,simple_info,detail_info,maker_id)
+values(product_seq.nextval,'커피',1000,10,'브라질산','c:\\','java')
+
+select *from semi_product
+delete from semi_product where pno=100;
+

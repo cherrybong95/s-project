@@ -38,6 +38,8 @@ public class HandlerMapping {
 			c = new DuplicateBuyerIdCheckController();
 		} else if (command.equals("checkIdMaker")) {
 			c = new DuplicateMakerIdCheckController();
+		} else if (command.equals("addProduct")) {
+			c = new FileUploadController();
 		}
 		return c;
 	}
