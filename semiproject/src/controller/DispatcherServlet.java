@@ -13,41 +13,51 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/DispatcherServlet")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DispatcherServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		requestProcess(request,response);
+	public DispatcherServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		requestProcess(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		requestProcess(request,response);
+		requestProcess(request, response);
 	}
-	public void requestProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		String command=request.getParameter("command");
-	
-		Controller controller=HandlerMapping.getInstance().create(command);
-		String url="error.jsp";
+
+	public void requestProcess(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String command = request.getParameter("command");
+
+		Controller controller = HandlerMapping.getInstance().create(command);
+		String url = "error.jsp";
 		try {
-				url=controller.execute(request, response);
-			if(url.trim().startsWith("redirect:")){
+			url = controller.execute(request, response);
+			if (url.equalsIgnoreCase("AjaxView")) {
+				return;
+			}
+			if (url.trim().startsWith("redirect:")) {
 				response.sendRedirect(url.trim().substring(9));
-			}else{
+			} else {
 				request.getRequestDispatcher(url).forward(request, response);
-			}} catch (Exception e) {
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
