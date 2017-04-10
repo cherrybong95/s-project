@@ -12,6 +12,11 @@
 <link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .w3-sidebar a {
 	font-family: "Roboto", sans-serif;
@@ -113,15 +118,14 @@ $(document).ready(function(){
     <div class="w3-content w3-justify" style="max-width:600px">
       <h4>Product Name &nbsp;-&nbsp;<small><b>${requestScope.productDetail.pname }</b></small></h4>
       <p>
-      int pno, String pname, int price, int total_amount, String simple_info, String detail_info,
-		String maker_id
+  
 		<form action="${pageContext.request.contextPath}/DispatcherServlet?command=addProduct" method="post" enctype="multipart/form-data" id="addForm" onsubmit="return checkForm()">
-			상품명 : <input type="text" name="pname" required="required"><br><br>
-			가격 : <input type="text" name="price" required="required"><br><br>
-			등록수량 : <input type="text" name="total_amount" required="required"><br><br>
-			상품설명 : <input type="text" name="simple_info"required="required" ><br><br>
-			상품이미지 : <input type="file" name="file" required="required"><br><br>
-			<input type="submit" value="등록하기" >
+			상품명 : <input type="text" class="form-control" name="pname" required="required" placeholder="Enter 상품명"><br><br>
+			가격 : <input type="text" class="form-control" name="price" required="required" placeholder="숫자로 입력"><br><br>
+			등록수량 : <input type="text" class="form-control" name="total_amount" required="required"><br><br>
+			상품설명 : <input type="text" class="form-control" name="simple_info"required="required" ><br><br>
+			상품이미지 : <input type="file" name="file" required="required" ><br><br>
+			<input type="submit" class="w3-button w3-block w3-black w3-margin-bottom" value="등록하기" >
 			
 			
 		</form>

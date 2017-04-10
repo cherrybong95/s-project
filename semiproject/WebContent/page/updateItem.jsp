@@ -130,12 +130,12 @@ s {
 				<table class="table">
 					<tr>
 						<th>상품번호</th>
-						<td><input type="text" name="pno"
+						<td><input type="text" name="pno" class="form-control" 
 							value="${requestScope.productVO.pno }" readonly></td>
 					</tr>
 					<tr>
 						<th>상품명</th>
-						<td><input type="text" name="pname"
+						<td><input type="text" name="pname" class="form-control" 
 							value="${requestScope.productVO.pname }" required="required"></td>
 					</tr>
 					<tr>
@@ -145,18 +145,18 @@ s {
 					</tr>
 					<tr>
 						<th>가격</th>
-						<td><input type="text" name="price" size="30" id="price"
+						<td><input type="text" name="price" size="30" id="price" class="form-control" 
 							value="${requestScope.productVO.price }" required="required"></td>
 					</tr>
 					<tr>
 						<th>수량</th>
-						<td><input type="text" name="total_amount" size="30"
+						<td><input type="text" name="total_amount" size="30" class="form-control" 
 							value="${requestScope.productVO.total_amount }"
 							required="required"></td>
 					</tr>
 					<tr>
 						<th>상품 설명</th>
-						<td><textarea rows="3" cols="30" name="simple_info" required="required">${requestScope.productVO.simple_info }</textarea>
+						<td><textarea rows="3" cols="30" name="simple_info" required="required" class="form-control" >${requestScope.productVO.simple_info }</textarea>
 
 						</td>
 					</tr>

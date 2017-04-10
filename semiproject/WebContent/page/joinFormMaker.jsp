@@ -176,35 +176,35 @@ text-align: center;
            <div class="w3-content" style="max-width: 600px" >
           이름
         <div class="w3-section">
-     <input class="w3-input w3-border" type="text" name="mname" required="required">
+     <input class="form-control"  type="text" name="mname" required="required" placeholder="Enter name">
         </div>        
           아이디
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" name="id" id="id" required="required"><span id="checkIdResult"></span>
+          <input class="form-control"  type="text" name="id" id="id" required="required" placeholder="Enter ID"><span id="checkIdResult"></span>
         </div>        
           비밀번호
         <div class="w3-section">
-          <input class="w3-input w3-border" type="password" name="password" id="password" required="required">
+          <input class="form-control"  type="password" name="password" id="password" required="required" placeholder="Enter Password">
         </div>        
           비밀번호 확인
         <div class="w3-section">
-          <input class="w3-input w3-border" type="password" name="password_re" id="password_re" required="required"><span id="checkPass"></span>
+          <input class="form-control"  type="password" name="password_re" id="password_re" required="required" placeholder="Enter Password"><span id="checkPass"></span>
         </div>        
           주소
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" name="add" required="required">
+          <input class="form-control"  type="text" name="add" required="required" placeholder="Enter address">
         </div>        
           상호명
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" name="maker_bname" required="required">
+          <input class="form-control"  type="text" name="maker_bname" required="required" placeholder="Enter Maker">
         </div>        
           전화번호
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" name="tel" required="required">
+          <input class="form-control"  type="text" name="tel" required="required" placeholder="Enter tel">
         </div>        
           계좌번호
         <div class="w3-section">
-          <input class="w3-input w3-border" type="text" name="account" required="required">
+          <input class="form-control"  type="text" name="account" required="required" placeholder="Enter Account No">
         </div>        
         <div class="w3-section w3-center" >
      <input type="submit" value="회원가입" class="w3-button w3-black w3-margin-bottom">

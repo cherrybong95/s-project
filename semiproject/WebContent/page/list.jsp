@@ -251,12 +251,12 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 							</div>
 
 							<div class="w3-section">
-								<label>Id</label> <input class="w3-input w3-border" type="text"
-									name="Id" required="required">
+								<label>Id</label> <input class="w3-input w3-border" type="text" 
+									name="Id" required="required" class="form-control" >
 							</div>
 							<div class="w3-section">
 								<label>Password</label> <input class="w3-input w3-border"
-									type="password" name="Password" required="required">
+									type="password" name="Password" required="required" class="form-control" >
 							</div>
 
 							<input type="button"
