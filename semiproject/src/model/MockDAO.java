@@ -26,7 +26,7 @@ public class MockDAO {
 		ResultSet rs=null;
 		try{
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
-			String sql="select pno,pname,price from semi_product where pno=?";
+			String sql="select pno,pname,price,detail_info,total_amount,simple_info from semi_product where pno=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(pno));
 			rs=pstmt.executeQuery();
@@ -35,6 +35,9 @@ public class MockDAO {
 					pvo.setPno(rs.getInt(1));
 					pvo.setPname(rs.getString(2));
 					pvo.setPrice(rs.getInt(3));
+					pvo.setDetail_info(rs.getString(4));
+					pvo.setTotal_amount(rs.getInt(5));
+					pvo.setSimple_info(rs.getString(6));
 				}
 			}finally{
 				closeAll(rs,pstmt,con);
@@ -209,6 +212,24 @@ public class MockDAO {
 		if(con!=null)
 			con.close(); 
 	}
-
+	public void updateProduct(ProductVO pvo) throws SQLException{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="update semi_product set pname=?,price=?, total_amount=?, simple_info=? where pno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, pvo.getPname());
+			pstmt.setInt(2, pvo.getPrice());
+			pstmt.setInt(3,pvo.getTotal_amount());
+			pstmt.setString(4, pvo.getSimple_info());
+			//pstmt.setString(5, pvo.getDetail_info());
+			pstmt.setInt(5, pvo.getPno());
+			pstmt.executeUpdate();
+			System.out.println(pvo+"55674");
+		}finally{
+			closeAll(pstmt, con);
+		}
+	}
 
 }

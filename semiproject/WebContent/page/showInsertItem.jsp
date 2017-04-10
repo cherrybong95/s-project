@@ -73,6 +73,14 @@ s{
  color: solid-black
 	
 }
+table, th,td{
+margin :auto;
+
+padding: 300px;
+text-align: center;
+vertical-align: middle;
+}
+
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -111,18 +119,18 @@ s{
 <div class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32" id="about" >
     <div class="w3-content w3-justify" style="max-width:600px">
 	
-	<form action="DispatcherServlet" method="post" id="productList" name="productList">
+	<form action="DispatcherServlet" method="post">
    		<table class="table  table-hover" >
-			<thead valign="middle" align="center" >
+			<thead>
 				<tr>
 					<th>번호</th><th>사진</th><th>상품명</th><th>가격</th><th></th>
 				</tr>
 			</thead>
-			<tbody style="valign:middle">
+			<tbody >
 				<c:forEach items="${requestScope.productListVO.list}" var="insertList">
 				<tr>
-				<td valign="middle" align="center" >${insertList.pno }</td>
-				<td><img src="${insertList.detail_info }" style="width: 150px"></td>
+				<td >${insertList.pno }</td>
+				<td><img src="${insertList.detail_info }" width=" 160px" height="130px" ></td>
 				<td>${insertList.pname }</td>
 				<td>${insertList.price }</td>
 				<td>

@@ -54,6 +54,8 @@ public class HandlerMapping {
 			c = new CheckPasswordController();
 		} else if (command.equals("deleteMember")) {
 			c = new DeleteMemberController();
+		} else if (command.equals("productUpdate")){
+			c = new ProductUpdateController();
 		}
 		return c;
 	}
