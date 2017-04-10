@@ -88,7 +88,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 		id="myOverlay"></div>
 
 	<!-- !PAGE CONTENT! -->
-	<div class="w3-main" style="margin-left: 200px">
+	<div class="w3-main" style="margin-left: 250px">
 
 		<!-- Push down content on small screens -->
 		<div class="w3-hide-large" style="margin-top: 83px"></div>
