@@ -298,4 +298,6 @@ values(product_seq.nextval,'커피',1000,10,'브라질산','c:\\','java')
 
 select *from semi_product
 delete from semi_product where pno=100;
+select pno,pname,price,detail_info from semi_product where pno=2
 
+update semi_product set pname='모디파이', price='55555', total_amount='4', simple_info='수정한단',detail_info='uploadImg/키링.jpg' where pno=13;
