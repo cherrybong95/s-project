@@ -49,7 +49,7 @@ public class DispatcherServlet extends HttpServlet {
 		String url = "error.jsp";
 		try {
 			url = controller.execute(request, response);
-			if (url.equalsIgnoreCase("AjaxView")) {
+			if(url.equals("Ajax")){
 				return;
 			}
 			if (url.trim().startsWith("redirect:")) {
