@@ -30,6 +30,8 @@
 	</c:when>
 </c:choose>
 <a href="${pageContext.request.contextPath}/DispatcherServlet?command=list"><img src="${pageContext.request.contextPath}/img/logo.png"  width="50%"></a>
+<a href="${pageContext.request.contextPath}/DispatcherServlet?command=list"><img src="${pageContext.request.contextPath}/img/logo.png"  width="50%"></a>
+<a href="${pageContext.request.contextPath}/DispatcherServlet?command=list"><img src="${pageContext.request.contextPath}/img/logo.png"  width="50%"></a>
  
   <h3 class="w3-padding-64 w3-center"><b>바이핸드</b></h3>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
