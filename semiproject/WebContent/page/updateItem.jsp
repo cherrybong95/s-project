@@ -84,7 +84,12 @@ s {
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#updateForm").click(function() {
+		 if(isNaN($("#price").val())){
+			 alert("숫자로 입력해 주세요");
+				return false;
+		 }else{	 
 			return confirm("수정 할거니?");
+		 }		
 		});
 	});//ready
 </script>
@@ -140,7 +145,7 @@ s {
 					</tr>
 					<tr>
 						<th>가격</th>
-						<td><input type="text" name="price" size="30"
+						<td><input type="text" name="price" size="30" id="price"
 							value="${requestScope.productVO.price }" required="required"></td>
 					</tr>
 					<tr>
