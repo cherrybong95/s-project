@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .w3-sidebar a {
    font-family: "Roboto", sans-serif;
@@ -72,7 +75,7 @@ height: 100px;
 margin: auto;
 text-align: center;
 }
-
+9
 </style>
 <script type="text/javascript">
       // Script to open and close sidebar
@@ -97,7 +100,7 @@ text-align: center;
       $(document).ready(function(){
          $("#id").keyup(function(){
             if($("#id").val().length<4 || $("#id").val().length>10){
-               $("#checkIdResult").html("4자이상 10자 이하만 가능").css("background", "pink");
+               $("#checkIdResult").html("<font color=orange>"+"4자이상 10자 이하만 가능"+"</font>");
             }else{
                 $.ajax({
                   type:"get",
@@ -106,9 +109,9 @@ text-align: center;
                   data:"command=checkIdBuyer&id="+$("#id").val(),
                   success:function(data){
                      if(data=="ok"){
-                        $("#checkIdResult").html($("#id").val()+" 사용가능").css("background", "yellow");
+                        $("#checkIdResult").html("<font color=blue>"+"'"+$("#id").val()+"' 사용가능!"+"</font>");
                      } else {
-                        $("#checkIdResult").html("중복된 아이디 사용불가").css("background", "red");
+                        $("#checkIdResult").html("<font color=red>"+"중복된 아이디 사용불가"+"</font>");
                      }
                   }
                });
@@ -118,7 +121,7 @@ text-align: center;
             if($("#password_re").val()!=$("#password").val()){
                $("#checkPass").html("비밀번호를 확인해주세요");
             } else {
-               $("#checkPass").html("비밀번호 확인!");
+               $("#checkPass").html("<font color=green>"+"비밀번호 확인!"+"</font>");
             }
          });
       });
@@ -151,55 +154,61 @@ text-align: center;
    <div class="w3-overlay w3-hide-large w3-animate-opacity"
       onclick="w3_close()" style="cursor: pointer" title="close side menu"
       id="myOverlay"></div>
+<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 " id="top" style="margin-left:300px">
+   <span >
+<h2><b>Buyer Join</b></h2>
+<hr style="border: solid 3px white;">
+</span>
+</div>
+
+<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-32" id="about" >
 
    <!-- !PAGE CONTENT! -->
-   <br><br><br><br><br>
    <div class="w3-main" style="margin-left: 300px">
 
       <!-- Push down content on small screens -->
       <div class="w3-hide-large" style="margin-top: 83px"></div>
 
       <!-- join grid -->
-      <div class="w3-row">
-         <form name="joinFormBuyer" method="post" action="../DispatcherServlet" onsubmit="return checkAll()">
-            <table style="padding: 5px 0 5px 0;">
-               <tr>
-                  <th>이름</th>
-                  <td><input type="text" name="bname" required="required"></td>
-               </tr>
-               <tr>
-                  <th>아이디</th>
-                  <td><input type="text" name="id" id="id" required="required"></td>
-                  <td><span id="checkIdResult"></span></td>
-               </tr>
-               <tr>
-                  <th>비밀번호</th>
-                  <td><input type="password" name="password" id="password" required="required"></td>
-               </tr>
-               <tr>
-                  <th>비밀번호 확인</th>
-                  <td><input type="password" name="password_re" id="password_re" required="required"></td>
-                  <td><span id="checkPass"></span></td>
-               </tr>
-               <tr>
-                  <th>주소</th>
-                  <td><input type="text" name="add" required="required"></td>
-               </tr>
-               <tr>
-                  <th>전화번호</th>
-                  <td><input type="text" name="tel" required="required"></td>
-               </tr>
-               <tr>
-                  <td colspan="2" align="center">
-                  <input type="submit" value="회원가입">
-                  <input type="hidden" name="command" value="joinBuyer">
-                  <input type="reset" value="취소">
-                  </td>
-               </tr>
-            </table>
-         </form>
-      </div>
-
+        <form name="joinFormBuyer" method="post" action="../DispatcherServlet" onsubmit="return checkAll()">
+       <div class="w3-content" style="max-width: 600px" >
+        <input type="hidden" name="command" value="joinBuyer" >
+                이름
+        <div class="w3-section">
+      <input class="w3-input w3-border"  type="text" name="bname" required="required">
+        </div>
+        ID
+        <div class="w3-section">
+      <input class="w3-input w3-border" type="text" name="id" id="id" required="required"><span style="text-align:center;" id="checkIdResult"></span>
+        </div>        
+      비밀번호
+        <div class="w3-section">
+      <input class="w3-input w3-border" type="password" name="password" id="password" required="required">
+        </div>
+           비밀번호재입력
+        <div class="w3-section">
+      <input class="w3-input w3-border" type="password" name="password_re" id="password_re" required="required">
+      <span id="checkPass"></span>
+        </div>
+                 주소
+        <div class="w3-section">
+        <input class="w3-input w3-border"  type="text" name="add" required="required">
+        </div>
+                전화번호
+        <div class="w3-section">
+        <input class="w3-input w3-border" type="text" name="tel" required="required">
+        </div>
+        
+        <div class="w3-section w3-center" >
+        <input type="submit" value="회원가입" class="w3-button w3-black w3-margin-bottom">
+        <input type="reset" value="취소" class="w3-button w3-grey w3-margin-bottom">
+        </div>
+        </div>
+        </form><!-- 
+        <div class="w3-section">
+                        <label>Password</label> <input class="w3-input w3-border"
+                           type="text" name="Password" required="required">
+                     </div> -->
       <!-- Modal for full size images on click-->
       <div id="modal01" class="w3-modal w3-black" style="padding-top: 0"
          onclick="this.style.display='none'">
@@ -210,6 +219,7 @@ text-align: center;
             <p id="caption"></p>
          </div>
       </div>
+   </div>
    </div>
 </body>
 </html>

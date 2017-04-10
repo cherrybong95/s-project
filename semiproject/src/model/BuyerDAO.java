@@ -102,4 +102,60 @@ public class BuyerDAO {
       }
       return flag;
    }
+   public void updateBuyerInfo(BuyerVO bvo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			System.out.println("오라클 데이터베이스 연결");
+			System.out.println(bvo.toString());
+			String sql = "update buyer set password=?, buyer_name=?, buyer_add=?, buyer_tel=? where buyer_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bvo.getPassword());
+			pstmt.setString(2, bvo.getBuyer_name());
+			pstmt.setString(3, bvo.getBuyer_add());
+			pstmt.setString(4, bvo.getBuyer_tel());
+			pstmt.setString(5, bvo.getBuyer_id());
+			pstmt.executeUpdate();
+			System.out.println("회원정보수정완료");
+		} finally {
+			closeAll(pstmt, con);
+		}
+	}
+	public boolean checkPassword(String id, String password) throws SQLException {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			System.out.println("오라클 데이터베이스 연결");
+			String sql = "select count(*) from buyer where buyer_id=? and password=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			rs = pstmt.executeQuery();
+			if (rs.next() && rs.getInt(1) > 0) {
+				flag = true;
+			}
+		} finally {
+			closeAll(rs, pstmt, con);
+		}
+		return flag;
+	}
+	public void deleteMember(String id) throws SQLException{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			System.out.println("오라클 데이터베이스 연결");
+			String sql = "delete from buyer where buyer_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			System.out.println("회원탈퇴완료");
+		} finally {
+			closeAll(pstmt, con);
+		}
+	}
 }

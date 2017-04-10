@@ -9,12 +9,12 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-   href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet"
-   href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .w3-sidebar a {
    font-family: "Roboto", sans-serif;
@@ -127,13 +127,14 @@ text-align: center;
       <div class="w3-row">
       <c:choose>
          <c:when test="${sessionScope.joinVO.mcode ==1}">
-            판매자 ${sessionScope.joinVO.maker_name }님 회원가입이 완료되었습니다
+            <h1 align="center"><b>판매자 ${sessionScope.joinVO.maker_name }님 회원가입이 완료되었습니다</b></h1>
+            <br><br><br><center><a href="../index.jsp"><button type="button" class="btn btn-info btn-lg ">홈으로</button></a></center>
          </c:when>
          <c:when test="${sessionScope.joinVO.mcode ==2}">
-            구매자 ${sessionScope.joinVO.buyer_name }님 회원가입이 완료되었습니다
+            <h1 align="center"><b>구매자 ${sessionScope.joinVO.buyer_name }님 회원가입이 완료되었습니다</b></h1>
+            <br><br><br><center><a href="../index.jsp"><button type="button" class="btn btn-info btn-lg ">홈으로</button></a></center>
          </c:when>
       </c:choose>
-      <a href="../index.jsp"><input type="button" value="홈ㅋㅋ"></a>
       </div>
 	
       <!-- Modal for full size images on click-->

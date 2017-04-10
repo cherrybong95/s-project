@@ -40,13 +40,20 @@ public class HandlerMapping {
 			c = new DuplicateMakerIdCheckController();
 		} else if (command.equals("addProduct")) {
 			c = new FileUploadController();
-		}		
-		else if (command.equals("showInsertItem")) {
+		} else if (command.equals("showInsertItem")) {
 			c = new ShowInsertItemListController();
 		} else if (command.equals("delete")) {
 			c = new DeleteItemController();
 		} else if (command.equals("update")) {
 			c = new UpdateItemController();
+		} else if (command.equals("updateBuyerInfo")) {
+			c = new UpdateBuyerInfoController();
+		} else if (command.equals("updateMakerInfo")) {
+			c = new UpdateMakerInfoController();
+		} else if (command.equals("checkPass")) {
+			c = new CheckPasswordController();
+		} else if (command.equals("deleteMember")) {
+			c = new DeleteMemberController();
 		}
 		return c;
 	}

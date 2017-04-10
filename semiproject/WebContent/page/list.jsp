@@ -9,9 +9,12 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .w3-sidebar a {
 	font-family: "Roboto", sans-serif;
@@ -222,7 +225,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 			</div>
 		</div>
 
-		<!-- Login section -->
+<!-- Login section -->
 		<c:choose>
 			<c:when test="${sessionScope.mvo==null }">
 				<div
@@ -238,13 +241,13 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 							onsubmit="return checkForm()" method="post">
 							<script src="//code.jquery.com/jquery.min.js"></script>
 							<div class="w3-section" style="text-align: center">
-								<b> <input type="button" class="btn" id="sellerBtn"
-									value="판매자"></b>&nbsp;&nbsp; <input type="radio"
-									name="mcode" value="1" id="seller"> &nbsp;&nbsp; <b>
-									<input type="button" class="btn" id="buyerBtn" value="구매자">
+								<b> <input type="button" class="btn btn-primary"
+									id="sellerBtn" value="판매자"></b>&nbsp;&nbsp; <input
+									type="radio" name="mcode" value="1" id="seller">
+								&nbsp;&nbsp; <b> <input type="button" class="btn btn-info"
+									id="buyerBtn" value="구매자">
 								</b>&nbsp;&nbsp; <input type="radio" name="mcode" value="2"
-									id="buyer"><br>
-								<br>
+									id="buyer"><br> <br>
 							</div>
 
 							<div class="w3-section">
@@ -268,7 +271,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 							function checkForm() {
 								var lf = document.loginForm;
 								if (lf.mcode.value == 2) {
-									location.href = "DispatcherServlet?command=buyerLogin&Id="
+									location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=buyerLogin&Id="
 											+ lf.Id.value
 											+ "&Password="
 											+ lf.Password.value
@@ -276,7 +279,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 											+ lf.mcode.value;
 
 								} else if (lf.mcode.value == 1) {
-									location.href = "DispatcherServlet?command=makerLogin&Id="
+									location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=makerLogin&Id="
 											+ lf.Id.value
 											+ "&Password="
 											+ lf.Password.value
@@ -308,7 +311,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 			<c:otherwise>
 			</c:otherwise>
 		</c:choose>
-<!-- login section end -->
+		<!-- login section end -->
 	
 		
 	
