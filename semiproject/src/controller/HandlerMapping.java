@@ -40,6 +40,13 @@ public class HandlerMapping {
 			c = new DuplicateMakerIdCheckController();
 		} else if (command.equals("addProduct")) {
 			c = new FileUploadController();
+		}		
+		else if (command.equals("showInsertItem")) {
+			c = new ShowInsertItemListController();
+		} else if (command.equals("delete")) {
+			c = new DeleteItemController();
+		} else if (command.equals("update")) {
+			c = new UpdateItemController();
 		}
 		return c;
 	}

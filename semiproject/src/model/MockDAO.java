@@ -132,6 +132,83 @@ public class MockDAO {
 		}
 		return pvo;
 	}
+	public ListVO findProductById(String id, PagingBean pb) throws SQLException{
+		ListVO listVO=new ListVO();
+		
+		ArrayList<ProductVO> list=new ArrayList<ProductVO>();
+		ProductVO pvo = null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="select p.pno,p.pname,p.price,p.detail_info "
+					+ "from (select pno,pname,price,detail_info, row_number() over(order by pno desc) as rnum from semi_product where maker_id=?) p "
+					+ "where rnum between ? and ?  ";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, pb.getStartRowNumber());
+			pstmt.setInt(3, pb.getEndRowNumber());
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+					pvo=new ProductVO();
+					pvo.setPno(rs.getInt(1));
+					pvo.setPname(rs.getString(2));
+					pvo.setPrice(rs.getInt(3));
+					pvo.setDetail_info(rs.getString(4));
+					
+					list.add(pvo);
+					
+				}
+				listVO.setList(list);
+				listVO.setPagingBean(pb);
+			}finally{
+				closeAll(rs,pstmt,con);
+			}
+		return listVO;
+	}
+	//
+	public int getTotalContentNoById(String id) throws SQLException{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int totalNo=0;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="select count(*) from semi_product where maker_id=? ";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				totalNo=rs.getInt(1);
+			}
+		}finally{
+			closeAll(rs,pstmt,con);
+		}
+		
+		return totalNo;
+	}
 	
+	
+	public void deleteProduct(int no) throws SQLException{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="delete from semi_product where pno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, no);		
+			pstmt.executeUpdate();			
+		}finally{
+			closeAll(pstmt, con);
+		}
+	}
+	public void closeAll(PreparedStatement pstmt,Connection con) throws SQLException{
+		if(pstmt!=null)
+			pstmt.close();
+		if(con!=null)
+			con.close(); 
+	}
+
 
 }

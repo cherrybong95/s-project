@@ -22,7 +22,9 @@
   </c:when>
   <c:when test="${sessionScope.mvo.mcode==1 }">
   maker ${sessionScope.mvo.maker_bname }<br>
-   <a href="${pageContext.request.contextPath}/page/addProduct.jsp" onclick="w3_close()" class="w3-bar-item w3-button">REGIST PRODUCT</a>
+   <a href="${pageContext.request.contextPath}/page/addProduct.jsp" onclick="w3_close()" class="w3-bar-item w3-button">REGIST PRODUCT</a> <br>
+   <a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&id=${sessionScope.mvo.maker_id }">등록한 상품목록</a><br>
+  <br>
   <a href="DispatcherServlet?command=logout">LogOut</a>
   </c:when>
   </c:choose>
