@@ -28,5 +28,9 @@
 		<a href="DispatcherServlet?command=logout">LogOut</a><br><br>
 		<a href="page/deleteMember1.jsp">회원탈퇴</a>
 	</c:when>
+<<<<<<< HEAD
+</c:choose>
+=======
  </c:choose>
+>>>>>>> branch 'master' of https://github.com/cherrybong95/s-project.git
 </nav>
