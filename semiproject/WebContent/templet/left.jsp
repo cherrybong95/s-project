@@ -8,14 +8,14 @@
 <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
 <a href="${pageContext.request.contextPath}/#" onclick="w3_close()" class="w3-bar-item w3-button">ITEMS</a> 
 <a href="${pageContext.request.contextPath}/#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT US</a> 
-<c:choose>
+<c:choose> 
 	<c:when test="${sessionScope.mvo==null }">
 		<a href="${pageContext.request.contextPath}/#login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
 	</c:when>
 	<c:when test="${sessionScope.mvo.mcode==2 }">
 		buyer ${sessionScope.mvo.buyer_name }<br>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList" onclick="w3_close()" class="w3-bar-item w3-button">CART</a> 
-		<a href="DispatcherServlet?command=logout">LogOut</a>
+		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout">LogOut</a>
 		<a href="${pageContext.request.contextPath}/page/updateBuyerForm.jsp">회원정보수정</a><br><br><br>
 		<a href="page/deleteMember1.jsp">회원탈퇴</a>
 	</c:when>
