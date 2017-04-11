@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -39,16 +39,16 @@ body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
 
 #simpleInfo {
 
-	position: absolute;
+	/* position: relative;
 	top: 250px;
 	left: 750px;
-	text-align: center;
+	text-align: center; */
 }
 #info{
-	position: absolute;
+	/* position: relative;
 	top:400px;
 	left:750px;
-	text-align: center;
+	text-align: center; */
 }
 </style>
 <script
@@ -104,32 +104,53 @@ function w3_close() {
 		onclick="w3_close()" style="cursor: pointer" title="close side menu"
 		id="myOverlay"></div>
 <!-- !PAGE CONTENT! -->
-	<div class="w3-main" style="margin-left: 250px">
+	<div class="w3-main" style="margin-left: 250px" id="about">
 	<!-- Push down content on small screens -->
 	<div class="w3-hide-large" style="margin-top: 83px"></div>
 
-		
-			<div class="w3-container w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
-			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
+			<div class="w3-container w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
+						
+					
+			
+			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray ">
 				<p id="productName">
 					<b>${requestScope.productDetail.pname }</b>
 				</p>
 			</div>
-    
+							
+								
+				
+							
   				 <div>
 					<img src="${requestScope.productDetail.detail_info}" alt="Me"
 						id="product" class="w3-image w3-padding-32" align="left">
 				</div>
-				
-		
-				<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray" id="simpleInfo">
+						 	
+							
+							
+							
+							
+							
+							
+							
+							<div class="w3-third">
+							<div class="w3-one">
+						    
+						    
+						    
+						    
+						    
+						    
+							</div>
+							<div class="w3-one">
+				<div class="w3-border-top w3-border-bottom w3-border-dark-gray" id="simpleInfo">
 					<br><br>
 						${requestScope.productDetail.simple_info} 
 					<br><br>
 				</div>
-	
-
-				<div id="info">
+							</div>
+							<div class="w3-one">
+					<div id="info">
 					 가격 : ${requestScope.productDetail.price}
 					<br>재고수량 : ${requestScope.productDetail.total_amount}
 				<form name="checkForm">
@@ -138,8 +159,12 @@ function w3_close() {
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p><br>
 					<button class="btn btn-info" id="addCartBtn">장바구니 담기</button>
 					<button class="btn btn-info" id="purchase">구매하기</button>
-				
+										
 				</div>
+								</div>
+    							</div>
+				
+									
 			</div>
 		</div>
 
@@ -152,9 +177,8 @@ function w3_close() {
 
 
 
-
-
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- 
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -300,4 +324,4 @@ s{
 	</div>
 </div>
 </body>
-</html> --%>
+</html>  --%>

@@ -44,13 +44,24 @@ vertical-align: middle;
 
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 
-	<!-- Sidebar/menu -->
+		<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
-
+<!-- Top menu on small screens -->
+	<header
+		class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+		<span class="w3-left w3-padding">바이핸드</span>
+		<a	href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+	</header>
 	<!-- Overlay effect when opening sidebar on small screens -->
-	<div class="w3-overlay w3-hide-large w3-light-grey w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
-
+	<div class="w3-overlay w3-hide-large w3-animate-opacity"
+		onclick="w3_close()" style="cursor: pointer" title="close side menu"
+		id="myOverlay"></div>
+<!-- !PAGE CONTENT! -->
 	<div class="w3-main" style="margin-left: 250px">
+	<!-- Push down content on small screens -->
+	<div class="w3-hide-large" style="margin-top: 83px"></div>
+
+
 		<div class="w3-container w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
 			<div class="w3-panel w3-border-bottom w3-border-dark-gray">
 				<h1 align="center">
