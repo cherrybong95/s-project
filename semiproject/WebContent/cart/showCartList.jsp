@@ -140,7 +140,7 @@ s{
 	
 </script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
-
+	
 	<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
 

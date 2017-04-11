@@ -304,6 +304,7 @@ update semi_product set pname='모디파이', price='55555', total_amount='4', s
 
 select t.tno,t.tdate,d.receiver,d.contact,d.destination,t.pro_state 
 from transaction t, delivery d where t.buyer_id='java' and t.tno=d.tno order by tdate desc
+create sequence tno_seq
 
 select * from delivery
 select * from dual
