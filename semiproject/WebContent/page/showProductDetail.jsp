@@ -116,7 +116,7 @@ function w3_close() {
 				<p id="productName">
 					<b>${requestScope.productDetail.pname }</b>
 				</p>
-			</div>
+			</div> 
 							
 								
 				
