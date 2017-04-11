@@ -169,4 +169,23 @@ public class MakerDAO {
 			closeAll(pstmt, con);
 		}
 	}
+	public int countMakerMember() throws SQLException{
+		int i=0;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=getConnection();
+			String sql="select count(*) from Maker";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				i=rs.getInt(1);
+			}
+		}finally{
+			closeAll(rs,pstmt,con);
+		}
+		return i;
+	}
+	
 }
