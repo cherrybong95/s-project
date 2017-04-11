@@ -15,12 +15,14 @@
 	<c:when test="${sessionScope.mvo.mcode==2 }">
 		buyer ${sessionScope.mvo.buyer_name }<br>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList" onclick="w3_close()" class="w3-bar-item w3-button">CART</a> 
+		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=purchaseList" onclick="w3_close()" class="w3-bar-item w3-button">ORDER LIST</a>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout">LogOut</a>
 		<a href="${pageContext.request.contextPath}/page/updateBuyerForm.jsp">회원정보수정</a><br><br><br>
 		<a href="page/deleteMember1.jsp">회원탈퇴</a>
 	</c:when>
 	<c:when test="${sessionScope.mvo.mcode==1 }">
 		maker ${sessionScope.mvo.maker_bname }<br>
+		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showOrderList" onclick="w3_close()" class="w3-bar-item w3-button">ORDER LIST</a>
 		<a href="${pageContext.request.contextPath}/page/addProduct.jsp" onclick="w3_close()" class="w3-bar-item w3-button">REGIST PRODUCT</a> <br>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&id=${sessionScope.mvo.maker_id }">등록한 상품목록</a><br>
 		<br>

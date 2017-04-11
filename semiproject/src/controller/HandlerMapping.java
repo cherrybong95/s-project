@@ -56,6 +56,16 @@ public class HandlerMapping {
 			c = new DeleteMemberController();
 		} else if (command.equals("productUpdate")){
 			c = new ProductUpdateController();
+		}else if(command.equals("purchaseList")){
+			c=new PurchaseListController();
+		}else if(command.equals("TransactionDetailInfo")){
+			c=new TransactionDetailInfoController();
+		}else if(command.equals("showOrderStateList")){
+			c=new ShowOrderStateListController();
+		}else if(command.equals("showOrderList")){
+			c=new ShowOrderListController();
+		}else if(command.equals("orderStateChange")){
+			c=new OrderStateChangeController();
 		}
 		return c;
 	}
