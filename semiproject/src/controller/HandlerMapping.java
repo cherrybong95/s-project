@@ -66,6 +66,14 @@ public class HandlerMapping {
 			c=new ShowOrderListController();
 		}else if(command.equals("orderStateChange")){
 			c=new OrderStateChangeController();
+		}else if(command.equals("checkDestination")){ 
+			c=new checkDestinationController();
+		}else if(command.equals("getPurchaseForm")){ 
+			c=new getPurchaseFormController();
+		}else if(command.equals("purchase")){ 
+			c=new PurchaseController();
+		}else if(command.equals("purchasedInfo")){ 
+			c=new PurchasedInfoController();
 		}
 		return c;
 	}

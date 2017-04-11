@@ -301,3 +301,14 @@ delete from semi_product where pno=100;
 select pno,pname,price,detail_info from semi_product where pno=2
 
 update semi_product set pname='모디파이', price='55555', total_amount='4', simple_info='수정한단',detail_info='uploadImg/키링.jpg' where pno=13;
+
+select t.tno,t.tdate,d.receiver,d.contact,d.destination,t.pro_state 
+from transaction t, delivery d where t.buyer_id='java' and t.tno=d.tno order by tdate desc
+
+select * from delivery
+select * from dual
+select tno_seq.nextval from dual;
+select tno_seq.currval from dual;
+
+insert into transaction(tno,pno,amount,tdate,buyer_id) values(tno_seq.nextval,'10','1',sysdate,'java')";
+insert into delivery(tno,receiver,destination,contact) values(14,'김문일','판교','010')

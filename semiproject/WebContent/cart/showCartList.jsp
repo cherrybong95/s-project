@@ -81,8 +81,38 @@ s{
 			   	location.href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteCart&pno="+pno;
 		   	}
 	   	});
-   	});
-	
+
+	   var price="";
+	   var amount="";
+	   
+	   $("#btn").click(function(){ 
+
+		   price=$("#price").text(); 
+		   amount=$("#amount").val(); 
+
+			$("#total_price").text(parseInt(price)*amount); 
+			$("#final_amount").val(amount);
+	   });
+	   
+	   $("#buy").on("click",function(){
+		  
+		   if($("#check").is(":checked") == false){
+				alert("주문할 상품을 선택하세요");
+				return false;
+		   }else{
+				if($("#final_amount").val()!=$("#amount").val()){
+					alert("수량 적용버튼을 누르세요");
+			   		return false;
+			   }else{
+				   var checkedNum="";
+				   $("input:checkbox:checked").each(function(){ 
+					   checkedNum=$(this).parent().text();
+			  		 });
+			   }//else
+		   }//큰 else
+	   });//buy
+   });//ready
+   
 	function w3_open() {
 		document.getElementById("mySidebar").style.display = "block";
 		document.getElementById("myOverlay").style.display = "block";
@@ -92,6 +122,22 @@ s{
 		document.getElementById("mySidebar").style.display = "none";
 		document.getElementById("myOverlay").style.display = "none";
 	}
+ 
+	function checkForm(){
+		var checkedForm=document.cartListForm;
+		var str="";
+		for(var i=0;i<checkedForm.checked.length;i++){
+			if(checkedForm.check[i].checked==true)
+			str+=checkedForm.check[i].value;
+		}
+		
+		if(str==""){
+			alert("주문할 상품을 선택하세욧");
+			return false;
+		}
+			
+   }
+	
 </script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 
@@ -112,23 +158,39 @@ s{
 		<hr style="border: solid 3px white;">
 	</div>
 
-	<div class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32" id="about" >
-    <div class="w3-content w3-justify" style="max-width:600px">
-	   	<c:set value="${sessionScope.mvo}" var="mvo"/>
-	   	${sessionScope.list}
-	   	<table>
-	      	<tr>
-	         	<th>상품번호</th><th>상품명</th><th>수량</th><th>가격</th>
-	      	</tr>
-	        <c:forEach items="${requestScope.list}" var="list">
-	   			<tr align="center">
-	            	<td>${list.pno}</td><td>${list.pname}</td>
-	            	<td><input type="text" style="width:20pt;height:20pt;"> <input type="button" style="width:30pt;height:20pt;" value="적용"></td>
-	            	<td>${list.price}</td><td><button class="deleteCart">상품삭제</button></td>
-	       		<tr>
-			</c:forEach>
-		</table>
-    </div>
+<div class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32" id="about" >
+	<div class="w3-content w3-justify" style="max-width:600px">
+		<form id="checkForm" action="DispatcherServlet" name="cartListForm" onsubmit="return checkForm()">
+		   <table>
+		      <tr>
+		      	<th>상품번호</th><th>상품명</th><th>수량</th><th>가격</th>
+		      </tr>
+					<c:forEach items="${requestScope.list}" var="list">
+						<tr align="center">
+							<td><input type="checkbox" id="check"><input type="hidden" name="pno" value="${list.pno}">${list.pno}</td><td>${list.pname}</td>
+							<td><input type="text" id="amount" style="width:20pt;height:20pt;" >
+							<input type="hidden" id="final_amount" name="amount" value="">
+							<input type="button" id="btn" value="적용" style="width:40pt;height:20pt;"></td>
+							<td id="price">${list.price}</td><td><input type="button" value="상품삭제" class="deleteCart"></td>
+						<tr>
+				    </c:forEach>
+		
+		     <c:choose>
+				<c:when test="${requestScope.list!='[]'}">
+					<tr>
+						<td colspan="5" align="right">총 주문액 :<span id="total_price"></span></td>
+					</tr>
+					<tr>
+						<td colspan="4" align="center"><input type="submit" id="buy" value="구매하기"></td>
+					</tr>
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+		      </c:choose>
+		   </table>
+	      <input type="hidden" name="command" value="getPurchaseForm">
+		  </form>
+</div>
 </div>
 </body>
 </html>

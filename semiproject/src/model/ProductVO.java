@@ -23,6 +23,15 @@ public ProductVO(int pno, String pname, int price, int total_amount, String simp
 	this.detail_info = detail_info;
 	this.maker_id = maker_id;
 }
+
+public ProductVO(int pno, String pname, int price) {
+	super();
+	this.pno = pno;
+	this.pname = pname;
+	this.price = price;
+}
+
+
 public int getPno() {
 	return pno;
 }

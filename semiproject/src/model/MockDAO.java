@@ -404,5 +404,148 @@ public class MockDAO {
 			closeAll(null,pstmt, con);
 		}
 	}
+	
+	/**
+	 * 상품을 주문한 고객의 기존 정보를 가져오는 메서드
+	 * @param buyer_id
+	 * @return
+	 * @throws SQLException
+	 */
+	public BuyerVO getMemberInfo(String buyer_id) throws SQLException {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		BuyerVO bvo=null;
+		
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="select buyer_name,buyer_add,buyer_tel from buyer where buyer_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, buyer_id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+				bvo=new BuyerVO(rs.getString(1),rs.getString(2),rs.getString(3)); //이름,주소,전화번호
+				
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		
+		return bvo;
+	}
+	
+	/**
+	 * 기존정보가 아닌 새롭게 입력된 배송정보를 거래번호에 매칭하여 입력시키는 메서드.
+	 * @param receiver
+	 * @param destination
+	 * @param contact
+	 * @param tno
+	 * @throws SQLException
+	 */
+	public void addDeliveryInfo(String receiver,String destination,String contact,int tno) throws SQLException {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="insert into delivery(tno,receiver,destination,contact) values(?,?,?,?)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, tno);
+			pstmt.setString(2, receiver);
+			pstmt.setString(3, destination);
+			pstmt.setString(4, contact);
+			pstmt.executeUpdate();
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
+	
+	/**
+	 * 주문 완료 후 주문 완료 리스트에 올라가는 메서드
+	 * @param pno
+	 * @param amount
+	 * @param buyer_id
+	 * @return
+	 * @throws SQLException
+	 */
+	public int purchaseProduct(int pno,int amount,String buyer_id) throws SQLException {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int tno=0;
+		try{
+			
+			
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+
+			String sql="select tno_seq.nextval from dual"; //배송테이블에 현재 거래번호를 넘기기 위한 sql문
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				tno=rs.getInt(1);
+			}
+			pstmt.close();
+			 sql="insert into transaction(tno,pno,amount,tdate,buyer_id) values(?,?,?,sysdate,?)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, tno);
+			pstmt.setInt(2, pno);
+			pstmt.setInt(3, amount);
+			pstmt.setString(4, buyer_id);
+			pstmt.executeUpdate();
+			
+		}finally {
+			closeAll(rs,pstmt, con);
+		}
+		return tno;
+	}
+	
+	
+	
+	/**
+	 * 주문한 상품을 보여주는 메서드. "상품이 주문 되었습니다!!"
+	 * @param pno
+	 * @param pname
+	 * @param price
+	 * @param amount
+	 * @param buyer_id
+	 * @return
+	 * @throws SQLException
+	 */
+	public void showPurchasedProduct(String buyer_id,TransactionDTO tdto) throws SQLException {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		//TransactionDTO tdto = null;
+
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			StringBuilder sql=new StringBuilder();
+			sql.append("select t.tno,t.tdate,d.receiver,d.contact,d.destination,t.pro_state ");
+			sql.append("from transaction t, delivery d where t.buyer_id=? and t.tno=d.tno order by tdate desc");
+			pstmt=con.prepareStatement(sql.toString());
+			pstmt.setString(1, buyer_id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){ //
+				//tdto=new TransactionDTO();//tdto 객체를 저장함
+				//tdto.setTno(rs.getInt("t.tno"));
+				tdto.setTno(rs.getInt(1));
+				//tdto.setTdate(rs.getString("t.tdate"));
+				tdto.setTdate(rs.getString(2));
+				
+				DeliveryVO dvo=new DeliveryVO();
+				//dvo.setReceiver(rs.getString("d.receiver"));
+				dvo.setReceiver(rs.getString(3));
+				//dvo.setContact(rs.getString("d.contact"));
+				dvo.setContact(rs.getString(4));
+				dvo.setDestination(rs.getString(5));
+				tdto.setDelivery(dvo);
+				
+				tdto.setPro_state(rs.getString(6));
+			}
+		}finally {
+			closeAll(pstmt, con);
+		}
+	}
 
 }
