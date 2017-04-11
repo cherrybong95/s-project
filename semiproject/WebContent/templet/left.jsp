@@ -16,9 +16,9 @@
 		buyer ${sessionScope.mvo.buyer_name }<br>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList" onclick="w3_close()" class="w3-bar-item w3-button">CART</a> 
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=purchaseList" onclick="w3_close()" class="w3-bar-item w3-button">ORDER LIST</a>
-		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout">LogOut</a>
-		<a href="${pageContext.request.contextPath}/page/updateBuyerForm.jsp">회원정보수정</a><br><br><br>
-		<a href="page/deleteMember1.jsp">회원탈퇴</a>
+		<a href="${pageContext.request.contextPath}/page/updateBuyerForm.jsp" style="text-decoration: none">회원정보수정</a><br><br>
+		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout" style="text-decoration: none">LogOut</a><br><br><br>
+		<a href="page/deleteMember1.jsp" style="text-decoration: none">회원탈퇴</a>
 	</c:when>
 	<c:when test="${sessionScope.mvo.mcode==1 }">
 		maker ${sessionScope.mvo.maker_bname }<br>
