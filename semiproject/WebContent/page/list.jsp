@@ -245,7 +245,8 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 						</h4>
 						<p>Do you want to buy some unique items? Fill out the form and
 							fill me in with the details :) I love meeting new people!</p>
-						<form id="loginForm" name="loginForm" onsubmit="return checkForm()" method="post">
+						<form id="loginForm" name="loginForm"
+							onsubmit="return checkForm()" method="post">
 							<script src="//code.jquery.com/jquery.min.js"></script>
 							<div class="w3-section" style="text-align: center">
 								<b>
