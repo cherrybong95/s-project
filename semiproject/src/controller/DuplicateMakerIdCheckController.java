@@ -14,12 +14,13 @@ public class DuplicateMakerIdCheckController implements Controller {
       String id = request.getParameter("id");
       boolean flag = MakerDAO.getInstance().checkId(id);
       PrintWriter out = response.getWriter();
+      System.out.println("연결됐나");
       if(flag==true){
          out.print("fail");
       } else {
          out.print("ok");
       }
-      return "AjaxView";
+      return "Ajax";
    }
 
 }

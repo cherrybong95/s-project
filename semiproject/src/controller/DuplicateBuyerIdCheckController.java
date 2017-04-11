@@ -19,6 +19,6 @@ public class DuplicateBuyerIdCheckController implements Controller {
       } else {
          out.print("ok");
       }
-      return "AjaxView";
+      return "Ajax";
    }
 }
