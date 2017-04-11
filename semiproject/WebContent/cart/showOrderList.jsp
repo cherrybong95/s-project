@@ -5,17 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 주문관리</title>
-<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-  body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
 	font-family: "Montserrat", sans-serif;
 }
+
 table, td, th {   
 	font-size:small;
     border: 1px solid #ddd;
@@ -74,6 +75,7 @@ th, td {
 				}//success
 			});//ajax
 		});//click
+		
 		$("#tbody").on("click",".stateChange",function(){
 			//alert($(this).parent().parent().children().eq(1).text());
 				var tno=$(this).parent().parent().children().eq(2).text();
@@ -102,20 +104,17 @@ th, td {
 
 	<div class="w3-main" style="margin-left: 300px">
 		<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large">
-			<div
-				class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
+			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
 				<h1 align="center">
 					<b><i>Order List</i></b>
 				</h1>
 			</div>
 			<br> <br> <br>
 			<div class="w3-content w3-justify w3-center"   style="max-width: 900px">
-			
-			<button class="btn btn-info pro_state">입금대기</button>&nbsp;&nbsp;&nbsp;&nbsp;
-			<button class="btn btn-info pro_state" >결제완료</button>&nbsp;&nbsp;&nbsp;&nbsp;
-			<button class="btn btn-info pro_state" >배송중</button>&nbsp;&nbsp;&nbsp;&nbsp;
-			<button class="btn btn-info pro_state" >배송완료</button><br><br>
-			
+				<button class="btn btn-info pro_state">입금대기</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="btn btn-info pro_state" >결제완료</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="btn btn-info pro_state" >배송중</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="btn btn-info pro_state" >배송완료</button><br><br>
 			<table>
 				<thead id="thead">
 					<tr>

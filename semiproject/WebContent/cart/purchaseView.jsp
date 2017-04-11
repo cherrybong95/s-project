@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Montserrat">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 
 body, h1, h2, h3, h4, h5, h6, b,.w3-wide {
@@ -83,11 +83,9 @@ th, td {
 				<td>${transactionList.pvo.price*transactionList.amount}</td>
 			</tr>
 		</table>
-		</p>
 		<br>
 	</c:forEach>
 	</div>
 	</div>
-
 </body>
 </html>

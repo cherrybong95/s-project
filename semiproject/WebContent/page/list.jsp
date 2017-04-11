@@ -68,6 +68,39 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	
 }
 </style>
+
+<script type="text/javascript">
+	function checkForm() {
+		var lf = document.loginForm;
+		if (lf.mcode.value == 2) {
+			location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=buyerLogin&Id=" + lf.Id.value + "&Password=" + lf.Password.value + "&mcode=" + lf.mcode.value;
+		} else if (lf.mcode.value == 1) {
+			location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=makerLogin&Id="	+ lf.Id.value + "&Password="	+ lf.Password.value	+ "&mcode=" + lf.mcode.value;
+		} else if (lf.mcode.value == "") {
+			alert("판매자/구매자 선택해주세요");
+		}
+	}
+	
+	$(document).ready(function() {
+		$("#sellerBtn").click(function() {
+			$("#seller").prop("checked", true);
+		});
+		$("#buyerBtn").click(function() {
+			$("#buyer").prop("checked", true);
+		});
+	});
+	
+	// Script to open and close sidebar
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("myOverlay").style.display = "none";
+	}
+</script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 
 
@@ -77,245 +110,172 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	<!-- Top menu on small screens -->
 	<header
 		class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-		<span class="w3-left w3-padding">바이핸드</span> <a
-			href="javascript:void(0)" class="w3-right w3-button w3-white"
-			onclick="w3_open()">☰</a>
+		<span class="w3-left w3-padding">바이핸드</span>
+		<a	href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
 	</header>
 
 	<!-- Overlay effect when opening sidebar on small screens -->
-	<div class="w3-overlay w3-hide-large w3-animate-opacity"
-		onclick="w3_close()" style="cursor: pointer" title="close side menu"
-		id="myOverlay"></div>
+	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
 
 	<!-- !PAGE CONTENT! -->
 	<div class="w3-main" style="margin-left: 250px">
 
-		<!-- Push down content on small screens -->
-		<div class="w3-hide-large" style="margin-top: 83px"></div>
+	<!-- Push down content on small screens -->
+	<div class="w3-hide-large" style="margin-top: 83px"></div>
 
-		<!-- Photo grid -->
-		
-		
- 		<%-- ${requestScope.productListVO.list}  --%>
-		<%-- <img src="${requestScope.productListVO.list[1].detail_info}"> --%>
+	<!-- Photo grid -->
+	
+	
+	<%-- ${requestScope.productListVO.list}  --%>
+	<%-- <img src="${requestScope.productListVO.list[1].detail_info}"> --%>
 		
 	<div class="w3-row">
-		
-		
 		<c:forEach items="${requestScope.productListVO.list}" var="list">
 		<div class="w3-third">
 			<div class="w3-one">
 				<a href="DispatcherServlet?command=showProductDetail&productNo=${list.pno}">
-					<img src="${pageContext.request.contextPath}/${list.detail_info}" style="width: 100%" onclick="onClick(this)"
-						alt="A boy surrounded by beautiful nature"> </a>
-						
-					<div class="overlay">
-						<div class="txtOverLay">
-							&nbsp;&nbsp;&nbsp;${list.pname}
-							<p>&nbsp;&nbsp;&nbsp;${list.price}원</p>
-							<p>&nbsp;&nbsp;&nbsp;${list.simple_info}</p>
-						</div>
+				<img src="${pageContext.request.contextPath}/${list.detail_info}" style="width: 100%" onclick="onClick(this)" alt="A boy surrounded by beautiful nature"> </a>
+				<div class="overlay">
+					<div class="txtOverLay">&nbsp;&nbsp;&nbsp;${list.pname}
+						<p>&nbsp;&nbsp;&nbsp;${list.price}원</p>
+						<p>&nbsp;&nbsp;&nbsp;${list.simple_info}</p>
 					</div>
 				</div>
+			</div>
 		</div>
-		
 		</c:forEach>
-		
-	
-</div>
+	</div>
 
 	
 	
-		<!-- Pagination -->
-		<div class="w3-center w3-padding-32">
-			<div class="w3-bar">
-			<c:set value="${requestScope.productListVO.pagingBean.nowPage}" var="nowPage"></c:set>
-				<c:if test="${requestScope.productListVO.pagingBean.previousPageGroup==true}">
-				<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.startPageOfPageGroup-1}" class="w3-bar-item w3-button w3-hover-black">«</a> 
-				</c:if>
-				<c:forEach begin="${requestScope.productListVO.pagingBean.startPageOfPageGroup}" end="${requestScope.productListVO.pagingBean.endPageOfPageGroup}" var="page" >
-				<c:choose>
-					<c:when test="${page==nowPage}">
-						<b class="w3-bar-item w3-button w3-hover-black" >${page}</b>
-					</c:when>	
-					<c:otherwise>
-						<a	href="DispatcherServlet?command=list&pageNo=${page}" class="w3-bar-item w3-button w3-hover-black" >${page}</a>
-					</c:otherwise>	
-				</c:choose>				
-				</c:forEach>
-				<c:if test="${requestScope.productListVO.pagingBean.nextPageGroup==true}">
-				<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.endPageOfPageGroup+1}" class="w3-bar-item w3-button w3-hover-black">»</a> 
-				</c:if>
-		
-			</div>
+	<!-- Pagination -->
+	<div class="w3-center w3-padding-32">
+		<div class="w3-bar">
+		<c:set value="${requestScope.productListVO.pagingBean.nowPage}" var="nowPage"></c:set>
+			<c:if test="${requestScope.productListVO.pagingBean.previousPageGroup==true}">
+			<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.startPageOfPageGroup-1}" class="w3-bar-item w3-button w3-hover-black">«</a> 
+			</c:if>
+			<c:forEach begin="${requestScope.productListVO.pagingBean.startPageOfPageGroup}" end="${requestScope.productListVO.pagingBean.endPageOfPageGroup}" var="page" >
+			<c:choose>
+				<c:when test="${page==nowPage}">
+					<b class="w3-bar-item w3-button w3-hover-black" >${page}</b>
+				</c:when>	
+				<c:otherwise>
+					<a	href="DispatcherServlet?command=list&pageNo=${page}" class="w3-bar-item w3-button w3-hover-black" >${page}</a>
+				</c:otherwise>	
+			</c:choose>				
+			</c:forEach>
+			<c:if test="${requestScope.productListVO.pagingBean.nextPageGroup==true}">
+			<a href="DispatcherServlet?command=list&pageNo=${requestScope.productListVO.pagingBean.endPageOfPageGroup+1}" class="w3-bar-item w3-button w3-hover-black">»</a> 
+			</c:if>
 		</div>
-		<!-- Modal for full size images on click-->
-		<div id="modal01" class="w3-modal w3-black" style="padding-top: 0"
-			onclick="this.style.display='none'">
-			<span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
-			<div
-				class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-				<img id="img01" class="w3-image">
-				<p id="caption"></p>
-			</div>
+	</div>
+	
+	<!-- Modal for full size images on click-->
+	<div id="modal01" class="w3-modal w3-black" style="padding-top: 0" onclick="this.style.display='none'">
+		<span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+		<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+			<img id="img01" class="w3-image">
+			<p id="caption"></p>
 		</div>
+	</div>
 
-		<!-- About section -->
-		<div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+	<!-- About section -->
+	<div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
     <h3><b>About Us</b></h3>
-    <img src="img/pk6_logo.jpg" alt="Me" class="w3-image w3-padding-32" width="400" height="450">
-    <div class="w3-content w3-justify" style="max-width:600px">
-      <h4>My Name &nbsp;<small>is 바이핸드</small></h4>
-      <p>
+	<img src="img/pk6_logo.jpg" alt="Me" class="w3-image w3-padding-32" width="400" height="450">
+	<div class="w3-content w3-justify" style="max-width:600px">
+		<h4>My Name &nbsp;<small>is 바이핸드</small></h4>
+		<p>
 		바이핸드는 핸드메이드 상품을 뜻하는 'by hand'와 핸드메이드 상품을 구매한다는 'buy hand'의 뜻으로
 		PK-6에 의해 고안된 소비자와 생산자를 잇는 직거래 마켓입니다.<br>
 		유니크한 아이템을 지금 바로 구매하세요!
-      </p>
-      <p>mail: example@example.com</p>
-      <p>tel: 5353 35531</p>
-      <hr class="w3-opacity">
-      <h4 class="w3-padding-16">Technical Skills</h4>
-      <p class="w3-wide">Photography</p>
-      <div class="w3-white">
+      	</p>
+      	<p>mail: example@example.com</p>
+      	<p>tel: 5353 35531</p>
+      	<hr class="w3-opacity">
+      	<h4 class="w3-padding-16">Technical Skills</h4>
+      	<p class="w3-wide">Photography</p>
+      	<div class="w3-white">
         <div class="w3-container w3-padding-small w3-center w3-grey" style="width:95%">95%</div>
-      </div>
-      <p class="w3-wide">Web Design</p>
-      <div class="w3-white">
-        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
-      </div>
-      <p class="w3-wide">Photoshop</p>
-      <div class="w3-white">
-        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:80%">80%</div>
-      </div>
-      <!-- <p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button></p> -->
-      <hr class="w3-opacity">
-
-				<h4 class="w3-padding-16">How much I charge</h4>
-				<div class="w3-row-padding" style="margin: 0 -16px">
-					<div class="w3-half w3-margin-bottom">
-						<ul
-							class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-							<li class="w3-black w3-xlarge w3-padding-32">CONSUMER</li>
-
-							<li class="w3-padding-16">
-								<h2>$ 0</h2> <span class="w3-opacity">per month</span>
-							</li>
-							<li class="w3-light-grey w3-padding-24">
-								<button class="w3-button w3-white w3-padding-large">Sign
-									Up</button>
-							</li>
-						</ul>
-					</div>
-
-					<div class="w3-half">
-						<ul
-							class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-							<li class="w3-black w3-xlarge w3-padding-32">PRODUCER</li>
-
-							<li class="w3-padding-16">
-								<h2>$ 1</h2> <span class="w3-opacity">per month</span>
-							</li>
-							<li class="w3-light-grey w3-padding-24">
-								<button class="w3-button w3-white w3-padding-large">Sign
-									Up</button>
-							</li>
-						</ul>
-					</div>
-				</div>
+	</div>
+    <p class="w3-wide">Web Design</p>
+    <div class="w3-white">
+    	<div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
+    </div>
+	<p class="w3-wide">Photoshop</p>
+	<div class="w3-white">
+		<div class="w3-container w3-padding-small w3-center w3-grey" style="width:80%">80%</div>
+	</div>
+	<!-- <p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button></p> -->
+	<hr class="w3-opacity">
+	<h4 class="w3-padding-16">How much I charge</h4>
+		<div class="w3-row-padding" style="margin: 0 -16px">
+			<div class="w3-half w3-margin-bottom">
+				<ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+					<li class="w3-black w3-xlarge w3-padding-32">CONSUMER</li>
+					<li class="w3-padding-16"><h2>$ 0</h2> <span class="w3-opacity">per month</span></li>
+					<li class="w3-light-grey w3-padding-24">
+						<button class="w3-button w3-white w3-padding-large">Sign Up</button>
+					</li>
+				</ul>
+			</div>
+			<div class="w3-half">
+				<ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+					<li class="w3-black w3-xlarge w3-padding-32">PRODUCER</li>
+					<li class="w3-padding-16">
+						<h2>$ 1</h2> <span class="w3-opacity">per month</span>
+					</li>
+					<li class="w3-light-grey w3-padding-24">
+						<button class="w3-button w3-white w3-padding-large">Sign Up</button>
+					</li>
+				</ul>
 			</div>
 		</div>
+	</div>
+</div>
 
-<!-- Login section -->
+	<!-- Login section -->
 		<c:choose>
 			<c:when test="${sessionScope.mvo==null }">
-				<div
-					class="w3-container w3-light-grey w3-padding-32 w3-padding-large"
-					id="login">
+				<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="login">
 					<div class="w3-content" style="max-width: 600px">
 						<h4 class="w3-center">
 							<b>Login</b>
 						</h4>
 						<p>Do you want to buy some unique items? Fill out the form and
 							fill me in with the details :) I love meeting new people!</p>
-						<form id="loginForm" name="loginForm"
-							onsubmit="return checkForm()" method="post">
+						<form id="loginForm" name="loginForm" onsubmit="return checkForm()" method="post">
 							<script src="//code.jquery.com/jquery.min.js"></script>
 							<div class="w3-section" style="text-align: center">
-								<b> <input type="button" class="btn btn-primary"
-									id="sellerBtn" value="판매자"></b>&nbsp;&nbsp; <input
-									type="radio" name="mcode" value="1" id="seller">
-								&nbsp;&nbsp; <b> <input type="button" class="btn btn-info"
-									id="buyerBtn" value="구매자">
-								</b>&nbsp;&nbsp; <input type="radio" name="mcode" value="2"
-									id="buyer"><br> <br>
-							</div>
-
-							<div class="w3-section">
-								<label>Id</label> <input class="w3-input w3-border" type="text" 
-									name="Id" required="required" class="form-control" >
+								<b>
+								<input type="button" class="btn btn-primary" id="sellerBtn" value="판매자"></b>&nbsp;&nbsp; 
+								<input type="radio" name="mcode" value="1" id="seller">&nbsp;&nbsp; <b> 
+								<input type="button" class="btn btn-info" id="buyerBtn" value="구매자">
+								</b>&nbsp;&nbsp; <input type="radio" name="mcode" value="2" id="buyer"><br><br>
 							</div>
 							<div class="w3-section">
-								<label>Password</label> <input class="w3-input w3-border"
-									type="password" name="Password" required="required" class="form-control" >
+								<label>Id</label>
+								<input class="w3-input w3-border" type="text" name="Id" required="required" class="form-control" >
 							</div>
-
-							<input type="button"
-								class="w3-button w3-block w3-black w3-margin-bottom"
-								value="Login" onclick="checkForm()">
-
-
-
-
+							<div class="w3-section">
+								<label>Password</label>
+								<input class="w3-input w3-border"	type="password" name="Password" required="required" class="form-control" >
+							</div>
+							<input type="button" class="w3-button w3-block w3-black w3-margin-bottom" value="Login" onclick="checkForm()">
 						</form>
-						<script type="text/javascript">
-							function checkForm() {
-								var lf = document.loginForm;
-								if (lf.mcode.value == 2) {
-									location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=buyerLogin&Id="
-											+ lf.Id.value
-											+ "&Password="
-											+ lf.Password.value
-											+ "&mcode="
-											+ lf.mcode.value;
-
-								} else if (lf.mcode.value == 1) {
-									location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=makerLogin&Id="
-											+ lf.Id.value
-											+ "&Password="
-											+ lf.Password.value
-											+ "&mcode="
-											+ lf.mcode.value;
-								} else if (lf.mcode.value == "") {
-									alert("판매자/구매자 선택해주세요");
-								}
-							}
-							$(document).ready(function() {
-								$("#sellerBtn").click(function() {
-									$("#seller").prop("checked", true);
-								});
-								$("#buyerBtn").click(function() {
-									$("#buyer").prop("checked", true);
-								});
-							});
-						</script>
-
 						<a href="page/joinSelect.jsp" style="text-decoration: none">
-							<button class="w3-button w3-block w3-black w3-margin-bottom">
-								Sign Up</button>
+							<button class="w3-button w3-block w3-black w3-margin-bottom">Sign Up</button>
 						</a>
 
 					</div>
 				</div>
-
 			</c:when>
 			<c:otherwise>
 			</c:otherwise>
 		</c:choose>
 		<!-- login section end -->
-	
-		
-	
-			
+
 		<!-- Footer -->
 		<!-- <footer class="w3-container w3-padding-32 w3-grey">
 			<div class="w3-row-padding">
@@ -371,17 +331,6 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	</div>
 
 	<script>
-		// Script to open and close sidebar
-		function w3_open() {
-			document.getElementById("mySidebar").style.display = "block";
-			document.getElementById("myOverlay").style.display = "block";
-		}
-
-		function w3_close() {
-			document.getElementById("mySidebar").style.display = "none";
-			document.getElementById("myOverlay").style.display = "none";
-		}
-
 	/* 	// Modal Image Gallery
 		function onClick(element) {
 			document.getElementById("img01").src = element.src;
@@ -390,7 +339,5 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 			captionText.innerHTML = element.alt;
 		} */
 	</script>
-
-
 </body>
 </html>

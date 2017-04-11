@@ -69,46 +69,55 @@ s{
 	
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	$("#addCartBtn").click(function(){
-		var pno =${requestScope.productDetail.pno};  //el로 상품번호 받아오기
-		alert(pno);
-	 		$.ajax({ 			
-				type:"get",
-			url:"${pageContext.request.contextPath}/DispatcherServlet",
-			data:"command=checkCart&pno="+pno,
-			success:function(data){
-				//var flag=false;
-				if(data != "-1" ){ //이미 존재한다면
+	$(document).ready(function(){
+		$("#addCartBtn").click(function(){
+			var pno =${requestScope.productDetail.pno};  //el로 상품번호 받아오기
+			alert(pno);
+		 		$.ajax({ 			
+					type:"get",
+					url:"${pageContext.request.contextPath}/DispatcherServlet",
+					data:"command=checkCart&pno="+pno,
+					success:function(data){
+					//var flag=false;
+					if(data != "-1" ){ //이미 존재한다면
 /* 						if(confirm("장바구니에 동일한 상품이 존재합니다. 그래도 추가 하시겠습니까?"))
 						flag=true; */
-					alert("이미 존재하는 상품입니다!"); 
-					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList";
-				}else if(confirm("장바구니에 추가하시겠습니까?")){
-					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
-				}
-				/* if(flag==true){
-					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
-				} */
-			}//success
-		});  //ajax
-	}); //click
-});	//ready
+						alert("이미 존재하는 상품입니다!"); 
+						location.href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList";
+					}else if(confirm("장바구니에 추가하시겠습니까?")){
+						location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
+					}
+					/* if(flag==true){
+						location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno;
+					} */
+				}//success
+			});  //ajax
+		}); //click
+	});	//ready
+	
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("myOverlay").style.display = "none";
+	}
+
 </script>
+
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 
 	<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
 
 	<!-- Top menu on small screens -->
-	<header
-		class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-		<span class="w3-left w3-padding">바이핸드</span> <a
-			href="javascript:void(0)" class="w3-right w3-button w3-white"
-			onclick="w3_open()">☰</a>
+	<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+		<span class="w3-left w3-padding">바이핸드</span> 
+		<a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
 	</header>
 
 	<!-- Overlay effect when opening sidebar on small screens -->
@@ -116,16 +125,12 @@ $(document).ready(function(){
 		onclick="w3_close()" style="cursor: pointer" title="close side menu"
 		id="myOverlay"></div>
 
-<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 s" id="top" style="margin-left:300px">
-	<span >
-<h2><b>Detail</b></h2>
-<hr style="border: solid 3px white;">
-</span>
-</div>
+	<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 s" id="top" style="margin-left:300px">
+		<span><h2><b>Detail</b></h2></span>
+		<hr style="border: solid 3px white;">
+	</div>
 
-<div class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32" id="about" >
-
-    
+	<div class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32" id="about" >
     <img src="${requestScope.productDetail.detail_info}" alt="Me" class="w3-image w3-padding-32" width="400" height="450">
     <div class="w3-content w3-justify" style="max-width:600px">
       <h4>Product Name &nbsp;-&nbsp;<small><b>${requestScope.productDetail.pname }</b></small></h4>
@@ -136,32 +141,7 @@ $(document).ready(function(){
       <p>재고수량 : ${requestScope.productDetail.total_amount} </p>
       <p>판매자 : ${requestScope.productDetail.maker_id }</p>
       <button id="addCartBtn">장바구니 담기</button>
-		
-				
-				
-			</div>
-		
-		
-		
-		
-		</div>
-
-
-
-
-
-
-<script type="text/javascript">
-function w3_open() {
-	document.getElementById("mySidebar").style.display = "block";
-	document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-	document.getElementById("mySidebar").style.display = "none";
-	document.getElementById("myOverlay").style.display = "none";
-}
-
-</script>
+	</div>
+</div>
 </body>
 </html>

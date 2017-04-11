@@ -157,72 +157,54 @@ text-align: center;
 <div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 " id="top" style="margin-left:300px">
    <span >
 <h2><b>Maker Join</b></h2>
-<hr style="border: solid 3px white;">
 </span>
+<hr style="border: solid 3px white;">
 </div>
 
 <div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-32" id="about" >
 
-   <!-- !PAGE CONTENT! -->
+   	<!-- !PAGE CONTENT! -->
 
-   <div class="w3-main" style="margin-left: 300px">
+   	<div class="w3-main" style="margin-left: 300px">
 
-      <!-- Push down content on small screens -->
-      <div class="w3-hide-large" style="margin-top: 83px"></div>
+      	<!-- Push down content on small screens -->
+      	<div class="w3-hide-large" style="margin-top: 83px"></div>
 
-      <!-- join grid -->
-         <form name="joinFormMaker" method="post" action="../DispatcherServlet" onsubmit="return checkAll()">
-     <input type="hidden" name="command" value="joinMaker">
-           <div class="w3-content" style="max-width: 600px" >
-          이름
-        <div class="w3-section">
-     <input class="form-control"  type="text" name="mname" required="required" placeholder="Enter name">
-        </div>        
-          아이디
-        <div class="w3-section">
-          <input class="form-control"  type="text" name="id" id="id" required="required" placeholder="Enter ID"><span id="checkIdResult"></span>
-        </div>        
-          비밀번호
-        <div class="w3-section">
-          <input class="form-control"  type="password" name="password" id="password" required="required" placeholder="Enter Password">
-        </div>        
-          비밀번호 확인
-        <div class="w3-section">
-          <input class="form-control"  type="password" name="password_re" id="password_re" required="required" placeholder="Enter Password"><span id="checkPass"></span>
-        </div>        
-          주소
-        <div class="w3-section">
-          <input class="form-control"  type="text" name="add" required="required" placeholder="Enter address">
-        </div>        
-          상호명
-        <div class="w3-section">
-          <input class="form-control"  type="text" name="maker_bname" required="required" placeholder="Enter Maker">
-        </div>        
-          전화번호
-        <div class="w3-section">
-          <input class="form-control"  type="text" name="tel" required="required" placeholder="Enter tel">
-        </div>        
-          계좌번호
-        <div class="w3-section">
-          <input class="form-control"  type="text" name="account" required="required" placeholder="Account No - 제외 후 입력">
-        </div>        
-        <div class="w3-section w3-center" >
-     <input type="submit" value="회원가입" class="w3-button w3-black w3-margin-bottom">
-     <input type="reset" value="취소" class="w3-button w3-grey w3-margin-bottom">
-        </div>
-      </div>
-      </form>
-      </div>
+	<!-- join grid -->
+	<form name="joinFormMaker" method="post" action="../DispatcherServlet" onsubmit="return checkAll()">
+	<input type="hidden" name="command" value="joinMaker">
+	<div class="w3-content" style="max-width: 600px" >
+	이름
+	<div class="w3-section"><input class="form-control"  type="text" name="mname" required="required" placeholder="Enter name"></div>        
+	아이디
+	<div class="w3-section"><input class="form-control"  type="text" name="id" id="id" required="required" placeholder="Enter ID"><span id="checkIdResult"></span></div>        
+	비밀번호
+	<div class="w3-section"><input class="form-control"  type="password" name="password" id="password" required="required" placeholder="Enter Password"></div>        
+	비밀번호 확인
+	<div class="w3-section"><input class="form-control"  type="password" name="password_re" id="password_re" required="required" placeholder="Enter Password"><span id="checkPass"></span></div>        
+	주소
+	<div class="w3-section"><input class="form-control"  type="text" name="add" required="required" placeholder="Enter address"></div>        
+	상호명
+	<div class="w3-section"><input class="form-control"  type="text" name="maker_bname" required="required" placeholder="Enter Maker"></div>        
+	전화번호
+	<div class="w3-section"><input class="form-control"  type="text" name="tel" required="required" placeholder="Enter tel"></div>        
+	계좌번호
+	<div class="w3-section"><input class="form-control"  type="text" name="account" required="required" placeholder="Account No - 제외 후 입력"></div>        
+	<div class="w3-section w3-center" >
+		<input type="submit" value="회원가입" class="w3-button w3-black w3-margin-bottom">
+		<input type="reset" value="취소" class="w3-button w3-grey w3-margin-bottom">
+	</div>
+	</div>
+	</form>
+	</div>
 </div>
-      <!-- Modal for full size images on click-->
-      <div id="modal01" class="w3-modal w3-black" style="padding-top: 0"
-         onclick="this.style.display='none'">
-         <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
-         <div
-            class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-            <img id="img01" class="w3-image">
-            <p id="caption"></p>
-         </div>
-      </div>
+	<!-- Modal for full size images on click-->
+	<div id="modal01" class="w3-modal w3-black" style="padding-top: 0" onclick="this.style.display='none'">
+		<span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+		<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+			<img id="img01" class="w3-image">
+			<p id="caption"></p>
+		</div>
+	</div>
 </body>
 </html>

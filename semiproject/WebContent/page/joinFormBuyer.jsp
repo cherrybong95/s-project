@@ -75,151 +75,131 @@ height: 100px;
 margin: auto;
 text-align: center;
 }
-9
 </style>
 <script type="text/javascript">
-      // Script to open and close sidebar
-      function w3_open() {
-         document.getElementById("mySidebar").style.display = "block";
-         document.getElementById("myOverlay").style.display = "block";
-      }
+	// Script to open and close sidebar
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("myOverlay").style.display = "block";
+	}
 
-      function w3_close() {
-         document.getElementById("mySidebar").style.display = "none";
-         document.getElementById("myOverlay").style.display = "none";
-      }
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("myOverlay").style.display = "none";
+	}
 
-      // Modal Image Gallery
-      function onClick(element) {
-         document.getElementById("img01").src = element.src;
-         document.getElementById("modal01").style.display = "block";
-         var captionText = document.getElementById("caption");
-         captionText.innerHTML = element.alt;
-      }
-      
-      $(document).ready(function(){
-         $("#id").keyup(function(){
-            if($("#id").val().length<4 || $("#id").val().length>10){
-               $("#checkIdResult").html("<font color=orange>"+"4자이상 10자 이하만 가능"+"</font>");
-            }else{
-                $.ajax({
-                  type:"get",
-                  url:"../DispatcherServlet",
-                  //dataType:"json",
-                  data:"command=checkIdBuyer&id="+$("#id").val(),
-                  success:function(data){
-                     if(data=="ok"){
-                        $("#checkIdResult").html("<font color=blue>"+"'"+$("#id").val()+"' 사용가능!"+"</font>");
-                     } else {
-                        $("#checkIdResult").html("<font color=red>"+"중복된 아이디 사용불가"+"</font>");
-                     }
-                  }
-               });
-            } 
-         });
-         $("#password_re").keyup(function(){
-            if($("#password_re").val()!=$("#password").val()){
-               $("#checkPass").html("비밀번호를 확인해주세요");
-            } else {
-               $("#checkPass").html("<font color=green>"+"비밀번호 확인!"+"</font>");
-            }
-         });
-      });
-      function checkAll(){
-         var checkIdResult = $("#checkIdResult").text();
-         var checkPass = $("#checkPass").text();
-         if(checkIdResult=="중복된 아이디 사용불가" || checkIdResult=="4자이상 10자 이하만 가능" || checkPass=="비밀번호를 확인해주세요"){
-            alert("정보를 다시한번 확인해주세요");
-            return false;
-         } else {
-            document.joinFormBuyer.submit();
-         }
-      }
-   </script>
+	// Modal Image Gallery
+	function onClick(element) {
+		document.getElementById("img01").src = element.src;
+		document.getElementById("modal01").style.display = "block";
+		var captionText = document.getElementById("caption");
+		captionText.innerHTML = element.alt;
+	}
+
+	
+	$(document).ready(function() {
+		$("#id").keyup(function() {
+			if ($("#id").val().length < 4	|| $("#id").val().length > 10) {
+				$("#checkIdResult").html("<font color=orange>" + "4자이상 10자 이하만 가능" + "</font>");
+			} else {
+				$.ajax({
+					type : "get",
+					url : "../DispatcherServlet",
+					data : "command=checkIdBuyer&id=" + $("#id").val(),
+					success : function(data) {
+						if (data == "ok") {
+							$("#checkIdResult").html("<font color=blue>" + "''" + $("#id").val() + "' 사용가능!" 	+ "</font>");
+						} else {
+							$("#checkIdResult").html("<font color=red>" + "중복된 아이디 사용불가" + "</font>");
+						}
+					}
+				});
+			}
+		});
+		$("#password_re").keyup(function() {
+			if ($("#password_re").val() != $("#password").val()) {
+				$("#checkPass").html("비밀번호를 확인해주세요");
+			} else {
+				$("#checkPass").html("<font color=green>" + "비밀번호 확인!" + "</font>");
+			}
+		});
+	});
+	function checkAll() {
+		var checkIdResult = $("#checkIdResult").text();
+		var checkPass = $("#checkPass").text();
+		if (checkIdResult == "중복된 아이디 사용불가" || checkIdResult == "4자이상 10자 이하만 가능" || checkPass == "비밀번호를 확인해주세요") {
+			alert("정보를 다시한번 확인해주세요");
+			return false;
+		} else {
+			document.joinFormBuyer.submit();
+		}
+	}
+</script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
+	<!-- Sidebar/menu -->
+	<jsp:include page="../templet/left.jsp"></jsp:include>
 
+	<!-- Top menu on small screens -->
+   	<header
+      	class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+      	<span class="w3-left w3-padding">바이핸드</span> <a
+        href="javascript:void(0)" class="w3-right w3-button w3-white"
+       	onclick="w3_open()">☰</a>
+   	</header>
 
-   <!-- Sidebar/menu -->
-   <jsp:include page="../templet/left.jsp"></jsp:include>
+   	<!-- Overlay effect when opening sidebar on small screens -->
+   	<div class="w3-overlay w3-hide-large w3-animate-opacity"  onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
+	<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 " id="top" style="margin-left:300px">
+   	<span >
+		<h2><b>Buyer Join</b></h2>
+	</span>
+	<hr style="border: solid 3px white;">
+	</div>
 
-   <!-- Top menu on small screens -->
-   <header
-      class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-      <span class="w3-left w3-padding">바이핸드</span> <a
-         href="javascript:void(0)" class="w3-right w3-button w3-white"
-         onclick="w3_open()">☰</a>
-   </header>
+	<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-32" id="about" >
 
-   <!-- Overlay effect when opening sidebar on small screens -->
-   <div class="w3-overlay w3-hide-large w3-animate-opacity"
-      onclick="w3_close()" style="cursor: pointer" title="close side menu"
-      id="myOverlay"></div>
-<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 " id="top" style="margin-left:300px">
-   <span >
-<h2><b>Buyer Join</b></h2>
-<hr style="border: solid 3px white;">
-</span>
-</div>
+   	<!-- !PAGE CONTENT! -->
+   	<div class="w3-main" style="margin-left: 300px">
 
-<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-32" id="about" >
+	<!-- Push down content on small screens -->
+	<div class="w3-hide-large" style="margin-top: 83px"></div>
 
-   <!-- !PAGE CONTENT! -->
-   <div class="w3-main" style="margin-left: 300px">
-
-      <!-- Push down content on small screens -->
-      <div class="w3-hide-large" style="margin-top: 83px"></div>
-
-      <!-- join grid -->
-        <form name="joinFormBuyer" method="post" action="../DispatcherServlet" onsubmit="return checkAll()">
-       <div class="w3-content" style="max-width: 600px" >
-        <input type="hidden" name="command" value="joinBuyer" >
-                이름
-        <div class="w3-section">
-      <input class="form-control"  type="text" name="bname" required="required" placeholder="Enter name">
-        </div>
+	<!-- join grid -->
+	<form name="joinFormBuyer" method="post" action="../DispatcherServlet" onsubmit="return checkAll()">
+	<div class="w3-content" style="max-width: 600px" >
+		<input type="hidden" name="command" value="joinBuyer" >
+    	이름
+		<div class="w3-section"><input class="form-control"  type="text" name="bname" required="required" placeholder="Enter name"></div>
         ID
-        <div class="w3-section">
-      <input class="form-control" type="text" name="id" id="id" required="required" placeholder="Enter ID"><span style="text-align:center;" id="checkIdResult"></span>
-        </div>        
-      비밀번호
-        <div class="w3-section">
-      <input class="form-control" type="password" name="password" id="password" required="required" placeholder="Enter Password">
-        </div>
-           비밀번호재입력
-        <div class="w3-section">
-      <input class="form-control" type="password" name="password_re" id="password_re" required="required" placeholder="Enter Password">
-      <span id="checkPass"></span>
-        </div>
-                 주소
-        <div class="w3-section">
-        <input class="form-control" type="text" name="add" required="required" placeholder="Enter address">
-        </div>
-                전화번호
-        <div class="w3-section">
-        <input class="form-control" type="text" name="tel" required="required" placeholder="Enter tel">
-        </div>
-        
+        <div class="w3-section"><input class="form-control" type="text" name="id" id="id" required="required" placeholder="Enter ID"><span style="text-align:center;" id="checkIdResult"></span></div>        
+      	비밀번호
+        <div class="w3-section"><input class="form-control" type="password" name="password" id="password" required="required" placeholder="Enter Password"></div>
+		비밀번호재입력
+        <div class="w3-section"><input class="form-control" type="password" name="password_re" id="password_re" required="required" placeholder="Enter Password"><span id="checkPass"></span></div>
+        주소
+        <div class="w3-section"><input class="form-control" type="text" name="add" required="required" placeholder="Enter address"></div>
+        전화번호
+        <div class="w3-section"><input class="form-control" type="text" name="tel" required="required" placeholder="Enter tel"></div>
         <div class="w3-section w3-center" >
-        <input type="submit" value="회원가입" class="w3-button w3-black w3-margin-bottom">
-        <input type="reset" value="취소" class="w3-button w3-grey w3-margin-bottom">
+	        <input type="submit" value="회원가입" class="w3-button w3-black w3-margin-bottom">
+	        <input type="reset" value="취소" class="w3-button w3-grey w3-margin-bottom">
         </div>
         </div>
-        </form><!-- 
+        </form>
+			<!-- 
         <div class="w3-section">
                         <label>Password</label> <input class="w3-input w3-border"
                            type="text" name="Password" required="required">
                      </div> -->
-      <!-- Modal for full size images on click-->
-      <div id="modal01" class="w3-modal w3-black" style="padding-top: 0"
-         onclick="this.style.display='none'">
-         <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
-         <div
-            class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-            <img id="img01" class="w3-image">
-            <p id="caption"></p>
-         </div>
-      </div>
-   </div>
-   </div>
+	<!-- Modal for full size images on click-->
+	<div id="modal01" class="w3-modal w3-black" style="padding-top: 0" onclick="this.style.display='none'">
+		<span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+		<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+			<img id="img01" class="w3-image">
+			<p id="caption"></p>
+		</div>
+	</div>
+	</div>
+   	</div>
 </body>
 </html>
