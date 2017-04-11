@@ -317,3 +317,8 @@ insert into delivery(tno,receiver,destination,contact) values(14,'김문일','�
 select * from delivery;
 select * from transaction;
 
+select * from semi_product
+delete from semi_product where pno='149'
+delete from transaction where pno='149'
+delete from delivery where tno='1'
+
