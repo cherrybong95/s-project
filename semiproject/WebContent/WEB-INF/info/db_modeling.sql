@@ -309,6 +309,10 @@ select * from delivery
 select * from dual
 select tno_seq.nextval from dual;
 select tno_seq.currval from dual;
-
+create sequence tno_seq nocache;
 insert into transaction(tno,pno,amount,tdate,buyer_id) values(tno_seq.nextval,'10','1',sysdate,'java')";
 insert into delivery(tno,receiver,destination,contact) values(14,'김문일','판교','010')
+
+select * from delivery;
+select * from transaction;
+

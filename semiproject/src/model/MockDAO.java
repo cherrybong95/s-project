@@ -350,19 +350,20 @@ public class MockDAO {
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
 			/*
 			 * select row_number() over(order by a.tdate asc)as rnum,
-			 * a.pno,a.pname,a.price*a.amount,a.tdate,a.buyer_id,b.buyer_id,a.pro_state from(
-			 * select p.pno,p.pname,p.price,t.amount,t.tdate,t.buyer_id,t.pro_state
-			 * * from TRANSACTION where pro_state='입금대기' )t, semi_product p
-			 * where t.tno=p.pno and p.maker_id='java' )a, buyer b where
-			 * a.buyer_id=b.buyer_id;
+			 * a.pno,a.pname,a.price*a.amount as
+			 * total_price,a.tno,a.tdate,a.buyer_id,b.buyer_tel,a.pro_state
+			 * from( select
+			 * p.pno,p.pname,p.price,t.amount,t.tno,t.tdate,t.buyer_id,t.
+			 * pro_state from( select * from TRANSACTION where pro_state='입금대기'
+			 * )t, semi_product p where t.pno=p.pno and p.maker_id='java' )a,
+			 * buyer b where a.buyer_id=b.buyer_id
 			 */
 			StringBuilder sql=new StringBuilder();
-			sql.append("select row_number() over(order by a.tdate asc)as rnum, ");
-			sql.append("a.pno,a.pname,a.price*a.amount as total_price,a.tno,a.tdate,a.buyer_id,b.buyer_tel,a.pro_state from( ");
-			sql.append("select p.pno,p.pname,p.price,t.amount,t.tno,t.tdate,t.buyer_id,t.pro_state from( select ");
-			sql.append("* from TRANSACTION where pro_state=? )t, semi_product p ");
-			sql.append("where t.tno=p.pno and p.maker_id=? )a, buyer b where ");
-			sql.append("a.buyer_id=b.buyer_id");
+			sql.append("select row_number() over(order by a.tdate asc)as rnum, a.pno,a.pname,a.price*a.amount as total_price,a.tno,a.tdate,a.buyer_id,b.buyer_tel,a.pro_state  ");
+			sql.append("from( select p.pno,p.pname,p.price,t.amount,t.tno,t.tdate,t.buyer_id,t.pro_state ");
+			sql.append("from( select * from TRANSACTION where pro_state=? ");
+			sql.append(")t, semi_product p where t.pno=p.pno and p.maker_id=? )a, buyer b ");
+			sql.append("where a.buyer_id=b.buyer_id ");
 			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setString(1, pro_state);
 			pstmt.setString(2, maker_id);
