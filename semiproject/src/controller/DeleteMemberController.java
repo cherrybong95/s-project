@@ -13,14 +13,25 @@ public class DeleteMemberController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String code = request.getParameter("code");
 		String id = request.getParameter("id");
+		
 		if(code.equals("1")){
+			boolean flag=MakerDAO.getInstance().checkProduct(id);
+			System.out.println(flag);
+			if(flag==false){
+				return "page/deletefail2.jsp";
+			}else{
 			MakerDAO.getInstance().deleteMember(id);
+			HttpSession session=request.getSession();
+			session.invalidate();
+			return "redirect: index.jsp";
+			}
 		} else {
 			BuyerDAO.getInstance().deleteMember(id);
+			HttpSession session=request.getSession();
+			session.invalidate();
+			return "redirect: index.jsp";
 		}
-		HttpSession session=request.getSession();
-		session.invalidate();
-		return "redirect: index.jsp";
+		
 	}
 
 }
