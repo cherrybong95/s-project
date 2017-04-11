@@ -4,72 +4,37 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>주문하기</title>
+	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-.w3-sidebar a {
-	font-family: "Roboto", sans-serif;
-	'
-}
-
 body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
 	font-family: "Montserrat", sans-serif;
 }
 
-.w3-one img {
-	width: 400px;
-	height: 300px;
+table, td, th {   
+	font-size:small;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 
-.w3-one {
-	position: relative;
-	display: block;
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.w3-third img {
-	margin-bottom: -6px;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
-.w3-one:hover .overlay {
-	opacity: 0.5;
-}
-
-.w3-one:hover img {
-	opacity: 1;
-}
-
-.overlay {
-	dispaly: block;
-	position: absolute;
-	top: 70%;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: black;
-	opacity: 0.0;
-	transition: .5s ease;
-}
-
-.txtOverLay {
-	color: white;
-	position: absolute;
-	font-size: 0.875em;
-	
-}
-s{
- color: solid-black
-	
+th, td {
+    padding: 10px;
 }
 </style>
-
-	<title>주문하기</title>
 	
-		<jsp:include page="../templet/left.jsp"></jsp:include>
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#selectInfoForm :radio[name=selectInfo]").change(function(){ //라디오 버튼을 누를 때
@@ -98,25 +63,28 @@ s{
 </head>
 
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
-	주문하기
+
+
 	<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
-
-	<!-- Top menu on small screens -->
-	<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-		<span class="w3-left w3-padding">바이핸드</span>
-		<a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-	</header>
 
 	<!-- Overlay effect when opening sidebar on small screens -->
 	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
 	
-	<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 s" id="top" style="margin-left:300px">
-	<hr>
+	<div class="w3-main" style="margin-left: 300px">
+		<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large">
+			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
+				<h1 align="center">
+					<b><i>Purchase</i></b>
+				</h1>
+			</div>
+			<br> <br> <br>
+			<div class="w3-content w3-justify w3-center"   style="max-width: 900px">
+	
 	<c:set value="${requestScope.tdto}" var="tdto"/> 
 	<table>
 		<tr align="center">
-			<th>주문번호 : ${requestScope.tdto.tno}</th><th>주문날짜 :${requestScope.tdto.tdate}</th>
+			<th>주문번호 : ${requestScope.tdto.tno}</th><th colspan="3">주문날짜 :${requestScope.tdto.tdate}</th>
 		</tr>
 		<tr align="center">
 			<th>상품번호</th><th>상품명</th><th>수량</th><th>가격</th>
@@ -127,53 +95,8 @@ s{
 	</table>
 		
 	</div>
+	</div>
+	</div>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%-- 
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>구매완료</title>
-	<script src="//code.jquery.com/jquery.min.js"></script>
-	<script type="text/javascript">
-	
-	</script>
-</head>
-<body> 
-	<c:set value="${requestScope.tdto}" var="tdto"/> 
-	<table>
-		<tr align="center">
-			<th>주문번호 : ${requestScope.tdto.tno}</th><th>주문날짜 :${requestScope.tdto.tdate}</th>
-		</tr>
-		<tr align="center">
-			<th>상품번호</th><th>상품명</th><th>수량</th><th>가격</th>
-		</tr>
-		<tr align="center">
-			<td>${tdto.pvo.pno }</td><td>${tdto.pvo.pname }</td><td>${tdto.amount}</td><td>${tdto.pvo.price*tdto.amount}</td>
-		</tr>
-	</table>
-</body>
-
-</html> --%>
