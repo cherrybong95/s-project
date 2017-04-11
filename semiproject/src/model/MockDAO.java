@@ -232,7 +232,7 @@ public class MockDAO {
 		}
 	}
 	//id에 따른 전체 거래정보가져오기
-	public ArrayList<TransactionDTO> getTransactionInfo(String id) throws SQLException {
+	public ArrayList<TransactionDTO> getTransactionInfo(String id, PagingBean pb) throws SQLException {
 		ArrayList<TransactionDTO> transactionList=new ArrayList<TransactionDTO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -240,16 +240,23 @@ public class MockDAO {
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
 			/*
-			 * select t.tno,t.pno,p.pname, t.amount,t.tdate,t.pro_state 
-				from transaction t, semi_product p
-				where t.pno=p.pno and buyer_id='java' order by tno desc;
+			 * select t.rnum,
+			 * t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.
+			 * simple_info,t.amount*p.price as total_price from( select
+			 * row_number() over(order by tdate asc) as rnum,
+			 * tno,pno,pro_state,tdate,amount from transaction where
+			 * buyer_id='java' )t, semi_product p where t.pno=p.pno and rnum
+			 * between 1 and 9 order by rnum desc;
 			 */
 			StringBuilder sql=new StringBuilder();
-			sql.append("select t.tno,t.pno,p.pname,p.price,p.simple_info, t.amount,t.tdate,t.pro_state ");
-			sql.append("from transaction t, semi_product p ");
-			sql.append("where t.pno=p.pno and buyer_id=? order by tno desc");
+			sql.append("select t.rnum, t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.simple_info,t.amount*p.price as total_price from(  ");
+			sql.append("select row_number() over(order by tdate desc) as rnum, tno,pno,pro_state,tdate,amount  from transaction where buyer_id=? ");
+			sql.append(")t, semi_product p where t.pno=p.pno and rnum between ? and ? order by rnum asc");
 			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setString(1, id);
+			pstmt.setInt(2, pb.getStartRowNumber());
+			pstmt.setInt(3, pb.getEndRowNumber());
+			System.out.println(pb.getStartRowNumber()+"    "+pb.getEndRowNumber());
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				TransactionDTO tdto= new TransactionDTO();
@@ -547,6 +554,29 @@ public class MockDAO {
 		}finally {
 			closeAll(pstmt, con);
 		}
+	}
+
+	public int getTotalPurchaseNo(String buyer_id) throws SQLException {
+		int totalPurchaseNo=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			con = DataSourceManager.getInstance().getDataSource().getConnection();
+			/*
+			 * select count(*) from transaction where buyer_id='java';
+			 */
+			String sql="select count(*) from transaction where buyer_id=? ";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, buyer_id);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				totalPurchaseNo=rs.getInt(1);
+			}
+		}finally{
+			closeAll(rs, pstmt, con);
+		}
+		return totalPurchaseNo;
 	}
 
 }
