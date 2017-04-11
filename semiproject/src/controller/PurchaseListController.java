@@ -19,8 +19,7 @@ public class PurchaseListController implements Controller {
 		BuyerVO mvo=(BuyerVO)session.getAttribute("mvo");
 		if(session != null && mvo !=null){
 			//String id=mvo.getBuyer_id();
-			String id="java";
-			ArrayList<TransactionDTO> tdto=MockDAO.getInstance().getTransactionInfo(id); //id의 모든 거래정보 가져오기
+			ArrayList<TransactionDTO> tdto=MockDAO.getInstance().getTransactionInfo(mvo.getBuyer_id()); //id의 모든 거래정보 가져오기
 			//System.out.println(tdto.toString());
 			request.setAttribute("transaction", tdto);
 			url="cart/purchaseView.jsp";

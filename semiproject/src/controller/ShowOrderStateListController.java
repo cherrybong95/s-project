@@ -21,6 +21,7 @@ public class ShowOrderStateListController implements Controller {
 		System.out.println(pro_state);
 		PrintWriter out = response.getWriter();
 		ArrayList<OrderVO> orderStateList=MockDAO.getInstance().getDepositList(maker_id,pro_state);
+		System.out.println(orderStateList);
 		JSONArray ja=new JSONArray(orderStateList);
 		out.print(ja.toString());
 		out.close();
