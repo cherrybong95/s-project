@@ -161,7 +161,7 @@ s{
 	
 	</script>
 </head>
-<body>
+<body> 
 	<c:set value="${requestScope.tdto}" var="tdto"/> 
 	<table>
 		<tr align="center">
