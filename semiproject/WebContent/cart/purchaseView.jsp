@@ -84,7 +84,30 @@ th, td {
 			</tr>
 		</table>
 		<br>
-	</c:forEach>
+			</c:forEach>
+				<!-- Pagination -->
+	<div class="w3-center w3-padding-32">
+		<div class="w3-bar">
+		<c:set value="${requestScope.pagingBean.nowPage}" var="nowPage"></c:set>
+			<c:if test="${requestScope.pagingBean.previousPageGroup==true}">
+			<a href="DispatcherServlet?command=purchaseList&pageNo=${requestScope.pagingBean.startPageOfPageGroup-1}" class="w3-bar-item w3-button w3-hover-black">«</a> 
+			</c:if>
+			<c:forEach begin="${requestScope.pagingBean.startPageOfPageGroup}" end="${requestScope.pagingBean.endPageOfPageGroup}" var="page" >
+			<c:choose>
+				<c:when test="${page==nowPage}">
+					<b class="w3-bar-item w3-button w3-hover-black" >${page}</b>
+				</c:when>	
+				<c:otherwise>
+					<a	href="DispatcherServlet?command=purchaseList&pageNo=${page}" class="w3-bar-item w3-button w3-hover-black" >${page}</a>
+				</c:otherwise>	
+			</c:choose>				
+			</c:forEach>
+			<c:if test="${requestScope.productListVO.pagingBean.nextPageGroup==true}">
+			<a href="${pageContext.request.contextPath}DispatcherServlet?command=purchaseList&pageNo=${requestScope.pagingBean.endPageOfPageGroup+1}&id=${sessionScope.mvo.maker_id}" class="w3-bar-item w3-button w3-hover-black">»</a> 
+			
+			</c:if>
+		</div>
+	</div>
 	</div>
 	</div>
 </body>
