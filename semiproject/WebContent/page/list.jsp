@@ -250,9 +250,9 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 							<script src="//code.jquery.com/jquery.min.js"></script>
 							<div class="w3-section" style="text-align: center">
 								<b>
-								<input type="button" class="btn btn-primary" id="sellerBtn" value="판매자"></b>&nbsp;&nbsp; 
+								<input type="button" class="w3-button w3-black w3-margin-bottom" id="sellerBtn" value="판매자"></b>&nbsp;&nbsp; 
 								<input type="radio" name="mcode" value="1" id="seller">&nbsp;&nbsp; <b> 
-								<input type="button" class="btn btn-info" id="buyerBtn" value="구매자">
+								<input type="button" class="w3-button w3-grey w3-margin-bottom" id="buyerBtn" value="구매자">
 								</b>&nbsp;&nbsp; <input type="radio" name="mcode" value="2" id="buyer"><br><br>
 							</div>
 							<div class="w3-section">
