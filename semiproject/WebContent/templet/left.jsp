@@ -12,19 +12,17 @@
 		<a href="${pageContext.request.contextPath}/#login" onclick="w3_close()" style="text-decoration: none" class="w3-bar-item w3-button">LOGIN</a>
 	</c:when>
 	<c:when test="${sessionScope.mvo.mcode==2 }">
-		<a href="${pageContext.request.contextPath}/page/updateBuyerForm.jsp" style="text-decoration: none" class="w3-bar-item w3-button" >buyer ${sessionScope.mvo.buyer_name }</a>
+		<a href="${pageContext.request.contextPath}/page/updateBuyerForm.jsp" style="text-decoration: none" class="w3-bar-item w3-button" >Buyer ${sessionScope.mvo.buyer_name }</a>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList" style="text-decoration: none" onclick="w3_close()" class="w3-bar-item w3-button">CART</a> 
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=purchaseList" style="text-decoration: none" onclick="w3_close()" class="w3-bar-item w3-button">ORDER LIST</a>
 		<hr><a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout" style="text-decoration: none "class="w3-bar-item w3-button" >LogOut</a>
-		<a href="page/deleteMember1.jsp" style="text-decoration: none" class="w3-bar-item w3-button" ><font color="red">회원탈퇴</font></a>
 	</c:when>
 	<c:when test="${sessionScope.mvo.mcode==1 }">
-		<a href="${pageContext.request.contextPath}/page/updateMakerForm.jsp" style="text-decoration: none" class="w3-bar-item w3-button">maker ${sessionScope.mvo.maker_bname }</a>
+		<a href="${pageContext.request.contextPath}/page/updateMakerForm.jsp" style="text-decoration: none" class="w3-bar-item w3-button">Maker ${sessionScope.mvo.maker_bname }</a>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showOrderList" style="text-decoration: none" onclick="w3_close()" class="w3-bar-item w3-button">ORDER LIST</a>
 		<a href="${pageContext.request.contextPath}/page/addProduct.jsp" onclick="w3_close()" style="text-decoration: none" class="w3-bar-item w3-button">REGIST PRODUCT</a>
-		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&id=${sessionScope.mvo.maker_id }" style="text-decoration: none" class="w3-bar-item w3-button">등록한 상품목록</a>
+		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&id=${sessionScope.mvo.maker_id }" style="text-decoration: none" class="w3-bar-item w3-button">REGISTED PRODUCT</a>
 		<hr><a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout" style="text-decoration: none" class="w3-bar-item w3-button">LogOut</a>
-		<a href="page/deleteMember1.jsp" style="text-decoration: none" class="w3-bar-item w3-button" ><font color="red">회원탈퇴</font></a>
 	</c:when>
 </c:choose>
 </nav>

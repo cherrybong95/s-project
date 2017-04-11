@@ -168,6 +168,8 @@ table {
 				<input type="hidden" name="command" value="updateMakerInfo"> 
 				<a href="${pageContext.request.contextPath}/index.jsp">
 				<input type="button" value="홈" class="w3-button w3-grey w3-margin-bottom"></a>
+				<a href="${pageContext.request.contextPath}/page/deleteMember1.jsp" >
+				<input type="button" value="회원탈퇴" style="text-decoration: none" class="w3-button w3-black w3-margin-bottom" ></a>
 			</div>
 		</div>
 		</form>

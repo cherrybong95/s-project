@@ -209,25 +209,30 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	</div>
 	<!-- <p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button></p> -->
 	<hr class="w3-opacity">
-	<h4 class="w3-padding-16">How much I charge</h4>
+	<h4 class="w3-padding-16">How many our member</h4>
 		<div class="w3-row-padding" style="margin: 0 -16px">
 			<div class="w3-half w3-margin-bottom">
 				<ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-					<li class="w3-black w3-xlarge w3-padding-32">CONSUMER</li>
-					<li class="w3-padding-16"><h2>${requestScope.BuyerMember }</h2> <span class="w3-opacity">per month</span></li>
+					<li class="w3-black w3-xlarge w3-padding-32">Buyer</li><br>
+					<li class="w3-padding-16"><h2>${requestScope.BuyerMember }</h2> 
+					<span class="w3-opacity">People</span></li>
 					<li class="w3-light-grey w3-padding-24">
-						<button class="w3-button w3-white w3-padding-large">Sign Up</button>
+					<a href="page/joinSelect.jsp" style="text-decoration: none">
+						<button class="w3-button w3-white w3-padding-large">Sign Up</button></a>
 					</li>
 				</ul>
 			</div>
 			<div class="w3-half">
 				<ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-					<li class="w3-black w3-xlarge w3-padding-32">PRODUCER</li>
-					<li class="w3-padding-16">
-						<h2>${requestScope.MakerMember }</h2> <span class="w3-opacity">per month</span>
+					<li class="w3-black w3-xlarge w3-padding-32">Maker</li>
+					<li class="w3-padding-16"><br>
+						<h2>${requestScope.MakerMember }</h2>
+						
+						 <span class="w3-opacity">People </span>
 					</li>
 					<li class="w3-light-grey w3-padding-24">
-						<button class="w3-button w3-white w3-padding-large">Sign Up</button>
+					<a href="page/joinSelect.jsp" style="text-decoration: none">
+						<button class="w3-button w3-white w3-padding-large">Sign Up</button></a>
 					</li>
 				</ul>
 			</div>
