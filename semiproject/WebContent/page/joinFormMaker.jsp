@@ -154,19 +154,19 @@ text-align: center;
    <div class="w3-overlay w3-hide-large w3-animate-opacity"
       onclick="w3_close()" style="cursor: pointer" title="close side menu"
       id="myOverlay"></div>
-<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 " id="top" style="margin-left:300px">
-   <span >
-<h2><b>Maker Join</b></h2>
-</span>
-<hr style="border: solid 3px white;">
-</div>
-
-<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-32" id="about" >
-
+<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left: 250px">
+	<!-- Push down content on small screens -->
+	<div class="w3-hide-large" style="margin-top: 83px"></div>
+<div class="w3-container w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-top: 20px;margin-right:25px;margin-bottom: 20px">
+<h2><b>Maker Join</b></h2><hr>
+<!-- </div> -->
+<!-- <hr style="border: solid 1px white;"> -->
+<!-- </div> -->
    	<!-- !PAGE CONTENT! -->
 
-   	<div class="w3-main" style="margin-left: 300px">
-
+   <!-- 	<div class="w3-main" style="margin-left: 250px"> -->
+	<!-- <div class="w3-container w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-top: 20px;margin-right:25px;margin-bottom: 20px"> -->
       	<!-- Push down content on small screens -->
       	<div class="w3-hide-large" style="margin-top: 83px"></div>
 
@@ -196,7 +196,7 @@ text-align: center;
 	</div>
 	</div>
 	</form>
-	</div>
+	<!-- </div> -->
 </div>
 	<!-- Modal for full size images on click-->
 	<div id="modal01" class="w3-modal w3-black" style="padding-top: 0" onclick="this.style.display='none'">
@@ -205,6 +205,6 @@ text-align: center;
 			<img id="img01" class="w3-image">
 			<p id="caption"></p>
 		</div>
-	</div>
+		</div>
 </body>
 </html>

@@ -78,27 +78,39 @@ $(document).ready(function(){
 	}); //click
 });	//ready
 
+function w3_open() {
+	document.getElementById("mySidebar").style.display = "block";
+	document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+	document.getElementById("mySidebar").style.display = "none";
+	document.getElementById("myOverlay").style.display = "none";
+}
+
 </script>
 <body class="w3-light-gray w3-content" style="max-width: 1600px">
 
 	<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
-
+<!-- Top menu on small screens -->
+	<header
+		class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+		<span class="w3-left w3-padding">바이핸드</span>
+		<a	href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+	</header>
 	<!-- Overlay effect when opening sidebar on small screens -->
 	<div class="w3-overlay w3-hide-large w3-animate-opacity"
 		onclick="w3_close()" style="cursor: pointer" title="close side menu"
 		id="myOverlay"></div>
+<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left: 250px">
+	<!-- Push down content on small screens -->
+	<div class="w3-hide-large" style="margin-top: 83px"></div>
 
-<div class="w3-main" style="margin-left: 300px">
-		<div class="w3-container w3-light-gray w3-padding-32 w3-padding-large">
-			<div class="w3-xxlarge w3-serif">
-				<p>
-					<b><i>Detail</i></b>
-				</p>
-			</div>
-
-			<div
-				class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
+		
+			<div class="w3-container w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
+			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
 				<p id="productName">
 					<b>${requestScope.productDetail.pname }</b>
 				</p>
@@ -126,6 +138,7 @@ $(document).ready(function(){
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p><br>
 					<button class="btn btn-info" id="addCartBtn">장바구니 담기</button>
 					<button class="btn btn-info" id="purchase">구매하기</button>
+				
 				</div>
 			</div>
 		</div>

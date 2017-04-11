@@ -48,11 +48,11 @@ vertical-align: middle;
 	<jsp:include page="../templet/left.jsp"></jsp:include>
 
 	<!-- Overlay effect when opening sidebar on small screens -->
-	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
+	<div class="w3-overlay w3-hide-large w3-light-grey w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
 
-	<div class="w3-main" style="margin-left: 300px">
-		<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large">
-			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
+	<div class="w3-main" style="margin-left: 250px">
+		<div class="w3-container w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
+			<div class="w3-panel w3-border-bottom w3-border-dark-gray">
 				<h1 align="center">
 					<b><i>내가 등록한 상품</i></b>
 				</h1>
