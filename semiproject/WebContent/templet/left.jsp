@@ -27,7 +27,7 @@
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&id=${sessionScope.mvo.maker_id }">등록한 상품목록</a><br>
 		<br>
 		<a href="${pageContext.request.contextPath}/page/updateMakerForm.jsp">회원정보수정</a><br>
-		<a href="DispatcherServlet?command=logout">LogOut</a><br><br>
+		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout">LogOut</a><br><br>
 		<a href="page/deleteMember1.jsp">회원탈퇴</a>
 	</c:when>
 </c:choose>
