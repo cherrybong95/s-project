@@ -175,28 +175,28 @@ text-align: center;
         <input type="hidden" name="command" value="joinBuyer" >
                 이름
         <div class="w3-section">
-      <input class="w3-input w3-border"  type="text" name="bname" required="required">
+      <input class="form-control"  type="text" name="bname" required="required" placeholder="Enter name">
         </div>
         ID
         <div class="w3-section">
-      <input class="w3-input w3-border" type="text" name="id" id="id" required="required"><span style="text-align:center;" id="checkIdResult"></span>
+      <input class="form-control" type="text" name="id" id="id" required="required" placeholder="Enter ID"><span style="text-align:center;" id="checkIdResult"></span>
         </div>        
       비밀번호
         <div class="w3-section">
-      <input class="w3-input w3-border" type="password" name="password" id="password" required="required">
+      <input class="form-control" type="password" name="password" id="password" required="required" placeholder="Enter Password">
         </div>
            비밀번호재입력
         <div class="w3-section">
-      <input class="w3-input w3-border" type="password" name="password_re" id="password_re" required="required">
+      <input class="form-control" type="password" name="password_re" id="password_re" required="required" placeholder="Enter Password">
       <span id="checkPass"></span>
         </div>
                  주소
         <div class="w3-section">
-        <input class="w3-input w3-border"  type="text" name="add" required="required">
+        <input class="form-control" type="text" name="add" required="required" placeholder="Enter address">
         </div>
                 전화번호
         <div class="w3-section">
-        <input class="w3-input w3-border" type="text" name="tel" required="required">
+        <input class="form-control" type="text" name="tel" required="required" placeholder="Enter tel">
         </div>
         
         <div class="w3-section w3-center" >

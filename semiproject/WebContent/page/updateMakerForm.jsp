@@ -10,12 +10,14 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .w3-sidebar a {
 	font-family: "Roboto", sans-serif;
@@ -154,36 +156,36 @@ table {
 			<div class="w3-content" style="max-width: 600px" >
 				이름
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="text" name="mname" required="required" value="${sessionScope.mvo.maker_name }"> 
+				<input class="form-control"  type="text" name="mname" required="required" value="${sessionScope.mvo.maker_name }"> 
         </div>        
 				아이디 
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="text" name="id" id="id" required="required"	value="${sessionScope.mvo.maker_id }" readonly="readonly">
+				<input class="form-control"  type="text" name="id" id="id" required="required"	value="${sessionScope.mvo.maker_id }" readonly="readonly">
         </div>        
 				비밀번호 
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="password" name="password" id="password"	required="required"> 
+				<input class="form-control" type="password" name="password" id="password"	required="required"> 
         </div>        
 				비밀번호 확인 
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="password" name="password_re" id="password_re" required="required"> 
+				<input class="form-control"  type="password" name="password_re" id="password_re" required="required"> 
 				<span id="checkPass"></span>
         </div>        
 				주소
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="text" name="add" required="required" value="${sessionScope.mvo.maker_add }">
+				<input class="form-control" type="text" name="add" required="required" value="${sessionScope.mvo.maker_add }">
         </div>        
 				상호명
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="text" name="maker_bname" required="required" value="${sessionScope.mvo.maker_bname }">
+				<input class="form-control"  type="text" name="maker_bname" required="required" value="${sessionScope.mvo.maker_bname }">
         </div>        
 				전화번호 
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="text" name="tel" required="required" value="${sessionScope.mvo.maker_tel }">
+				<input class="form-control"  type="text" name="tel" required="required" value="${sessionScope.mvo.maker_tel }">
         </div>        
 				계좌번호 
         <div class="w3-section">
-				<input class="w3-input w3-border"  type="text" name="account" required="required" value="${sessionScope.mvo.maker_account }"> 
+				<input class="form-control"  type="text" name="account" required="required" value="${sessionScope.mvo.maker_account }"> 
         </div> 
         <div class="w3-section w3-center" >       
 				<input type="submit" value="회원정보수정" class="w3-button w3-black w3-margin-bottom"> 

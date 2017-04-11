@@ -122,8 +122,8 @@ $(document).ready(function(){
 		<form action="${pageContext.request.contextPath}/DispatcherServlet?command=addProduct" method="post" enctype="multipart/form-data" id="addForm" onsubmit="return checkForm()">
 			상품명 : <input type="text" class="form-control" name="pname" required="required" placeholder="Enter 상품명"><br><br>
 			가격 : <input type="text" class="form-control" name="price" required="required" placeholder="숫자로 입력"><br><br>
-			등록수량 : <input type="text" class="form-control" name="total_amount" required="required"><br><br>
-			상품설명 : <input type="text" class="form-control" name="simple_info"required="required" ><br><br>
+			등록수량 : <input type="text" class="form-control" name="total_amount" required="required" placeholder="숫자로 입력"><br><br>
+			상품설명 : <input type="text" class="form-control" name="simple_info"required="required" placeholder="상품 설명"><br><br>
 			상품이미지 : <input type="file" name="file" required="required" ><br><br>
 			<input type="submit" class="w3-button w3-block w3-black w3-margin-bottom" value="등록하기" >
 			

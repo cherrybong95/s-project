@@ -139,7 +139,7 @@ alter table TRANSACTION
 drop constraint fk_pno
 
 alter table TRANSACTION
-drop constraint fk_buyer_id
+drop constraint fk_buyer_id;
 drop table transaction;
 create table transaction(
    tno number primary key,

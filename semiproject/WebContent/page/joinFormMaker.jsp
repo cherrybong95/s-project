@@ -204,7 +204,7 @@ text-align: center;
         </div>        
           계좌번호
         <div class="w3-section">
-          <input class="form-control"  type="text" name="account" required="required" placeholder="Enter Account No">
+          <input class="form-control"  type="text" name="account" required="required" placeholder="Account No - 제외 후 입력">
         </div>        
         <div class="w3-section w3-center" >
      <input type="submit" value="회원가입" class="w3-button w3-black w3-margin-bottom">

@@ -22,7 +22,7 @@ private HttpServletRequest request;
 	private String encoding = "UTF-8";
 	//private String newFilePath="C:\\java-kosta\\WAS\\jquery-tomcat\\webapps\\semiproject\\uploaded";
 	//private String newFilePath ;
-	private String newFilePath="C:\\Users\\Administrator\\git\\s-project\\semiproject\\WebContent\\uploaded";
+	private String newFilePath="C:\\Users\\KOSTA\\git\\s-project\\semiproject\\WebContent\\uploaded";
 	private String newFileFullName;
 	private  String newFileName;
 	private String userId;
