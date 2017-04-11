@@ -54,12 +54,16 @@ body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script type="text/javascript">
+<c:set value="${requestScope.productDetail.total_amount}" var="total_amount"/>
 $(document).ready(function(){
 	$("#addCartBtn").click(function(){
 		var pno =${requestScope.productDetail.pno};  //el로 상품번호 받아오기
 		var amount=$("#amount");
+		var total_amount=${total_amount};
 		if(amount.val()==""){
 			alert("수량을 입력해주세요!");
+		}else if(amount>total_amount){
+			alert("rkx!");
 		}else{
 	 		$.ajax({ 			
 				type:"get",
@@ -152,9 +156,9 @@ function w3_close() {
 							<div class="w3-one">
 					<div id="info">
 					 가격 : ${requestScope.productDetail.price}
-					<br>재고수량 : ${requestScope.productDetail.total_amount}
+					<br>재고수량 : ${total_amount}
 				<form name="checkForm">
-					수량 : <input type="text" name="amount" size="3" id="amount"></input>
+					수량 : <input type="text" name="amount" size="3" id="amount" value="1"></input>
 				</form>
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p><br>
 					<button class="btn btn-info" id="addCartBtn">장바구니 담기</button>
