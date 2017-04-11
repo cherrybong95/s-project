@@ -106,11 +106,13 @@ table {
 		<ul class="w3-ul w3-white w3-center ">
 			<li class="w3-black w3-xlarge w3-padding-32 "><b>
 			<font color="white">판매자</font></b></li>
-			<li class="w3-padding-16"><h3>내 제품을 알리고 싶다면</h3>
-				<p class="w3-opacity" style="text-align: center">dddper
-				mo	nth adsfadsfadsfadfasfadsf adsf adsfad sfad sfasdfadsfads
-				asd a adsf ㅇㄻㅇㄴㄻㅇㄴㄻ ㄴㄻㅇㄴ ㅁㅇㄴ
-				ㄻㅇㄴ f asd fadsf a dsfadfsad adsfads faㄻㅇㄴㄻㅇㄻ ㅇㄻㅇㄻ ㅇㄹ ㅁㅇㄴㄹ</p></li>
+			<li class="w3-padding-16"><h3>내 작품을 알리고 싶다면</h3>
+				<p class="w3-opacity" style="text-align: center">
+					당신이 손수 만든 작품은 상대방에게 알리고 싶으십니까? <br>
+					혹은 복잡하지 않고 보다 손 쉽게	돈을 벌고 싶으십니까? <br>
+					그렇다면 저희 바이핸드에 메이커(판매자) 에 등록을 추천 합니다.<br>
+					 지금 당장 가입하여 당신이 전에 느껴보지 못한 경험을 해보세요!
+				</p></li>
 			<li class="w3-light-white w3-padding-24"><a href="joinFormMaker.jsp">
 			<button class="w3-button w3-light-grey w3-padding-large">Sign Up</button></a></li>
 		</ul>
@@ -122,10 +124,11 @@ table {
 				<li class="w3-padding-16">
 					<h3>특별한 제품을 원한다면</h3>
 					<p class="w3-opacity" style="text-align: center">
-						adshflahefiuha dslkha fadskf;oh ;oaf;kh k ;k akdf;lkasj
-						f;klajds f;asdf adsfl askdf;ladskhf;a hf;aklsj; fiaj;fkj;lkaw
-						ewj akjf; akdsjf;aksjd; fkjadsf a dslfja; oesijf;ajf; akjs;
-						dkfj;adsjf;askjd; fkajs;dfkja; dspjf; asper month</p>
+						한번도 보지 못한 제품을 원하십니까? <br>
+						당신만에 특별한 악세사리를 원하십니까? <br>
+						그렇다면 저희 바이핸드에 바이어(구매자) 에 등록을 추천 합니다. <br>
+						지금 당장 가입하여 모두에게 당신의 유니크함을 보여 주세요!
+					</p>
 				</li>
 				<li class="w3-light-white w3-padding-24"><a
 					href="joinFormBuyer.jsp">
