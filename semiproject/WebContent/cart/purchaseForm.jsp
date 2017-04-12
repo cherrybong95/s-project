@@ -81,12 +81,12 @@ th, td {
 			<th>상품번호</th><th>상품명</th><th>가격</th><th>수량</th>
 		</tr>
 	
-		<c:forEach items="${requestScope.vo}" var="vo">
+		<c:forEach items="${requestScope.purchaseList}" var="purchaseList">
 			<tr align="center">
-			<c:set value="${vo.pno}" var="pno"/>
-			<c:set value="${requestScope.amount}" var="amount"/>
-				<td>${vo.pno}</td><td>${vo.pname}</td>
-				<td>${vo.price*requestScope.amount}</td><td>${requestScope.amount}</td>
+			<c:set value="${purchaseList.pno}" var="pno"/>
+			<c:set value="${purchaseList.total_amount}" var="amount"/>
+				<td>${pno}</td><td>${purchaseList.pname}</td>
+				<td>${purchaseList.price*amount}</td><td>${amount}</td>
 			</tr>
 		</c:forEach>
 	</table>

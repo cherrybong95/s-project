@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import model.MockDAO;
+import model.BuyerVO;
 import model.ProductVO;
 
 public class getPurchaseFormController implements Controller {
@@ -14,16 +15,15 @@ public class getPurchaseFormController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("getPurchaseFormController 실행");
 		String pno=request.getParameter("pno");
-		String amount=request.getParameter("amount");
-		System.out.println(amount);
-		
-		ArrayList<ProductVO> vo=new ArrayList<ProductVO>();
-		
-		ProductVO vo2=MockDAO.getInstance().findProductByNo(pno);
-		vo.add(vo2);
-		
-		request.setAttribute("vo", vo);
-		request.setAttribute("amount", amount);
+		HttpSession session=request.getSession(false);
+		BuyerVO mvo = (BuyerVO)session.getAttribute("mvo");
+		ArrayList<ProductVO> purchaseList=null;
+		if(session != null && mvo != null){
+			purchaseList = mvo.getCart().getPurchaseList(Integer.parseInt(pno));
+		}
+
+		request.setAttribute("purchaseList", purchaseList);
+		//request.setAttribute("amount", amount);
 		return "/cart/purchaseForm.jsp";
 	}
 
