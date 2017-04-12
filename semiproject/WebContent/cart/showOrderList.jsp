@@ -60,13 +60,13 @@ th, td {
 						info+="<td>"+data[i].total_price+"</td>";
 						info+="<td>"+data[i].pro_state+"</td>";
 						if(state=="입금대기"){
-							info+="<td><button class=stateChange>결제완료</button></td>";
+							info+="<td><button class=w3-button>결제완료</button></td>";
 						}else if(state=="결제완료"){
-							info+="<td><button class=stateChange>입금대기</button><br>";
-							info+="<button class=stateChange>배송중</button></td>";
+							info+="<td><button class=w3-button>입금대기</button><br>";
+							info+="<button class=w3-button>배송중</button></td>";
 						}else if(state=="배송중"){
-							info+="<td><button class=stateChange>결제완료</button><br>";
-							info+="<button class=stateChange>배송완료</button></td>";
+							info+="<td><button class=w3-button>결제완료</button><br>";
+							info+="<button class=w3-button>배송완료</button></td>";
 						}else{
 							info+="<td></td>";
 						}
@@ -77,7 +77,7 @@ th, td {
 			});//ajax
 		});//click
 		
-		$("#tbody").on("click",".stateChange",function(){
+		$("#tbody").on("click",".w3-button",function(){
 			//alert($(this).parent().parent().children().eq(1).text());
 				var tno=$(this).parent().parent().children().eq(2).text();
 				var update_state=$(this).text();
