@@ -13,6 +13,7 @@ public class AddCartController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String path = "index.jsp";
+		
 		// 나중에 세션 존재하는지 확인하고 세션 네임 확인해서 mvo에 추가하면 됨!
 		String pno = request.getParameter("pno");
 		HttpSession session = request.getSession(false);

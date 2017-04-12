@@ -53,8 +53,7 @@ th, td {
 	   var price="";
 	   var amount="";
 	   
-	   $("#btn").click(function(){ 
-
+	   $("#btn").click(function(){  //수량버튼 적용 클릭 시
 		   price=$("#price").text(); 
 		   amount=$("#amount").val(); 
 
@@ -63,13 +62,15 @@ th, td {
 	   });
 	   
 	   $("#buy").on("click",function(){
-		  
 		   if($("#check").is(":checked") == false){
 				alert("주문할 상품을 선택하세요");
 				return false;
 		   }else{
-				if($("#final_amount").val()!=$("#amount").val()){
+				if($("#final_amount").val()!=$("#amount").val()){ //수량값을 입력해놓고 적용 안누를 떄
 					alert("수량 적용버튼을 누르세요");
+			   		return false;
+			   }else if($("#final_amount").val()=="0"||$("#final_amount").val()==""){ //수량값으로 0을 입력할 때
+			   		alert("1개 이상의 수량을 적용하세욧!");
 			   		return false;
 			   }else{
 				   var checkedNum="";
@@ -131,14 +132,12 @@ th, td {
 						</tr>
 						<c:forEach items="${requestScope.list}" var="list">
 							<tr align="center">
-								<td><input type="checkbox" id="check"><input
-									type="hidden" name="pno" value="${list.pno}">${list.pno}</td>
+								<td><input type="checkbox" id="check">
+								<input type="hidden" name="pno" value="${list.pno}">${list.pno}</td>
 								<td>${list.pname}</td>
-								<td><input type="text" id="amount"
-									style="width: 20pt; height: 20pt;"> <input
-									type="hidden" id="final_amount" name="amount" value="">
-									<input type="button" id="btn" value="적용"
-									style="width: 40pt; height: 20pt;"></td>
+								<td><input type="text" id="amount" style="width: 20pt; height: 20pt;" value="">
+								<input type="hidden" id="final_amount" name="amount" value="">
+								<input type="button" id="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
 								<td id="price">${list.price}</td>
 								<td><input type="button" value="상품삭제" class="deleteCart"></td>
 							<tr>

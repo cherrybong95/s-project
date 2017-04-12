@@ -13,7 +13,7 @@ public class PurchaseController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("Purchase 컨트롤러 시작");
+		System.out.println("구매(Purchase) 컨트롤러 시작");
 		//상품정보 받아옴
 		String no=request.getParameter("pno"); //상품번호
 		int pno=Integer.parseInt(no);
@@ -33,25 +33,10 @@ public class PurchaseController implements Controller {
 		BuyerVO mvo = (BuyerVO)session.getAttribute("mvo");
 		
 		if(session!=null&mvo!=null){
-			System.out.println(mvo.getBuyer_name()+"님+"+pno+"상품+"+amount+"개 구매하기 완료!");
-
 			//거래 테이블에 등록시키고 현재 거래번호를 반환함
 			tno=MockDAO.getInstance().purchaseProduct(pno,amount,mvo.getBuyer_id());
-			System.out.println("머붙이라고"+tno);
-			
-			//상품번호에 해당하는 상품정보를 받아옴
-		//	ProductVO pvo=MockDAO.getInstance().findProductByNo(no);
-			
 			//거래번호에 매칭하도록 배송정보를 저장함
 			MockDAO.getInstance().addDeliveryInfo(receiver, destination, contact, tno);
-			System.out.println("배송정보 등록완료");
-			
-			//상품을 주문하고 나서 거래테이블에 등록됨.
-			//System.out.println("등록된 상품조회: "+pvo);
-			
-			//상품을 주문하고 나서 거래테이블에 등록된 것을 보여줌
-			
-			
 			}
 		return "redirect:DispatcherServlet?command=purchasedInfo&tno="+tno+"&pno="+no+"&amount="+amount;
 	}

@@ -68,8 +68,7 @@ s{
 </style>
 
 	<title>주문하기</title>
-	
-		<jsp:include page="../templet/left.jsp"></jsp:include>
+	<jsp:include page="../templet/left.jsp"></jsp:include>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#selectInfoForm :radio[name=selectInfo]").change(function(){ //라디오 버튼을 누를 때
@@ -116,13 +115,24 @@ s{
 	<c:set value="${requestScope.tdto}" var="tdto"/> 
 	<table>
 		<tr align="center">
-			<th>주문번호 : ${requestScope.tdto.tno}</th><th>주문날짜 :${requestScope.tdto.tdate}</th>
+			<th colspan="2">주문번호 : ${requestScope.tdto.tno}</th><th>주문날짜 :${requestScope.tdto.tdate}</th>
 		</tr>
 		<tr align="center">
-			<th>상품번호</th><th>상품명</th><th>수량</th><th>가격</th>
+			<th>상품번호</th><th>상품명</th><th>수량</th><th>가격</th><th>주문 상태</th>
 		</tr>
 		<tr align="center">
-			<td>${tdto.pvo.pno }</td><td>${tdto.pvo.pname }</td><td>${tdto.amount}</td><td>${tdto.pvo.price*tdto.amount}</td>
+			<td>${tdto.pvo.pno }</td><td>${tdto.pvo.pname }</td>
+			<td>${tdto.amount}</td><td>${tdto.pvo.price*tdto.amount}</td>
+			<td>${tdto.pro_state }</td>
+		</tr>
+		<tr>
+			<th colspan="4">배 송 정 보</th>
+		</tr>
+		<tr align="center">
+			<th>수령인</th><th>수령지</th><th colspan="2">연락처</th>
+		</tr>
+		<tr align="center">
+			<td>${tdto.delivery.receiver}</td><td>${tdto.delivery.destination}</td><td colspan="2">${tdto.delivery.contact}</td>
 		</tr>
 	</table>
 		

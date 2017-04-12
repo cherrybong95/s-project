@@ -317,3 +317,5 @@ insert into delivery(tno,receiver,destination,contact) values(14,'김문일','�
 select * from delivery;
 select * from transaction;
 
+update semi_product set total_amount=total_amount-1 where pno=1;
+select * from SEMI_PRODUCT;
