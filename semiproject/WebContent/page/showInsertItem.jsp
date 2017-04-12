@@ -118,7 +118,7 @@ vertical-align: middle;
 			</c:choose>				
 			</c:forEach>
 			<c:if test="${requestScope.productListVO.pagingBean.nextPageGroup==true}">
-			<a href="${pageContext.request.contextPath}DispatcherServlet?command=showInsertItem&pageNo=${requestScope.productListVO.pagingBean.endPageOfPageGroup+1}&id=${sessionScope.mvo.maker_id}" class="w3-bar-item w3-button w3-hover-black">»</a> 
+			<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&pageNo=${requestScope.productListVO.pagingBean.endPageOfPageGroup+1}&id=${sessionScope.mvo.maker_id}" class="w3-bar-item w3-button w3-hover-black">»</a> 
 			
 			</c:if>
 		</div>
