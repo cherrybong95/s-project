@@ -95,7 +95,7 @@ $(document).ready(function(){
 		}else if(amount>total_amount){
 			alert("재고수량을 확인해주세요!");
 		}else{
-			location.href="${pageContext.request.contextPath}/DispatcherServlet?command=getPurchaseForm&pno="+pno+"&amount="+amount;
+			location.href="${pageContext.request.contextPath}/DispatcherServlet?command=getPurchaseForm&pno="+pno+"&amount="+amount+"&flag=true";
 		}
 	});
 });	//ready
