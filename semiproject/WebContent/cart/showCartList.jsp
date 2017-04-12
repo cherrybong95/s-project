@@ -43,6 +43,26 @@ th, td {
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".check").prop("checked", true);
+		
+			$(".check").click(function(){
+		       $(this).each(function(){ 
+		    	   alert($(this).val());
+		       });
+		      //  if($(".check").is(':checked')==true)
+		     //   	alert($(this).next().val())
+		    	var amount=$(this).parent().next().next().next().find(".amount").val();       
+		         var price=$(this).parent().parent().children().eq(2).text();
+		         var total_price=parseInt($("#total_price").text());
+		           if($(this).prop("checked")!=true){
+		               //alert($(this).siblings(".pno").val());
+		               //$("#total_price").text(total_price-amount*price);
+		               
+		           }else{
+		              //$("#total_price").text(total_price+parseInt(amount*price));
+		           }
+		       });
+		    
+		    
 	   	$(".deleteCart").click(function(){
 		   //alert($(this).parent().parent().children().eq(0).text());
 		   	var pno=$(this).parent().parent().children().eq(0).text();
