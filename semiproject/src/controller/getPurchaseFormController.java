@@ -36,6 +36,11 @@ public class getPurchaseFormController implements Controller {
 		}
 		//System.out.println(purchaseList.toString());
 		request.setAttribute("purchaseList", purchaseList);
+		int totalPrice=0;
+		for(int i=0;i<purchaseList.size();i++){
+			totalPrice+=purchaseList.get(i).getTotal_amount()*purchaseList.get(i).getPrice();
+		}
+		request.setAttribute("totalPrice", totalPrice);
 		//request.setAttribute("amount", amount);
 		return "/cart/purchaseForm.jsp";
 	}

@@ -112,7 +112,11 @@ th, td {
 				<td>${pno}</td><td>${purchaseList.pname}</td>
 				<td>${purchaseList.price*amount}</td><td>${amount}</td>
 			</tr>
+			
 		</c:forEach>
+		<tr>
+			<td colspan="4">합계 : ${requestScope.totalPrice}</td>
+			</tr>
 	</table>
 	
 	<hr>
