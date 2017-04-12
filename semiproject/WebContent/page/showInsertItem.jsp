@@ -64,7 +64,7 @@ vertical-align: middle;
 
 		<div class="w3-container w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
 			<div class="w3-panel w3-border-bottom w3-border-dark-gray">
-				<h1 align="center">
+				<h1 align="left">
 					<b><i>내가 등록한 상품</i></b>
 				</h1>
 			</div>
