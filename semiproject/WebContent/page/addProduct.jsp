@@ -69,7 +69,7 @@ th, td {
 			<div
 				class="w3-panel w3-center w3-border-bottom w3-border-dark-gray" >
 				<h1 align="left">
-					<b><i>Regist Product</i></b>
+					<b><i>Register Product</i></b>
 				</h1>
 			</div>
 			<br> <br> <br>
@@ -81,7 +81,7 @@ th, td {
 			상품명 : <input type="text" class="form-control"  name="pname" required="required" placeholder="Enter 상품명"><br><br>
 			가격 : <input type="text" class="form-control" name="price" required="required" placeholder="숫자로 입력"><br><br>
 			등록수량 : <input type="text" class="form-control" name="total_amount" required="required" placeholder="숫자로 입력"><br><br>
-			상품설명 : <input type="text" class="form-control" name="simple_info"required="required" placeholder="상품 설명"><br><br>
+			상품설명 : <textarea rows="3" cols="30" class="form-control" name="simple_info"required="required" placeholder="상품 설명"></textarea><br><br>
 			상품이미지 : <input type="file" name="file" required="required" ><br><br>
 			<input type="submit" class="w3-button w3-block w3-black w3-margin-bottom" value="등록하기" >
 		</form>

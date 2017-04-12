@@ -20,8 +20,8 @@
 	<c:when test="${sessionScope.mvo.mcode==1 }">
 		<a href="${pageContext.request.contextPath}/page/updateMakerForm.jsp" style="text-decoration: none" class="w3-bar-item w3-button">Maker ${sessionScope.mvo.maker_bname }</a>
 		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showOrderList" style="text-decoration: none" onclick="w3_close()" class="w3-bar-item w3-button">ORDER LIST</a>
-		<a href="${pageContext.request.contextPath}/page/addProduct.jsp" onclick="w3_close()" style="text-decoration: none" class="w3-bar-item w3-button">REGIST PRODUCT</a>
-		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&id=${sessionScope.mvo.maker_id }" style="text-decoration: none" class="w3-bar-item w3-button">REGISTED PRODUCT</a>
+		<a href="${pageContext.request.contextPath}/page/addProduct.jsp" onclick="w3_close()" style="text-decoration: none" class="w3-bar-item w3-button">REGISTER PRODUCT</a>
+		<a href="${pageContext.request.contextPath}/DispatcherServlet?command=showInsertItem&id=${sessionScope.mvo.maker_id }" style="text-decoration: none" class="w3-bar-item w3-button">REGISTERED PRODUCT</a>
 		<hr><a href="${pageContext.request.contextPath}/DispatcherServlet?command=logout" style="text-decoration: none" class="w3-bar-item w3-button">LogOut</a>
 	</c:when>
 </c:choose>

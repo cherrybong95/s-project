@@ -61,19 +61,25 @@ public class CartBean {
    public int getTotalPrice(){
       int total=0;
       for(int i=0;i<productList.size();i++){
-         total+=productList.get(i).getPrice();
+         total+=productList.get(i).getPrice()*productList.get(i).getTotal_amount();
       }
       return total;
    }
    
+   /**
+    * 상품번호에 해당되는 상품의 주문수량(원랜 재고수량으로 쓰임)을 설정함
+    * @param id
+    * @param pno
+    * @param amount
+    */
    public void updateAmount(String id,int pno,int amount){
 	   for(int i=0;i<productList.size();i++){
 		   if(productList.get(i).getPno()==pno){
 			   productList.get(i).setTotal_amount(amount);
 		   }
 	   }
-		   
    }
+   
 }
 
 

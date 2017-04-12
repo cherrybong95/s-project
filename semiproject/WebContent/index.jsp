@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>바이핸드 by hand,buy hand</title>
 </head>
 <body> 
 	<h3>바이핸드 바이핸드</h3>

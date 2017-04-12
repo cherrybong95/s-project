@@ -77,7 +77,7 @@ $(document).ready(function(){
 				url:"${pageContext.request.contextPath}/DispatcherServlet",
 				data:"command=checkCart&pno="+pno,
 				success:function(data){
-					if(data == "true"){ //이미 존재한다면
+					if(data != "-1"){ //이미 존재한다면
 					alert("이미 존재하는 상품입니다!"); 
 					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList";
 				}else if(confirm("장바구니에 추가하시겠습니까?")){
@@ -174,9 +174,9 @@ function w3_close() {
 							<div class="w3-one">
 					<div id="info" style="margin-top:10px"class="w3-padding-16" align="left">
 					 가격 : ${requestScope.productDetail.price}
-					<br>재고수량 : <span id="total_amount">${total_amount}</span>
 				<form name="checkForm">
-					<c:if test="${sessionScope.mvo!=null && total_amount !=0 }">
+					<c:if test="${sessionScope.mvo!=null && total_amount >0 }">
+					<br>재고수량 : <span id="total_amount">${total_amount}</span><br>
 						수량 : <input type="text" name="amount" size="3" id="amount"></input>
 					</c:if>
 
@@ -184,13 +184,15 @@ function w3_close() {
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p>
 			<div align="right"> 
 				<c:choose> 
-					<c:when test="${sessionScope.mvo.mcode==2 && total_amount !=0}">
-					
-						<button class="btn btn-info" id="addCartBtn" >장바구니 담기</button>
-						<button class="btn btn-info" id="purchaseBtn">구매하기</button>
+
+					<c:when test="${sessionScope.mvo.mcode==2 && total_amount >0}">
+ 
+						<button class="w3-button w3-black w3-margin-bottom"  id="addCartBtn">장바구니 담기</button>
+						<button class="w3-button w3-black w3-margin-bottom"  id="purchaseBtn">구매하기</button>
+
 					</c:when>
 					<c:when test="${sessionScope.mvo!=null  && total_amount <=0}">
-						<font color="red" >품절</font>						
+					<font color="red" >품절</font>						
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
