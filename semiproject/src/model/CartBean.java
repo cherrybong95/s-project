@@ -65,6 +65,15 @@ public class CartBean {
       }
       return total;
    }
+   
+   public void updateAmount(String id,int pno,int amount){
+	   for(int i=0;i<productList.size();i++){
+		   if(productList.get(i).getPno()==pno){
+			   productList.get(i).setTotal_amount(amount);
+		   }
+	   }
+		   
+   }
 }
 
 

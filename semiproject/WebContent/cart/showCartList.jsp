@@ -59,6 +59,15 @@ th, td {
 
 			$("#total_price").text(parseInt(price)*amount); 
 			$("#final_amount").val(amount);
+			
+			$.ajax({
+				type:"post",
+				url:"${pageContext.request.contextPath}/DispatcherServlet",
+				data:"command=updateAmount&amount="+final_amount,
+				success:function(data){
+					alert(data);
+				}
+			})
 	   });
 	   
 	   $("#buy").on("click",function(){
@@ -142,7 +151,6 @@ th, td {
 								<td><input type="button" value="상품삭제" class="deleteCart"></td>
 							<tr>
 						</c:forEach>
-
 
 						<c:choose>
 							<c:when test="${requestScope.list!='[]'}">
