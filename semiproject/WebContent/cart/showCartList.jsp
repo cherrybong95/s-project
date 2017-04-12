@@ -56,7 +56,11 @@ th, td {
 	   $(".btn").click(function(){  //수량버튼 적용 클릭 시
 		   price=$(".price").text(); 
 		   amount=$(".amount").val(); 
-			alert(price+"        "+amount)
+		   
+           var pno = $(this).parent().parent().children().eq(0).text(); //상품   번호
+           var amount=$(this).siblings(".amount").val(); //수량
+			
+			
 			$(".total_price").text(parseInt(price)*amount); 
 			$(".final_amount").val(amount);
 			$(".final_amount").val(amount);
