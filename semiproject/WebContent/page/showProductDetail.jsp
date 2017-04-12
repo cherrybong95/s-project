@@ -56,14 +56,16 @@ body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
 <script type="text/javascript">
 <c:set value="${requestScope.productDetail.total_amount}" var="total_amount"/>
 $(document).ready(function(){
+	var pno =${requestScope.productDetail.pno};  //el로 상품번호 받아오기
+	var total_amount=parseInt($("#total_amount").text());
+	var amount=0;
+
 	$("#addCartBtn").click(function(){
-		var pno =${requestScope.productDetail.pno};  //el로 상품번호 받아오기
-		var amount=$("#amount");
-		var total_amount=${total_amount};
-		if(amount.val()==""){
+		amount=$("#amount").val();
+		if(amount==""){
 			alert("수량을 입력해주세요!");
 		}else if(amount>total_amount){
-			alert("rkx!");
+			alert("재고수량을 확인해주세요!");
 		}else{
 	 		$.ajax({ 			
 				type:"get",
@@ -74,12 +76,23 @@ $(document).ready(function(){
 					alert("이미 존재하는 상품입니다!"); 
 					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList";
 				}else if(confirm("장바구니에 추가하시겠습니까?")){
-					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno+"&amount="+amount.val();
+					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=addCart&pno="+pno+"&amount="+amount;
 				}
 			}//success
 		});  //ajax
 		} //else
 	}); //click
+	
+	$("#purchaseBtn").click(function(){
+		amount=$("#amount").val();
+		if(amount==""){
+			alert("수량을 입력해주세요!");
+		}else if(amount>total_amount){
+			alert("재고수량을 확인해주세요!");
+		}else{
+			location.href="${pageContext.request.contextPath}/DispatcherServlet?command=getPurchaseForm&pno="+pno+"&amount="+amount;
+		}
+	});
 });	//ready
 
 function w3_open() {
@@ -158,7 +171,7 @@ function w3_close() {
 							<div class="w3-one">
 					<div id="info">
 					 가격 : ${requestScope.productDetail.price}
-					<br>재고수량 : ${total_amount}
+					<br>재고수량 : <span id="total_amount">${total_amount}</span>
 				<form name="checkForm">
 					<c:if test="${sessionScope.mvo!=null}">
 						수량 : <input type="text" name="amount" size="3" id="amount"></input>
@@ -170,7 +183,7 @@ function w3_close() {
 				<c:choose>
 					<c:when test="${sessionScope.mvo!=null}">
 						<button class="btn btn-info" id="addCartBtn">장바구니 담기</button>
-						<button class="btn btn-info" id="purchase">구매하기</button>
+						<button class="btn btn-info" id="purchaseBtn">구매하기</button>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
@@ -183,7 +196,7 @@ function w3_close() {
 									
 			</div>
 			</div>
-		</div>
+
 </body>
 
 </html>
