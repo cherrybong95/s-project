@@ -12,21 +12,20 @@ public class CheckCartController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String path="index.jsp";
+		PrintWriter out = response.getWriter();
 		String pno=request.getParameter("pno"); 
 		HttpSession session = request.getSession(false);
-		int index=0;
 		BuyerVO mvo = (BuyerVO) session.getAttribute("mvo"); // 세션으로부터
 		// 회원정보를
 		// 받아온다.
+		int index=-1;
 		if(session !=null && mvo!=null) {
 			index=mvo.getCart().findIndexByNo(Integer.parseInt(pno)); //카트에 있는지 없는지 검사한다.
-			PrintWriter out = response.getWriter();
-			out.print(index);
-			out.close();
-			path="Ajax";
-		}
-		return path;
-	}
 
+		}
+		System.out.println("check index"+index);
+		out.print(index);
+		out.close();
+		return "Ajax";
+	}
 }
