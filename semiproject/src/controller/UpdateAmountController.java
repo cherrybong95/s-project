@@ -17,17 +17,20 @@ public class UpdateAmountController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      PrintWriter out = response.getWriter();
 	      String pno=request.getParameter("pno");
+	      System.out.println(pno);
 	      String amount=request.getParameter("amount");
+	      System.out.println(amount);
 	      
 	      HttpSession session=request.getSession(false);
 	      BuyerVO mvo = (BuyerVO)session.getAttribute("mvo");
 	      
-	      if(session !=null && mvo != null)
+	      if(session !=null && mvo != null){
 	         mvo.getCart().updateAmount(mvo.getBuyer_id(),Integer.parseInt(pno),Integer.parseInt(amount));
-
+	      }
+	      
 	      System.out.println("카트:"+mvo.getCart().getProductList().toString());
 	      
-	      //out.print();
+	     // out.print();
 	      out.close();
 	      return "Ajax";
 	}

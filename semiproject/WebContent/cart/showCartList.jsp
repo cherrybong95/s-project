@@ -53,32 +53,38 @@ th, td {
 	   var price="";
 	   var amount="";
 	   
-	   $("#btn").click(function(){  //수량버튼 적용 클릭 시
-		   price=$("#price").text(); 
-		   amount=$("#amount").val(); 
-
-			$("#total_price").text(parseInt(price)*amount); 
-			$("#final_amount").val(amount);
+	   $(".btn").click(function(){  //수량버튼 적용 클릭 시
+		   price=$(".price").text(); 
+		   amount=$(".amount").val(); 
+		   
+           var pno = $(this).parent().parent().children().eq(0).text(); //상품   번호
+           var amount=$(this).siblings(".amount").val(); //수량
+			
+			
+			$(".total_price").text(parseInt(price)*amount); 
+			$(".final_amount").val(amount);
+			$(".final_amount").val(amount);
+			
 			
 			$.ajax({
 				type:"post",
 				url:"${pageContext.request.contextPath}/DispatcherServlet",
-				data:"command=updateAmount&amount="+final_amount,
+				data:"command=updateAmount&amount="+$("#final_amount").val()+"",
 				success:function(data){
 					alert(data);
 				}
 			})
 	   });
 	   
-	   $("#buy").on("click",function(){
+	   $(".buy").on("click",function(){
 		   if($("#check").is(":checked") == false){
 				alert("주문할 상품을 선택하세요");
 				return false;
 		   }else{
-				if($("#final_amount").val()!=$("#amount").val()){ //수량값을 입력해놓고 적용 안누를 떄
+				if($(".final_amount").val()!=$(".amount").val()){ //수량값을 입력해놓고 적용 안누를 떄
 					alert("수량 적용버튼을 누르세요");
 			   		return false;
-			   }else if($("#final_amount").val()=="0"||$("#final_amount").val()==""){ //수량값으로 0을 입력할 때
+			   }else if($(".final_amount").val()=="0"||$(".final_amount").val()==""){ //수량값으로 0을 입력할 때
 			   		alert("1개 이상의 수량을 적용하세욧!");
 			   		return false;
 			   }else{
@@ -142,14 +148,17 @@ th, td {
 						</tr>
 						<c:forEach items="${requestScope.list}" var="list">
 							<tr align="center">
-								<td><input type="checkbox" id="check">
-								<input type="hidden" name="pno" value="${list.pno}">${list.pno}</td>
+								<td><input type="checkbox" class="check">
+								<input type="hidden" name="pno" value="${list.pno}"><span id="pno">${list.pno}</span></td>
 								<td>${list.pname}</td>
+
+
 								<td><input type="text" id="amount" style="width: 20pt; height: 20pt;" value="${list.total_amount}">
-								<input type="hidden" id="final_amount" name="amount" value="">
+								<!-- <input type="hidden" id="final_amount" name="amount" value=""> -->
 								<input type="button" id="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
 								<td id="unitPrice">${list.price}</td>
 								<td id="price">${list.price*list.total_amount}</td>
+
 								<td><input type="button" value="상품삭제" class="deleteCart"></td>
 							<tr>
 						</c:forEach>
