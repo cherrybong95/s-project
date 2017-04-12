@@ -122,13 +122,13 @@ th, td {
 			</div>
 			<br> <br> <br>
 			<div class="w3-content w3-justify" style="max-width: 900px">
-				<button class="btn btn-info pro_state">입금대기</button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button class="btn btn-info pro_state" >결제완료</button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button class="btn btn-info pro_state" >배송중</button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button class="btn btn-info pro_state" >배송완료</button><br><br>
+				<button class="w3-button w3-margin-bottom" style="background-color: #BDBDBD"><font color="white">입금대기</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="w3-button w3-margin-bottom" style="background-color: #8C8C8C"><font color="white">결제완료</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="w3-button w3-margin-bottom" style="background-color: #5D5D5D" ><font color="white">배송중</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="w3-button w3-margin-bottom" style="background-color: #353535"><font color="white">배송완료</font></button><br><br>
 			<table>
 				<thead id="thead">
-					<tr>
+					<tr> 
 						<th>번호</th><th>상품번호/상품명</th><th>거래번호</th><th>구매일</th><th>구매자명</th><th>구매자 연락처</th><th>결제 가격</th><th>결제상태</th><th>상태변경</th>
 					</tr>
 				</thead>

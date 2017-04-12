@@ -83,7 +83,7 @@ vertical-align: middle;
 					<td >${insertList.pno }</td>
 					<td><img src="${insertList.detail_info }" width=" 160px" height="130px" ></td>
 					<td>${insertList.pname }</td>
-					<td>${insertList.price }</td>
+					<td>${insertList.price } 원</td>
 					<td>
 						<a href="DispatcherServlet?command=update&no=${insertList.pno }" style="text-decoration: none">
 						<input type="button" class="w3-button w3-block w3-black w3-margin-bottom" value="수정"></a>&nbsp;&nbsp;
@@ -92,7 +92,6 @@ vertical-align: middle;
 					</td>
 				</tr>
 				</c:forEach>
-				
 			</tbody>
 		</table>
 	</form>

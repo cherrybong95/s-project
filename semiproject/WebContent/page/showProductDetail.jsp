@@ -183,12 +183,12 @@ function w3_close() {
 
 				<c:choose> 
 					<c:when test="${sessionScope.mvo.mcode==2 && total_amount >0}">
-
-						<button class="btn btn-info" id="addCartBtn">장바구니 담기</button>
-						<button class="btn btn-info" id="purchaseBtn">구매하기</button>
+ 
+						<button class="w3-button w3-black w3-margin-bottom"  id="addCartBtn">장바구니 담기</button>
+						<button class="w3-button w3-black w3-margin-bottom"  id="purchaseBtn">구매하기</button>
 					</c:when>
 					<c:when test="${sessionScope.mvo!=null  && total_amount <=0}">
-						<font color="red" >품절</font>						
+					<font color="red" >품절</font>						
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
