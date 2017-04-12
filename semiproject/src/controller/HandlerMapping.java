@@ -74,6 +74,8 @@ public class HandlerMapping {
 			c=new PurchaseController();
 		}else if(command.equals("purchasedInfo")){ 
 			c=new PurchasedInfoController();
+		}else if(command.equals("updateAmount")){
+			c=new UpdateAmountController();
 		}
 		return c;
 	}
