@@ -66,8 +66,7 @@ th, td {
 	<!-- Push down content on small screens -->
 	<div class="w3-hide-large" style="margin-top: 83px"></div>
 		<div class="w3-container w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
-			<div
-				class="w3-panel w3-center w3-border-bottom w3-border-dark-gray" >
+			<div class="w3-panel w3-center w3-border-bottom w3-border-dark-gray" >
 				<h1 align="left">
 					<b><i>Register Product</i></b>
 				</h1>
