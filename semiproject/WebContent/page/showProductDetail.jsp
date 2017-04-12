@@ -186,7 +186,7 @@ function w3_close() {
 						<button class="btn btn-info" id="purchaseBtn">구매하기</button>
 					</c:when>
 					<c:when test="${sessionScope.mvo!=null  && total_amount ==0}">
-						상품이 매진되었습니다 ㅠㅠ..
+						<font color="red" >품절</font>						
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
