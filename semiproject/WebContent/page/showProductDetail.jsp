@@ -179,7 +179,7 @@ function w3_close() {
 					<br>재고수량 : <span id="total_amount">${total_amount}</span><br>
 					</c:if>
  						수량 : <input type="text" name="amount" size="3" id="amount"></input>
-				</form>
+				</form> 
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p>
 			<div align="right"> 
 				<c:choose> 
