@@ -33,6 +33,11 @@ table {
 th, td {
 	padding: 15px;
 }
+#title {
+	text-align: left;
+	font-size: 30px;
+	padding: 15px;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -162,13 +167,11 @@ th, td {
 	<!-- Push down content on small screens -->
 	<div class="w3-hide-large" style="margin-top: 83px"></div>
 		<div class="w3-container w3-main w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
-			<div
-				class="w3-panel w3-center w3-border-bottom w3-border-dark-gray" >
-				<h1 align="left">
-					<b><i>CART</i></b> 
-				</h1> 
+		<div class="w3-panel  w3-border-bottom w3-border-dark-gray" id="title">
+				
+					<b>CART</b>
+				
 			</div>
-			<br> <br> <br>
 			<div class="w3-content w3-justify" style="max-width: 700px">	
 	
 			<c:set var="total_price" value="0"/>

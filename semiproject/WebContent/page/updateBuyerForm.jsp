@@ -31,6 +31,11 @@ table {
 	margin: auto;
 	text-align: center;
 }
+#title {
+	text-align: left;
+	font-size: 30px;
+	padding: 15px;
+}
 </style>
 <script type="text/javascript">
 
@@ -87,12 +92,11 @@ table {
 
 
 		<div class="w3-container w3-main w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
-			<div class="w3-panel w3-border-bottom w3-border-dark-gray">
-				<h1 align="left">
-					<b><i>회원정보수정</i></b>
-				</h1>
+		<div class="w3-panel  w3-border-bottom w3-border-dark-gray" id="title">
+				
+					<b>회원정보수정</b>
+				
 			</div>
-			<br> <br> <br>
 			<div class="w3-content w3-justify w3-center"   style="max-width: 600px">
 		
 	<!-- update grid -->

@@ -31,7 +31,11 @@ padding: 300px;
 text-align: center;
 vertical-align: middle;
 }
-
+#title {
+	text-align: left;
+	font-size: 30px;
+	padding: 15px;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script type="text/javascript">
@@ -72,12 +76,11 @@ vertical-align: middle;
 
 
 		<div class="w3-container w3-main w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
-			<div class="w3-panel w3-border-bottom w3-border-dark-gray">
-				<h1 align="left">
-					<b><i>내가 등록한 상품</i></b>
-				</h1>
+			<div class="w3-panel  w3-border-bottom w3-border-dark-gray" id="title">
+				
+					<b>내가등록한상품</b>
+				
 			</div>
-			<br> <br> <br>
 			<div class="w3-content w3-justify w3-center"   style="max-width: 900px">
 	<form action="DispatcherServlet" method="post">
    		<table class="table  table-hover" >
