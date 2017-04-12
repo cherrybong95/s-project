@@ -204,8 +204,14 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 					<li class="w3-padding-16"><h2>${requestScope.BuyerMember }</h2> 
 					<span class="w3-opacity">People</span></li>
 					<li class="w3-light-grey w3-padding-24">
+					<c:choose>
+					<c:when test="${sessionScope.mvo==null }">
 					<a href="page/joinSelect.jsp" style="text-decoration: none">
 						<button class="w3-button w3-white w3-padding-large">Sign Up</button></a>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+					</c:choose>
 					</li>
 				</ul>
 			</div>
@@ -218,8 +224,14 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 						 <span class="w3-opacity">People </span>
 					</li>
 					<li class="w3-light-grey w3-padding-24">
+					<c:choose>
+					<c:when test="${sessionScope.mvo==null }">
 					<a href="page/joinSelect.jsp" style="text-decoration: none">
 						<button class="w3-button w3-white w3-padding-large">Sign Up</button></a>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+					</c:choose> 
 					</li>
 				</ul>
 			</div>

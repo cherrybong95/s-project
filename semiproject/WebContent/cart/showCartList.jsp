@@ -54,17 +54,7 @@ th, td {
 	   var amount="";
 	   
 	   $(".btn").click(function(){  //수량버튼 적용 클릭 시
-		   price=$(".price").text(); 
-		   amount=$(".amount").val(); 
-		   
-           var pno = $(this).parent().parent().children().eq(0).text(); //상품   번호
-           var amount=$(this).siblings(".amount").val(); //수량
-			
-			
-			$(".total_price").text(parseInt(price)*amount); 
-			$(".final_amount").val(amount);
-			$("#total_price").val($(".final_amount").val());			
-			
+
            var pno = $(this).parent().parent().children().find(".pno").text(); //상품 번호
            price=$(this).parent().next().text(); //단가
            amount=$(this).siblings(".amount").val(); //수량
@@ -74,17 +64,15 @@ th, td {
 			$.ajax({
 				type:"post",
 				url:"${pageContext.request.contextPath}/DispatcherServlet",
-				data:"command=updateAmount&amount="+$("#final_amount").val()+"&pno="+$("#pno").val(),
-		
 				data:"command=updateAmount&amount="+amount+"&pno="+pno,
 				success:function(data){
 					alert(data);
 				}
-			})
+			}) 
 	   });
 	   
 	   $(".buy").on("click",function(){
-		   if($("#check").is(":checked") == false){
+		   if($(".check").is(":checked") == false){
 				alert("주문할 상품을 선택하세요");
 				return false;
 		   }else{
@@ -159,7 +147,6 @@ th, td {
 								<input type="hidden" name="pno" value="${list.pno}"><span class="pno">${list.pno}</span></td>
 								<td>${list.pname}</td>
 
-								
 
 								<td><input type="text" class="amount" style="width: 20pt; height: 20pt;" value="${list.total_amount}">
 								<!-- <input type="hidden" class="final_amount" name="amount" value=""> -->
