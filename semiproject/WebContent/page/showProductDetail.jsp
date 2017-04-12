@@ -174,13 +174,18 @@ function w3_close() {
 							<div class="w3-one">
 					<div id="info" style="margin-top:10px"class="w3-padding-16" align="left">
 					 가격 : ${requestScope.productDetail.price}
-				<form name="checkForm">
 					<c:if test="${sessionScope.mvo!=null && total_amount >0 }">
 					<br>재고수량 : <span id="total_amount">${total_amount}</span><br>
 					</c:if>
- 						수량 : <input type="text" name="amount" size="3" id="amount"></input>
-				</form> 
+				
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p>
+					<c:choose>
+					<c:when test="${sessionScope.mvo.mcode==2 && total_amount >0}">
+					<form name="checkForm">
+ 						수량 : <input type="text" name="amount" size="3" id="amount"></input>
+					</form> 
+					</c:when>
+					</c:choose>
 			<div align="right"> 
 				<c:choose> 
 					<c:when test="${sessionScope.mvo.mcode==2 && total_amount >0}">
