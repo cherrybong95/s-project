@@ -26,6 +26,11 @@ public class DeleteMemberController implements Controller {
 			return "redirect: index.jsp";
 			}
 		} else {
+			boolean flag=BuyerDAO.getInstance().checkProduct(id);
+			System.out.println(flag);
+			if(flag==false){
+				return "page/deletefail2.jsp";
+			}else{
 			BuyerDAO.getInstance().deleteMember(id);
 			HttpSession session=request.getSession();
 			session.invalidate();
@@ -34,4 +39,5 @@ public class DeleteMemberController implements Controller {
 		
 	}
 
+}
 }

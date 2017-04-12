@@ -143,6 +143,25 @@ public class BuyerDAO {
 		}
 		return flag;
 	}
+	public boolean checkProduct(String id) throws SQLException{
+		boolean flag=true;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=getConnection();
+			String sql="select t.tno from TRANSACTION t,buyer b where t.buyer_id=b.buyer_id and b.buyer_id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			if(rs.next()){
+				flag=false;
+			}
+		}finally{
+			closeAll(rs,pstmt,con);
+		}
+		return flag;
+	}
 	public void deleteMember(String id) throws SQLException{
 		Connection con = null;
 		PreparedStatement pstmt = null;
