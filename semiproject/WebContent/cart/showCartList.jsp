@@ -42,24 +42,19 @@ th, td {
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".check").prop("checked", true);
+		//$(":checkbox[name=pnoCheck]").prop("checked", true);
 		
-			$(".check").click(function(){
-		       $(this).each(function(){ 
-		    	   alert($(this).val());
-		       });
-		      //  if($(".check").is(':checked')==true)
-		     //   	alert($(this).next().val())
-		    	var amount=$(this).parent().next().next().next().find(".amount").val();       
-		         var price=$(this).parent().parent().children().eq(2).text();
-		         var total_price=parseInt($("#total_price").text());
-		           if($(this).prop("checked")!=true){
-		               //alert($(this).siblings(".pno").val());
-		               //$("#total_price").text(total_price-amount*price);
-		               
-		           }else{
-		              //$("#total_price").text(total_price+parseInt(amount*price));
-		           }
+		var checkbox="";
+		
+			$(":checkbox[name=pnoCheck]").change(function(){
+				checkbox=$(":checkbox[name=pnoCheck]:checked");
+				var price=0;
+				var total_price=0;
+				checkbox.each(function(){
+					price=parseInt($(this).parent().siblings(".price").text());
+					total_price+=price;
+				});
+				$("#total_price").text(total_price);
 		       });
 		    
 		    
@@ -71,15 +66,12 @@ th, td {
 		   	}
 	   	});
 
-	   var price="";
-	   var amount="";
-	   var check_amount="";
 	   $(".btn").click(function(){  //수량버튼 적용 클릭 시
 
            var pno = $(this).parent().parent().children().find(".pno").text(); //상품 번호
-           price=$(this).parent().next().text(); //단가
-           amount=$(this).siblings(".amount"); //수량
-           check_amount=$(this).siblings(".check_amount");
+           var price=$(this).parent().next().text(); //단가
+           var amount=$(this).siblings(".amount"); //수량
+           var check_amount=$(this).siblings(".check_amount");
            
            //alert(check_amount.val());
            $(this).parent().next().next().text(parseInt(price)*amount.val());  //가격에 반영되도록 수정
@@ -101,11 +93,11 @@ th, td {
 	   });
 	   
 	   $("#buy").on("click",function(){
-		   amount=$(this).parent().parent().parent().find(".amount");
-		   check_amount=$(this).parent().parent().parent().find(".check_amount");
+		   var amount=$(this).parent().parent().parent().find(".amount");
+		   var check_amount=$(this).parent().parent().parent().find(".check_amount");
 		   //alert(final_amount.val());
-		   if($(".check").is(":checked") == false){
-				alert("주문할 상품을 선택하세요");
+		   if($(":checkbox[name=pnoCheck]").is(":checked") == false){
+				alert("주문할 상품을 선택하세요!");
 				return false;
 		   }else if(amount.val()==""||amount.val()=="0"){
 			   alert("수량을 입력하세요");
@@ -113,26 +105,14 @@ th, td {
 		   }else if(amount.val()!=check_amount.val()){
 			   alert("수량 적용 버튼을 클릭해주시기 바랍니다.");
 			   return false;
-		   }
-//		   if()
-
-		  /*  if($(".check").is(":checked") == false){
-				alert("주문할 상품을 선택하세요");
-				return false;
 		   }else{
-				if($(".final_amount").val()!=$(".amount").val()){ //수량값을 입력해놓고 적용 안누를 떄
-					alert("수량 적용버튼을 누르세요");
-			   		return false;
-			   }else if($(".final_amount").val()=="0"||$(".final_amount").val()==""){ //수량값으로 0을 입력할 때
-			   		alert("1개 이상의 수량을 적용하세욧!");
-			   		return false;
-			   }else{
-				   var checkedNum="";
-				   $("input:checkbox:checked").each(function(){ 
-					   checkedNum=$(this).parent().text();
-			  		 }); 
-			   }//else
-		   }//큰 else*/
+				var pno="";
+			   checkbox.each(function(){
+			   	 pno+=("&pno="+$(this).next().val());
+			   });
+				alert(pno);
+				location.href="${pageContext.request.contextPath}/DispatcherServlet?command=getPurchaseForm"+pno;
+		   }
 	   });//buy
    });//ready
    
@@ -205,7 +185,7 @@ th, td {
 						</tr>
 						<c:forEach items="${requestScope.list}" var="list">
 							<tr align="center">
-								<td><input type="checkbox" class="check">
+								<td><input type="checkbox" name="pnoCheck">
 								<input type="hidden" name="pno" value="${list.pno}"><span class="pno">${list.pno}</span></td>
 								<td>${list.pname}</td>
 
@@ -224,10 +204,10 @@ th, td {
 							<c:when test="${requestScope.list!='[]'}">
 								<tr>
 									<td colspan="6" align="right">총 주문액 : <span
-										id="total_price">${total_price}</span></td>
+										id="total_price"></span></td>
 								</tr>
 								<tr>
-									<td colspan="6" align="center"><input type="submit"
+									<td colspan="6" align="center"><input type="button"
 										id="buy" value="구매하기" class="w3-button w3-black w3-margin-bottom"></td>
 								</tr>
 						</c:when>

@@ -81,11 +81,13 @@ public class CartBean {
    }
    
    //주문할 상품번호를 담은 주문리스트 불러오기
-public ArrayList<ProductVO> getPurchaseList(int pno) {
+public ArrayList<ProductVO> getPurchaseList(String[] pno) {
 	ArrayList<ProductVO> purchaseList = new ArrayList<ProductVO>();
-	for(int i=0; i<productList.size();i++){
-		if(productList.get(i).getPno()==pno){
-			purchaseList.add(productList.get(i));
+	for(int j=0; j<pno.length; j++){
+		for(int i=0; i<productList.size();i++){
+			if(productList.get(i).getPno()==Integer.parseInt(pno[j])){
+				purchaseList.add(productList.get(i));
+			}
 		}
 	}
 	return purchaseList;
