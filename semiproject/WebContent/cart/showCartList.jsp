@@ -106,28 +106,46 @@ th, td {
 		}
 			
    }
-	
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("myOverlay").style.display = "none";
+	}
 </script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 	
 	<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
 
+   <!-- Top menu on small screens -->
+	<header 
+		class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+		<span class="w3-left w3-padding">바이핸드</span>
+		<a	href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+	</header>
 	<!-- Overlay effect when opening sidebar on small screens -->
-	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
-
-
-	<div class="w3-main" style="margin-left: 300px">
-		<div
-			class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32">
+	<div class="w3-overlay w3-hide-large w3-animate-opacity"
+		onclick="w3_close()" style="cursor: pointer" title="close side menu"
+		id="myOverlay"></div>
+		
+		
+<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left: 250px" id="about">
+	<!-- Push down content on small screens -->
+	<div class="w3-hide-large" style="margin-top: 83px"></div>
+		<div class="w3-container w3-main w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
 			<div
-				class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
-				<h1 align="center">
-					<b><i>Shopping Cart</i></b>
-				</h1>
+				class="w3-panel w3-center w3-border-bottom w3-border-dark-gray" >
+				<h1 align="left">
+					<b><i>CART</i></b> 
+				</h1> 
 			</div>
 			<br> <br> <br>
-			<div class="w3-content w3-justify" style="max-width: 600px">
+			<div class="w3-content w3-justify" style="max-width: 700px">	
 	
 			<c:set var="total_price" value="0"/>
 				<form id="checkForm" action="DispatcherServlet" name="cartListForm"
@@ -150,11 +168,11 @@ th, td {
 
 								<td><input type="text" class="amount" style="width: 20pt; height: 20pt;" value="${list.total_amount}">
 								<!-- <input type="hidden" class="final_amount" name="amount" value=""> -->
-								<input type="button" class="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
+								<input type="button" class="btn w3-button w3-black" value="적용" style="width: 40pt; height: 20pt;"></td>
 								<td class="unitPrice">${list.price}</td>
 								<td class="price">${list.price*list.total_amount}</td>
 								<c:set var="total_price" value="${total_price+list.price*list.total_amount}"/>
-								<td><input type="button" value="상품삭제" class="deleteCart"></td>
+								<td><input type="button" value="상품삭제" class="deleteCart w3-button w3-black w3-margin-bottom"></td>
 							<tr>
 						</c:forEach>
 
@@ -166,7 +184,7 @@ th, td {
 								</tr>
 								<tr>
 									<td colspan="6" align="center"><input type="submit"
-										id="buy" value="구매하기"></td>
+										id="buy" value="구매하기" class="w3-button w3-black w3-margin-bottom"></td>
 								</tr>
 						</c:when>
 						</c:choose>
