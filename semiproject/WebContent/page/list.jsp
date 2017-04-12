@@ -193,20 +193,7 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
       	</p>
       	<p>mail: example@example.com</p>
       	<p>tel: 5353 35531</p>
-      	<hr class="w3-opacity">
-      	<h4 class="w3-padding-16">Technical Skills</h4>
-      	<p class="w3-wide">Photography</p>
-      	<div class="w3-white">
-        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:95%">95%</div>
-	</div>
-    <p class="w3-wide">Web Design</p>
-    <div class="w3-white">
-    	<div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
-    </div>
-	<p class="w3-wide">Photoshop</p>
-	<div class="w3-white">
-		<div class="w3-container w3-padding-small w3-center w3-grey" style="width:80%">80%</div>
-	</div>
+      	
 	<!-- <p><button class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom">Download Resume</button></p> -->
 	<hr class="w3-opacity">
 	<h4 class="w3-padding-16">How many our member</h4>
