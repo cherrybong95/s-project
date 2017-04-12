@@ -77,7 +77,7 @@ th, td {
 				<td><a href="${pageContext.request.contextPath}/DispatcherServlet?command=TransactionDetailInfo&tno=${transactionList.tno}">${transactionList.tno}</a></td>
 				<td>${transactionList.pro_state}</td>
 				<td>${transactionList.pvo.pno}</td>
-				<td class="product" ><img class="product_img" src="${pageContext.request.contextPath}/img/안경.jpg">
+				<td class="product" ><img class="product_img" src="${pageContext.request.contextPath}/${transactionList.pvo.detail_info}">
 				<div><p>상품명 : ${transactionList.pvo.pname}<br>가격 : ${transactionList.pvo.price}<br>${transactionList.pvo.simple_info}</p></div></td>
 				<td>${transactionList.amount}</td>
 				<td>${transactionList.pvo.price*transactionList.amount}</td>
@@ -88,6 +88,7 @@ th, td {
 				<!-- Pagination -->
 	<div class="w3-center w3-padding-32">
 		<div class="w3-bar">
+		
 		<c:set value="${requestScope.pagingBean.nowPage}" var="nowPage"></c:set>
 			<c:if test="${requestScope.pagingBean.previousPageGroup==true}">
 			<a href="DispatcherServlet?command=purchaseList&pageNo=${requestScope.pagingBean.startPageOfPageGroup-1}" class="w3-bar-item w3-button w3-hover-black">«</a> 
@@ -110,5 +111,6 @@ th, td {
 	</div>
 	</div>
 	</div>
+	
 </body>
 </html>

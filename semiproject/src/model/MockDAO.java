@@ -279,7 +279,7 @@ public class MockDAO {
 			 * between 1 and 9 order by rnum desc;
 			 */
 			StringBuilder sql=new StringBuilder();
-			sql.append("select t.rnum, t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.simple_info,t.amount*p.price as total_price from(  ");
+			sql.append("select t.rnum, t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.simple_info,p.detail_info,t.amount*p.price as total_price from(  ");
 			sql.append("select row_number() over(order by tdate desc) as rnum, tno,pno,pro_state,tdate,amount  from transaction where buyer_id=? ");
 			sql.append(")t, semi_product p where t.pno=p.pno and rnum between ? and ? order by rnum asc");
 			pstmt=con.prepareStatement(sql.toString());
@@ -292,13 +292,14 @@ public class MockDAO {
 				TransactionDTO tdto= new TransactionDTO();
 				tdto.setTno(rs.getInt("tno"));
 				tdto.setTdate(rs.getString("tdate"));
-				tdto.setAmount(rs.getInt("amount"));
+				tdto.setAmount(rs.getInt("amount")); 
 				tdto.setPro_state(rs.getString("pro_state"));
 				ProductVO pvo=new ProductVO();
 				pvo.setPno(rs.getInt("pno"));
 				pvo.setPname(rs.getString("pname"));
 				pvo.setPrice(rs.getInt("price"));
 				pvo.setSimple_info(rs.getString("simple_info"));
+				pvo.setDetail_info(rs.getString("detail_info"));
 				tdto.setPvo(pvo);
 				transactionList.add(tdto);
 			}
