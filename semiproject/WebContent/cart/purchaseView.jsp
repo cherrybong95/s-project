@@ -19,7 +19,12 @@ body, h1, h2, h3, h4, h5, h6, b,.w3-wide {
 
 table, td, th {    
     border: 1px solid #ddd;
-    text-align: center;
+ /*    text-align: center; */
+    margin :auto;
+
+padding: 300px;
+text-align: center;
+vertical-align: middle;
 }
 
 table {
@@ -80,11 +85,13 @@ function w3_close() {
 				</h1>
 			</div>
 			<br> <br> <br>
-			<div class="w3-content w3-justify w3-center"   style="max-width: 800px">
+			<div class="w3-content w3-justify w3-center"   style="max-width: 900px">
 	<c:forEach items="${requestScope.transaction}" var="transactionList">
+	<p align="left">
 	구매날짜 : ${transactionList.tdate}
+	</p>
 	<p>
-	<table>
+	<table class="table  table-hover">
 			<tr>
 				<th >주문번호</th>
 				<th>배송처리상태</th>
