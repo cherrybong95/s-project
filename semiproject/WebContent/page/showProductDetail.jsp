@@ -177,7 +177,7 @@ function w3_close() {
 				<form name="checkForm">
 					<c:if test="${sessionScope.mvo!=null && total_amount >0 }">
 					<br>재고수량 : <span id="total_amount">${total_amount}</span><br>
-						수량 : <input type="text" name="amount" size="3" id="amount"></input>
+						
 					</c:if>
 
 				</form>
