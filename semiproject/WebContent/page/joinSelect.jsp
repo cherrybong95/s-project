@@ -56,8 +56,9 @@ table {
 				<p class="w3-opacity" style="text-align: center">
 					당신이 손수 만든 작품은 상대방에게 알리고 싶으십니까? <br>
 					혹은 복잡하지 않고 보다 손 쉽게	돈을 벌고 싶으십니까? <br>
-					그렇다면 저희 바이핸드에 메이커(판매자) 에 등록을 추천 합니다.<br>
-					 지금 당장 가입하여 당신이 전에 느껴보지 못한 경험을 해보세요!
+					그렇다면 저희 바이핸드에 메이커(판매자) 에 <br>
+					등록을 추천 합니다.<br>
+					지금 당장 가입해 당신이 전에 느끼지 못한 경험을 하세요!
 				</p></li>
 			<li class="w3-light-white w3-padding-24"><a href="joinFormMaker.jsp">
 			<button class="w3-button w3-light-grey w3-padding-large">Sign Up</button></a></li>
@@ -72,8 +73,9 @@ table {
 					<p class="w3-opacity" style="text-align: center">
 						한번도 보지 못한 제품을 원하십니까? <br>
 						당신만에 특별한 악세사리를 원하십니까? <br>
-						그렇다면 저희 바이핸드에 바이어(구매자) 에 등록을 추천 합니다. <br>
-						지금 당장 가입하여 모두에게 당신의 유니크함을 보여 주세요!
+						그렇다면 저희 바이핸드에 바이어(구매자) 에 <br>
+						등록을 추천 합니다. <br>
+						지금 당장 가입하여 모두에게 당신의 유니크을 보여 주세요!
 					</p>
 				</li>
 				<li class="w3-light-white w3-padding-24"><a
