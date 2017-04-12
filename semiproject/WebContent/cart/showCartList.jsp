@@ -47,79 +47,83 @@ th, td {
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		//$(":checkbox[name=pnoCheck]").prop("checked", true);
-		
 		var checkbox="";
-		
-			$(":checkbox[name=pnoCheck]").change(function(){
-				checkbox=$(":checkbox[name=pnoCheck]:checked");
-				var price=0;
-				var total_price=0;
-				checkbox.each(function(){
-					price=parseInt($(this).parent().siblings(".price").text());
-					total_price+=price;
-				});
-				$("#total_price").text(total_price);
-		       });
-		    
-		    
-	   	$(".deleteCart").click(function(){
-		   //alert($(this).parent().parent().children().eq(0).text());
-		   	var pno=$(this).parent().parent().children().eq(0).text();
-		   	if(confirm("상품을 삭제하시겠습니까?")){
-			   	location.href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteCart&pno="+pno;
-		   	}
-	   	});
+		   $(":checkbox[name=pnoCheck]").change(function(){
+	            checkbox=$(":checkbox[name=pnoCheck]:checked");
+	            var price=0;
+	            var total_price=0;
+	            checkbox.each(function(){
+	               price=parseInt($(this).parent().siblings(".price").text());
+	               total_price+=price;
+	            });
+	            $("#total_price").text(total_price);
+	        });
+	          
+	          
+	         $(".deleteCart").click(function(){
+	         //alert($(this).parent().parent().children().eq(0).text());
+	            var pno=$(this).parent().parent().children().eq(0).text();
+	            if(confirm("상품을 삭제하시겠습니까?")){
+	               location.href="${pageContext.request.contextPath}/DispatcherServlet?command=deleteCart&pno="+pno;
+	            }
+	         });
 
-	   $(".btn").click(function(){  //수량버튼 적용 클릭 시
-
-           var pno = $(this).parent().parent().children().find(".pno").text(); //상품 번호
-           var price=$(this).parent().next().text(); //단가
-           var amount=$(this).siblings(".amount"); //수량
-           var check_amount=$(this).siblings(".check_amount");
-           
-           //alert(check_amount.val());
-           $(this).parent().next().next().text(parseInt(price)*amount.val());  //가격에 반영되도록 수정
-		
-			$.ajax({
-				type:"post",
-				url:"${pageContext.request.contextPath}/DispatcherServlet",
-				data:"command=updateAmount&amount="+amount.val()+"&pno="+pno,
-				success:function(data){
-					if(data=='-1'){
-						alert("재고수량을 확인해주시기 바랍니다!");
-						amount.val("");
-						return;
-					}
-					check_amount.val(amount.val());
-					$("#total_price").text(data);
-				}
-			});
-	   });
-	   
-	   $("#buy").on("click",function(){
-		   var amount=$(this).parent().parent().parent().find(".amount");
-		   var check_amount=$(this).parent().parent().parent().find(".check_amount");
-		   //alert(final_amount.val());
-		   if($(":checkbox[name=pnoCheck]").is(":checked") == false){
-				alert("주문할 상품을 선택하세요!");
-				return false;
-		   }else if(amount.val()==""||amount.val()=="0"){
-			   alert("수량을 입력하세요");
-			   return false;
-		   }else if(amount.val()!=check_amount.val()){
-			   alert("수량 적용 버튼을 클릭해주시기 바랍니다.");
-			   return false;
-		   }else{
-				var pno="";
-			   checkbox.each(function(){
-			   	 pno+=("&pno="+$(this).next().val());
-			   });
-				alert(pno);
-				location.href="${pageContext.request.contextPath}/DispatcherServlet?command=getPurchaseForm"+pno;
-		   }
-	   });//buy
-   });//ready
+	      $(".btn").click(function(){  //수량버튼 적용 클릭 시
+	    	  var check_no=$(this).parent().parent().children().find(":checkbox[name=pnoCheck]");
+	     // alert(check_no.prop("checked"));
+	      	if(check_no.prop("checked")==true){
+	      		alert("체크를 해제 후 진행해주세요");
+	      		return;
+	      	}
+	           var pno = $(this).parent().parent().children().find(".pno").text(); //상품 번호
+	           var price=$(this).parent().next().text(); //단가
+	           var amount=$(this).siblings(".amount"); //수량
+	           var check_amount=$(this).siblings(".check_amount");
+	           //alert(check_no.val());
+	           //alert(check_amount.val());
+	           $(this).parent().next().next().text(parseInt(price)*amount.val());  //가격에 반영되도록 수정
+	      
+	         $.ajax({
+	            type:"post",
+	            url:"${pageContext.request.contextPath}/DispatcherServlet",
+	            data:"command=updateAmount&amount="+amount.val()+"&pno="+pno,
+	            success:function(data){
+	               if(data=='-1'){
+	                  alert("재고수량을 확인해주시기 바랍니다!");
+	                  amount.val(""); 
+	                  //$(this).parent().next().next().next().next().text(""); 
+	                  return;
+	               }
+	               check_amount.val(amount.val());
+	               check_no.prop("checked",false);
+	               //$("#total_price").text(data); 
+	            }
+	         });
+	      });
+	      
+	      $("#buy").on("click",function(){
+	         var amount=$(this).parent().parent().parent().find(".amount");
+	         var check_amount=$(this).parent().parent().parent().find(".check_amount");
+	         //alert(final_amount.val());
+	         if($(":checkbox[name=pnoCheck]").is(":checked") == false){
+	            alert("주문할 상품을 선택하세요!");
+	            return false;
+	         }else if(amount.val()==""||amount.val()=="0"){
+	            alert("수량을 입력하세요");
+	            return false;
+	         }else if(amount.val()!=check_amount.val()){
+	            alert("수량 적용 버튼을 클릭해주시기 바랍니다.");
+	            return false;
+	         }else{
+	            var pno="";
+	            checkbox.each(function(){
+	                pno+=("&pno="+$(this).next().val());
+	            });
+	            alert(pno);
+	            location.href="${pageContext.request.contextPath}/DispatcherServlet?command=getPurchaseForm"+pno;
+	         }
+	      });//buy
+	   });//ready
    
 	function checkForm(){
 		var checkedForm=document.cartListForm;
