@@ -122,10 +122,10 @@ th, td {
 			</div>
 			<br> <br> <br>
 			<div class="w3-content w3-justify" style="max-width: 900px">
-				<button class="w3-button w3-margin-bottom" style="background-color: #BDBDBD"><font color="white">입금대기</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button class="w3-button w3-margin-bottom" style="background-color: #8C8C8C"><font color="white">결제완료</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button class="w3-button w3-margin-bottom" style="background-color: #5D5D5D" ><font color="white">배송중</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button class="w3-button w3-margin-bottom" style="background-color: #353535"><font color="white">배송완료</font></button><br><br>
+				<button class="w3-button w3-margin-bottom pro_state" style="background-color: #BDBDBD"><font color="white">입금대기</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="w3-button w3-margin-bottom pro_state" style="background-color: #8C8C8C"><font color="white">결제완료</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="w3-button w3-margin-bottom pro_state" style="background-color: #5D5D5D" ><font color="white">배송중</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="w3-button w3-margin-bottom pro_state" style="background-color: #353535"><font color="white">배송완료</font></button><br><br>
 			<table>
 				<thead id="thead">
 					<tr> 

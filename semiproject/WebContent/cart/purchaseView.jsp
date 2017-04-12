@@ -19,7 +19,12 @@ body, h1, h2, h3, h4, h5, h6, b,.w3-wide {
 
 table, td, th {    
     border: 1px solid #ddd;
-    text-align: center;
+ /*    text-align: center; */
+    margin :auto;
+
+padding: 300px;
+text-align: center;
+vertical-align: middle;
 }
 
 table {
@@ -42,29 +47,51 @@ th, td {
 	padding: 10px;
 }
 </style>
+<script type="text/javascript">
+function w3_open() {
+	document.getElementById("mySidebar").style.display = "block";
+	document.getElementById("myOverlay").style.display = "block";
+}
 
+function w3_close() {
+	document.getElementById("mySidebar").style.display = "none";
+	document.getElementById("myOverlay").style.display = "none";
+}
+</script>
 </head>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
-	<!-- Sidebar/menu -->
+		<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
-	
-		<!-- Overlay effect when opening sidebar on small screens -->
+<!-- Top menu on small screens -->
+	<header
+		class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+		<span class="w3-left w3-padding">바이핸드</span>
+		<a	href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+	</header>
+	<!-- Overlay effect when opening sidebar on small screens -->
 	<div class="w3-overlay w3-hide-large w3-animate-opacity"
 		onclick="w3_close()" style="cursor: pointer" title="close side menu"
 		id="myOverlay"></div>
-	
-	
-	
-	<div class="w3-main" style="margin-left: 300px">
-	<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large ">
-	<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
-  	<h1 align="center"><b><i>Order List</i></b></h1>
-	</div> 
-	<br><br><br>
+<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left: 250px">
+	<!-- Push down content on small screens -->
+	<div class="w3-hide-large" style="margin-top: 83px"></div>
+
+ 
+		<div class="w3-container w3-main w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
+			<div class="w3-panel w3-border-bottom w3-border-dark-gray">
+				<h1 align="left">
+					<b><i>주문목록</i></b>
+				</h1>
+			</div>
+			<br> <br> <br>
+			<div class="w3-content w3-justify w3-center"   style="max-width: 900px">
 	<c:forEach items="${requestScope.transaction}" var="transactionList">
+	<p align="left">
 	구매날짜 : ${transactionList.tdate}
+	</p>
 	<p>
-	<table>
+	<table class="table  table-hover">
 			<tr>
 				<th >주문번호</th>
 				<th>배송처리상태</th>
@@ -104,13 +131,13 @@ th, td {
 			</c:choose>				
 			</c:forEach>
 			<c:if test="${requestScope.productListVO.pagingBean.nextPageGroup==true}">
-			<a href="${pageContext.request.contextPath}DispatcherServlet?command=purchaseList&pageNo=${requestScope.pagingBean.endPageOfPageGroup+1}&id=${sessionScope.mvo.maker_id}" class="w3-bar-item w3-button w3-hover-black">»</a> 
+			<a href="${pageContext.request.contextPath}/DispatcherServlet?command=purchaseList&pageNo=${requestScope.pagingBean.endPageOfPageGroup+1}&id=${sessionScope.mvo.maker_id}" class="w3-bar-item w3-button w3-hover-black">»</a> 
 			
 			</c:if>
 		</div>
 	</div>
 	</div>
 	</div>
-	
+	</div>
 </body>
 </html>

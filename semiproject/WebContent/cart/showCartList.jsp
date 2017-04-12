@@ -106,7 +106,15 @@ th, td {
 		}
 			
    }
-	
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("myOverlay").style.display = "none";
+	}
 </script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
 	
@@ -129,7 +137,7 @@ th, td {
 	<div class="w3-main" style="margin-left: 250px" id="about">
 	<!-- Push down content on small screens -->
 	<div class="w3-hide-large" style="margin-top: 83px"></div>
-		<div class="w3-container w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
+		<div class="w3-container w3-main w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
 			<div
 				class="w3-panel w3-center w3-border-bottom w3-border-dark-gray" >
 				<h1 align="left">

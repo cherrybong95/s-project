@@ -18,15 +18,12 @@ public class PurchaseController implements Controller {
 		String no=request.getParameter("pno"); //상품번호
 		int pno=Integer.parseInt(no);
 		int amount=Integer.parseInt(request.getParameter("amount")); //수량
-		
+		System.out.println(amount);
 		//배송정보 입력받아옴
 		String receiver=request.getParameter("receiver");//수령인
 		String destination=request.getParameter("destination");//수령지
 		String contact=request.getParameter("contact");//전화번호
-		System.out.println("수령인"+receiver);
-		System.out.println(destination);
-		System.out.println(contact);
-		
+
 		int tno=0; //거래번호 변수
 		
 		HttpSession session=request.getSession();
@@ -37,6 +34,9 @@ public class PurchaseController implements Controller {
 			tno=MockDAO.getInstance().purchaseProduct(pno,amount,mvo.getBuyer_id());
 			//거래번호에 매칭하도록 배송정보를 저장함
 			MockDAO.getInstance().addDeliveryInfo(receiver, destination, contact, tno);
+			if(mvo.getCart().findIndexByNo(pno)!=-1){
+				mvo.getCart().removeProduct(pno);
+				}
 			}
 		return "redirect:DispatcherServlet?command=purchasedInfo&tno="+tno+"&pno="+no+"&amount="+amount;
 	}
