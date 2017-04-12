@@ -16,7 +16,7 @@ public class UpdateAmountController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      PrintWriter out = response.getWriter();
-	      String pno=request.getParameter("pno");
+	      String pno=request.getParameter("상품번호:pno");
 	      System.out.println(pno);
 	      String amount=request.getParameter("amount");
 	      System.out.println(amount);

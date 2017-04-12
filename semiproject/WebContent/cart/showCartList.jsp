@@ -63,13 +63,20 @@ th, td {
 			
 			$(".total_price").text(parseInt(price)*amount); 
 			$(".final_amount").val(amount);
-			$(".final_amount").val(amount);
+			$("#total_price").val($(".final_amount").val());			
 			
-			
+           var pno = $(this).parent().parent().children().find(".pno").text(); //상품 번호
+           price=$(this).parent().next().text(); //단가
+           amount=$(this).siblings(".amount").val(); //수량
+
+           $(this).parent().next().next().text(parseInt(price)*amount);  //가격에 반영되도록 수정
+		
 			$.ajax({
 				type:"post",
 				url:"${pageContext.request.contextPath}/DispatcherServlet",
-				data:"command=updateAmount&amount="+$("#final_amount").val()+"",
+				data:"command=updateAmount&amount="+$("#final_amount").val()+"&pno="+$("#pno").val(),
+		
+				data:"command=updateAmount&amount="+amount+"&pno="+pno,
 				success:function(data){
 					alert(data);
 				}
@@ -149,15 +156,16 @@ th, td {
 						<c:forEach items="${requestScope.list}" var="list">
 							<tr align="center">
 								<td><input type="checkbox" class="check">
-								<input type="hidden" name="pno" value="${list.pno}"><span id="pno">${list.pno}</span></td>
+								<input type="hidden" name="pno" value="${list.pno}"><span class="pno">${list.pno}</span></td>
 								<td>${list.pname}</td>
 
+								
 
-								<td><input type="text" id="amount" style="width: 20pt; height: 20pt;" value="${list.total_amount}">
-								<!-- <input type="hidden" id="final_amount" name="amount" value=""> -->
-								<input type="button" id="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
-								<td id="unitPrice">${list.price}</td>
-								<td id="price">${list.price*list.total_amount}</td>
+								<td><input type="text" class="amount" style="width: 20pt; height: 20pt;" value="${list.total_amount}">
+								<!-- <input type="hidden" class="final_amount" name="amount" value=""> -->
+								<input type="button" class="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
+								<td class="unitPrice">${list.price}</td>
+								<td class="price">${list.price*list.total_amount}</td>
 
 								<td><input type="button" value="상품삭제" class="deleteCart"></td>
 							<tr>
@@ -166,8 +174,7 @@ th, td {
 						<c:choose>
 							<c:when test="${requestScope.list!='[]'}">
 								<tr>
-									<td colspan="6" align="right">총 주문액 :<span
-										id="total_price"></span></td>
+									<td colspan="6" align="right">총 주문액 : <span id="total_price"></span></td>
 								</tr>
 								<tr>
 									<td colspan="6" align="center"><input type="submit"
