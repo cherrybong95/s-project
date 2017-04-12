@@ -61,12 +61,12 @@ public class MockDAO {
 					pvo=new ProductVO();
 					pvo.setPno(rs.getInt(1));
 					pvo.setPname(rs.getString(2));
-					//pvo.setPrice(rs.getInt(3));
+					pvo.setPrice(rs.getInt(3));
 					pvo.setDetail_info(rs.getString(4));
 					pvo.setTotal_amount(rs.getInt(5));
 					pvo.setSimple_info(rs.getString(6));
 					pvo.setTotal_amount(amount);
-					pvo.setPrice(amount*rs.getInt(3));
+
 				}
 			}finally{
 				closeAll(rs,pstmt,con);
