@@ -14,55 +14,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-.w3-sidebar a {
-	font-family: "Roboto", sans-serif;
-	'
-}
-
 body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	font-family: "Montserrat", sans-serif;
-}
-
-.w3-one img {
-	width: 100%;
-	height: 350px;
-}
-
-.w3-one {
-	position: relative;
-	display: block;
-}
-
-.w3-third img {
-	margin-bottom: -6px;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
-.w3-one:hover .overlay {
-	opacity: 0.5;
-}
-
-.w3-one:hover img {
-	opacity: 1;
-}
-
-.overlay {
-	dispaly: block;
-	position: absolute;
-	top: 75%;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: black;
-	opacity: 0.0;
-	transition: .5s ease;
-}
-
-.txtOverLay {
-	color: white;
-	position: absolute;
-	font-size: 0.875em;
 }
 
 table {
@@ -77,27 +30,20 @@ table {
 	<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
 
-	<!-- Top menu on small screens -->
-	<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-		<span class="w3-left w3-padding">바이핸드</span>
-		<a	href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-	</header>
-
 	<!-- Overlay effect when opening sidebar on small screens -->
 	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
-	<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 " id="top" style="margin-left: 300px">
-		<span><h2><b>JOIN</b></h2></span>
-		<hr style="border: solid 3px white;">
-	</div>
-	<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-32" id="about">
-	<!-- !PAGE CONTENT! -->
-	<br>
+	
+	
 	<div class="w3-main" style="margin-left: 300px">
-
-	<!-- Push down content on small screens -->
-		<div class="w3-hide-large" style="margin-top: 83px"></div>
-		<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 s" id="top" style="margin-left: 300px"></div>
-		<div class="w3-container w3-light-grey w3-center w3-text-dark-grey w3-padding-32" id="about">
+		<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large">
+			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
+				<h1 align="center">
+					<b><i>Join</i></b>
+				</h1>
+			</div>
+			<br> <br> <br>
+			<div class="w3-content w3-justify"   style="max-width: 900px">
+			
 		<!-- join grid -->
 		<div class="w3-container w3-light-grey w3-center w3-text-light-grey w3-padding-48" id="about">
 		<div class="w3-row">
@@ -140,14 +86,6 @@ table {
 	</div>
 	</div>
 	</div>
-	</div>
-	<!-- Modal for full size images on click-->
-	<div id="modal01" class="w3-modal w3-black" style="padding-top: 0" onclick="this.style.display='none'">
-		<span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
-		<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-			<img id="img01" class="w3-image">
-			<p id="caption"></p>
-		</div>
 	</div>
 </div>
 </div>

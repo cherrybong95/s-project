@@ -555,7 +555,7 @@ public class MockDAO {
 			closeAll(pstmt, con);
 		}
 	}
-	
+
 	/**
 	 * 상품을 주문하면 상품재고량이 줄어드는 메서드
 	 * @param pno
@@ -578,4 +578,28 @@ public class MockDAO {
 			closeAll(rs, pstmt, con);
 		}
 	}
+
+	public int getTotalPurchaseNo(String buyer_id) throws SQLException {
+		int totalPurchaseNo=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			con = DataSourceManager.getInstance().getDataSource().getConnection();
+			/*
+			 * select count(*) from transaction where buyer_id='java';
+			 */
+			String sql="select count(*) from transaction where buyer_id=? ";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, buyer_id);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				totalPurchaseNo=rs.getInt(1);
+			}
+		}finally{
+			closeAll(rs, pstmt, con);
+		}
+		return totalPurchaseNo;
+	}
+
 }

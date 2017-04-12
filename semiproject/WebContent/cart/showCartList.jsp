@@ -155,7 +155,7 @@ th, td {
 										id="buy" value="구매하기"></td>
 								</tr>
 							</c:when>
-						</c:choose>
+							</c:choose>
 					</table>
 					<input type="hidden" name="command" value="getPurchaseForm">
 				</form>

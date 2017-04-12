@@ -4,72 +4,34 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>주문하기</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" 	href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-.w3-sidebar a {
-	font-family: "Roboto", sans-serif;
-	'
-}
-
 body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
 	font-family: "Montserrat", sans-serif;
 }
 
-.w3-one img {
-	width: 400px;
-	height: 300px;
+table, td, th {   
+    border: 1px solid #ddd;
+    text-align: center;
 }
 
-.w3-one {
-	position: relative;
-	display: block;
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.w3-third img {
-	margin-bottom: -6px;
-	opacity: 0.7;
-	cursor: pointer;
-}
-
-.w3-one:hover .overlay {
-	opacity: 0.5;
-}
-
-.w3-one:hover img {
-	opacity: 1;
-}
-
-.overlay {
-	dispaly: block;
-	position: absolute;
-	top: 70%;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: black;
-	opacity: 0.0;
-	transition: .5s ease;
-}
-
-.txtOverLay {
-	color: white;
-	position: absolute;
-	font-size: 0.875em;
-	
-}
-s{
- color: solid-black
-	
+th, td {
+    padding: 10px;
 }
 </style>
 
-	<title>주문하기</title>
-	
-		<jsp:include page="../templet/left.jsp"></jsp:include>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#selectInfoForm :radio[name=selectInfo]").change(function(){ //라디오 버튼을 누를 때
@@ -102,17 +64,18 @@ s{
 	<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
 
-	<!-- Top menu on small screens -->
-	<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-		<span class="w3-left w3-padding">바이핸드</span>
-		<a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-	</header>
-
 	<!-- Overlay effect when opening sidebar on small screens -->
 	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="myOverlay"></div>
 	
-	<div class="w3-container w3-light-grey w3-text-dark-grey w3-padding-10 s" id="top" style="margin-left:300px">
-	<hr>
+	<div class="w3-main" style="margin-left: 300px">
+		<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large">
+			<div class="w3-panel w3-border-top w3-border-bottom w3-border-dark-gray">
+				<h1 align="center">
+					<b><i>PurchaseForm</i></b>
+				</h1>
+			</div>
+			<br> <br> <br>
+			<div class="w3-content w3-justify w3-center"   style="max-width: 800px">
 	<table> <!-- 카트에서 주문할 상품 선택 후의 리스트 보여줌 -->
 		<tr>
 			<th>상품번호</th><th>상품명</th><th>가격</th><th>수량</th>
@@ -133,15 +96,24 @@ s{
 		기존 배송지 정보<input type="radio" name="selectInfo" value="old">
 		새로운 배송지 정보<input type="radio" name="selectInfo" value="new">
 	</form>	
-	
+	<br>
 	<form name="infoForm" method="post" action="DispatcherServlet?command=purchase&pno=${pno}&amount=${amount}">
-		수령인 <input type="text" id="receiver" name="receiver" required="required"></input><br>
-		수령지 <input type="text" id="destination" name="destination" required="required"></input><br>
-		전화번호 <input type="text" id="contact" name="contact" required="required"></input>
-		<div id="test"></div>
-	<input type="submit" id="buy" value="주문완료">
+		<table>
+		<tr>
+			<th>수령인</th><td> <input type="text" id="receiver" name="receiver" required="required"></input></td>
+		</tr>
+		<tr>
+			<th>수령지 </th><td><input type="text" id="destination" name="destination" required="required"></input></td>
+		</tr>
+		<tr>
+			<th>전화번호</th><td> <input type="text" id="contact" name="contact" required="required"></input></td>
+		</tr>
+		</table>
+		<br>
+	<input type="submit" id="buy" class="w3-button w3-block w3-black "value="주문완료" size="5">
 	</form>
-		
+	</div>
+	</div>
 	</div>
 </body>
 

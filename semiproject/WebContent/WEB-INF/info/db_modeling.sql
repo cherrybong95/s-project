@@ -317,5 +317,23 @@ insert into delivery(tno,receiver,destination,contact) values(14,'김문일','�
 select * from delivery;
 select * from transaction;
 
+
 update semi_product set total_amount=total_amount-1 where pno=1;
 select * from SEMI_PRODUCT;
+
+select * from semi_product
+delete from semi_product where pno='149'
+delete from transaction where pno='149'
+delete from delivery where tno='1'
+
+
+--전체 구매목록수 가져오기
+select count(*) from transaction where buyer_id='java';
+
+
+--구매목록 페이징빈
+
+select t.rnum, t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.simple_info,t.amount*p.price as total_price from( 
+select row_number() over(order by tdate desc) as rnum, tno,pno,pro_state,tdate,amount  from transaction where buyer_id='java'
+)t, semi_product p where t.pno=p.pno and rnum between 1 and 9 order by rnum asc;
+
