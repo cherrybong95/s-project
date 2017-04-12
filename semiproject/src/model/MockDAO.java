@@ -631,5 +631,26 @@ public class MockDAO {
 		}
 		return totalPurchaseNo;
 	}
+	
+	//장바구니에서 수량 수정
+	public void updateAmount(String buyer_id, int pno, int amount) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			con = DataSourceManager.getInstance().getDataSource().getConnection();
+			/*
+			 *update cart set amount='3' where buyer_id='java' and pno='6';
+			 */
+			String sql="update cart set amount=? where buyer_id=? and pno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, amount);
+			pstmt.setString(2, buyer_id);
+			pstmt.setInt(3, pno);
+			pstmt.executeUpdate();
+		}finally{
+			closeAll(null,pstmt, con);
+		}
+		
+	}
 
 }
