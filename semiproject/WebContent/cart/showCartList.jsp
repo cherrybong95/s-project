@@ -136,6 +136,7 @@ th, td {
 							<th>상품번호</th>
 							<th>상품명</th>
 							<th>수량</th>
+							<th>단가</th>
 							<th>가격</th>
 							<th></th>
 						</tr>
@@ -147,7 +148,8 @@ th, td {
 								<td><input type="text" id="amount" style="width: 20pt; height: 20pt;" value="${list.total_amount}">
 								<input type="hidden" id="final_amount" name="amount" value="">
 								<input type="button" id="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
-								<td id="price">${list.price}</td>
+								<td id="unitPrice">${list.price}</td>
+								<td id="price">${list.price*list.total_amount}</td>
 								<td><input type="button" value="상품삭제" class="deleteCart"></td>
 							<tr>
 						</c:forEach>
@@ -155,11 +157,11 @@ th, td {
 						<c:choose>
 							<c:when test="${requestScope.list!='[]'}">
 								<tr>
-									<td colspan="5" align="right">총 주문액 :<span
+									<td colspan="6" align="right">총 주문액 :<span
 										id="total_price"></span></td>
 								</tr>
 								<tr>
-									<td colspan="5" align="center"><input type="submit"
+									<td colspan="6" align="center"><input type="submit"
 										id="buy" value="구매하기"></td>
 								</tr>
 							</c:when>
