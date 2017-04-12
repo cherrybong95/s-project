@@ -83,7 +83,7 @@ vertical-align: middle;
 			</div>
 			<div class="w3-content w3-justify w3-center"   style="max-width: 900px">
 	<form action="DispatcherServlet" method="post">
-   		<table class="table  table-hover" >
+   		<table class="table  table-hover">
 			<thead>
 				<tr>
 					<th>번호</th><th>사진</th><th>상품명</th><th>가격</th><th></th>
@@ -91,12 +91,13 @@ vertical-align: middle;
 			</thead>
 			<tbody >
 				<c:forEach items="${requestScope.productListVO.list}" var="insertList">
-				<tr>
-					<td >${insertList.pno }</td>
-					<td><img src="${insertList.detail_info }" width=" 160px" height="130px" ></td>
-					<td>${insertList.pname }</td>
-					<td>${insertList.price } 원</td>
+				<tr> 
+					<td><br><br><br>${insertList.pno }</td>
+					<td><img src="${insertList.detail_info }" width=" 180px" height="140px" ></td>
+					<td><br><br><br>${insertList.pname }</td>
+					<td><br><br><br>${insertList.price } 원</td>
 					<td>
+					<br>
 						<a href="DispatcherServlet?command=update&no=${insertList.pno }" style="text-decoration: none">
 						<input type="button" class="w3-button w3-block w3-black w3-margin-bottom" value="수정"></a>&nbsp;&nbsp;
 				 		<a href="DispatcherServlet?command=delete&no=${insertList.pno }" style="text-decoration: none">
