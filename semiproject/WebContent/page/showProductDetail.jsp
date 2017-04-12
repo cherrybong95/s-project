@@ -72,7 +72,7 @@ $(document).ready(function(){
 				url:"${pageContext.request.contextPath}/DispatcherServlet",
 				data:"command=checkCart&pno="+pno,
 				success:function(data){
-					if(data == "true"){ //이미 존재한다면
+					if(data != "-1"){ //이미 존재한다면
 					alert("이미 존재하는 상품입니다!"); 
 					location.href="${pageContext.request.contextPath}/DispatcherServlet?command=showCartList";
 				}else if(confirm("장바구니에 추가하시겠습니까?")){
