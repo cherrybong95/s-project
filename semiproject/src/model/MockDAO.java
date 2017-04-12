@@ -323,7 +323,7 @@ public class MockDAO {
 				where t.pno=p.pno and t.tno=1 
 			 */
 			StringBuilder sql=new StringBuilder();
-			sql.append("select t.tno, t.pno, p.pname,p.price,p.simple_info, t.amount, t.tdate, t.pro_state,p.maker_id ");
+			sql.append("select t.tno, t.pno, p.pname,p.price,p.simple_info,p.detail_info, t.amount, t.tdate, t.pro_state,p.maker_id ");
 			sql.append("from transaction t, semi_product p ");
 			sql.append("where t.pno=p.pno and t.tno=? ");
 			pstmt=con.prepareStatement(sql.toString());
@@ -337,6 +337,7 @@ public class MockDAO {
 				pvo.setPname(rs.getString("pname"));
 				pvo.setPrice(rs.getInt("price"));
 				pvo.setSimple_info(rs.getString("simple_info"));
+				pvo.setDetail_info(rs.getString("detail_info"));
 				tdto.setPvo(pvo);
 				tdto.setAmount(rs.getInt("amount"));
 				tdto.setPro_state(rs.getString("pro_state"));

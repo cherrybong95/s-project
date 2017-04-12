@@ -98,7 +98,7 @@ th, td {
 			</tr>
 			<tr>
 			<th>상품</th>
-			<td colspan="3" class="product"><img class="product_img" src="${pageContext.request.contextPath}/img/안경.jpg"><br>
+			<td colspan="3" class="product"><img class="product_img" src="${pageContext.request.contextPath}/${requestScope.tdto.pvo.detail_info}"><br>
 								상품번호 : ${requestScope.tdto.pvo.pno}<br>
 								상품명 : ${requestScope.tdto.pvo.pname}<br>
 								가격 : ${requestScope.tdto.pvo.price}<br>
