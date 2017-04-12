@@ -87,9 +87,8 @@ table {
 		
 	<!-- update grid -->
 			<form name="updateFormBuyer" method="post" action="../DispatcherServlet" onsubmit="return checkAll()">
-			<div class="w3-content" style="max-width: 600px" >
-				이름 	
-		       	<div class="w3-section"><input class="form-control"  type="text" name="bname" required="required"	value="${sessionScope.mvo.buyer_name }"></div>        
+			<div class="w3-content" style="max-width: 600px" align="left">
+				이름  	<div class="w3-section"><input class="form-control"  type="text" name="bname" required="required"	value="${sessionScope.mvo.buyer_name }"></div>        
 				아이디 
 		       	<div class="w3-section"><input class="form-control"  type="text" name="id" id="id" required="required" value="${sessionScope.mvo.buyer_id }" readonly="readonly"></div>        
 				비밀번호 
