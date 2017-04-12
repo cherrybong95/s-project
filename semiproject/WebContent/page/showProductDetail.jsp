@@ -173,7 +173,7 @@ function w3_close() {
 					 가격 : ${requestScope.productDetail.price}
 					<br>재고수량 : <span id="total_amount">${total_amount}</span>
 				<form name="checkForm">
-					<c:if test="${sessionScope.mvo!=null}">
+					<c:if test="${sessionScope.mvo!=null && total_amount !=0 }">
 						수량 : <input type="text" name="amount" size="3" id="amount"></input>
 					</c:if>
 
@@ -181,9 +181,12 @@ function w3_close() {
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p><br>
 
 				<c:choose>
-					<c:when test="${sessionScope.mvo!=null}">
+					<c:when test="${sessionScope.mvo!=null && total_amount !=0}">
 						<button class="btn btn-info" id="addCartBtn">장바구니 담기</button>
 						<button class="btn btn-info" id="purchaseBtn">구매하기</button>
+					</c:when>
+					<c:when test="${sessionScope.mvo!=null  && total_amount ==0}">
+						<font color="red" >품절</font>						
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
