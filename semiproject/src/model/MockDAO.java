@@ -38,12 +38,42 @@ public class MockDAO {
 					pvo.setDetail_info(rs.getString(4));
 					pvo.setTotal_amount(rs.getInt(5));
 					pvo.setSimple_info(rs.getString(6));
+
 				}
 			}finally{
 				closeAll(rs,pstmt,con);
 			}
 		return pvo;
 	}
+	//--------------------상품넘버로 상품찾고 수량 설정하기
+	public ProductVO findProductByNo(String pno, int amount) throws SQLException{
+		ProductVO pvo = null;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+			String sql="select pno,pname,price,detail_info,total_amount,simple_info from semi_product where pno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(pno));
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+					pvo=new ProductVO();
+					pvo.setPno(rs.getInt(1));
+					pvo.setPname(rs.getString(2));
+					//pvo.setPrice(rs.getInt(3));
+					pvo.setDetail_info(rs.getString(4));
+					pvo.setTotal_amount(rs.getInt(5));
+					pvo.setSimple_info(rs.getString(6));
+					pvo.setTotal_amount(amount);
+					pvo.setPrice(amount*rs.getInt(3));
+				}
+			}finally{
+				closeAll(rs,pstmt,con);
+			}
+		return pvo;
+	}
+	
 	
 	
 	

@@ -28,9 +28,7 @@ public class PurchasedInfoController implements Controller {
 		tdto.setAmount(amount);
 		MockDAO.getInstance().showPurchasedProduct(mvo.getBuyer_id(),tdto); //주문정보를 거래테이블에 저장시킴
 		MockDAO.getInstance().declineTotalCount(pno,amount); //주문번호에 해당되는 상품의 재고수량을 주문수량 줄임
-		
 		request.setAttribute("tdto", tdto);
-		
 		return "cart/purchase_result.jsp";
 	}
 

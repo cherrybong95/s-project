@@ -135,7 +135,7 @@ th, td {
 								<td><input type="checkbox" id="check">
 								<input type="hidden" name="pno" value="${list.pno}">${list.pno}</td>
 								<td>${list.pname}</td>
-								<td><input type="text" id="amount" style="width: 20pt; height: 20pt;" value="">
+								<td><input type="text" id="amount" style="width: 20pt; height: 20pt;" value="${list.total_amount}">
 								<input type="hidden" id="final_amount" name="amount" value="">
 								<input type="button" id="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
 								<td id="price">${list.price}</td>
