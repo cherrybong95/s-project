@@ -177,16 +177,13 @@ function w3_close() {
 				<form name="checkForm">
 					<c:if test="${sessionScope.mvo!=null && total_amount >0 }">
 					<br>재고수량 : <span id="total_amount">${total_amount}</span><br>
-						
 					</c:if>
-
+ 						수량 : <input type="text" name="amount" size="3" id="amount"></input>
 				</form>
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p>
 			<div align="right"> 
 				<c:choose> 
-
 					<c:when test="${sessionScope.mvo.mcode==2 && total_amount >0}">
- 
 						<button class="w3-button w3-black w3-margin-bottom"  id="addCartBtn">장바구니 담기</button>
 						<button class="w3-button w3-black w3-margin-bottom"  id="purchaseBtn">구매하기</button>
 
