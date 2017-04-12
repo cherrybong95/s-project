@@ -181,11 +181,11 @@ function w3_close() {
 				<p>판매자 : ${requestScope.productDetail.maker_id }</p><br>
 
 				<c:choose>
-					<c:when test="${sessionScope.mvo!=null && total_amount !=0}">
+					<c:when test="${sessionScope.mvo!=null && total_amount >0}">
 						<button class="btn btn-info" id="addCartBtn">장바구니 담기</button>
 						<button class="btn btn-info" id="purchaseBtn">구매하기</button>
 					</c:when>
-					<c:when test="${sessionScope.mvo!=null  && total_amount ==0}">
+					<c:when test="${sessionScope.mvo!=null  && total_amount <=0}">
 						<font color="red" >품절</font>						
 					</c:when>
 					<c:otherwise>
