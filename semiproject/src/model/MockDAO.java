@@ -292,7 +292,7 @@ public class MockDAO {
 				TransactionDTO tdto= new TransactionDTO();
 				tdto.setTno(rs.getInt("tno"));
 				tdto.setTdate(rs.getString("tdate"));
-				tdto.setAmount(rs.getInt("amount"));
+				tdto.setAmount(rs.getInt("amount")); 
 				tdto.setPro_state(rs.getString("pro_state"));
 				ProductVO pvo=new ProductVO();
 				pvo.setPno(rs.getInt("pno"));
