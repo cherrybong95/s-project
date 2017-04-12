@@ -94,6 +94,9 @@ th, td {
 			<th >배송처리상태</th><td colspan="3">${requestScope.tdto.pro_state}</td>
 			</tr>
 			<tr>
+			<th >입금계좌번호</th><td colspan="3">${requestScope.tdto.maker_account}</td>
+			</tr>
+			<tr>
 			<th>상품</th>
 			<td colspan="3" class="product"><img class="product_img" src="${pageContext.request.contextPath}/img/안경.jpg"><br>
 								상품번호 : ${requestScope.tdto.pvo.pno}<br>

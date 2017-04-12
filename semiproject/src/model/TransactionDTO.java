@@ -8,13 +8,14 @@ public class TransactionDTO {
 	private int amount;
 	private String tdate;
 	private String pro_state;
+	private String maker_account;
 	private DeliveryVO delivery;
-
+	
 	public TransactionDTO() {
 		super();
 	}
 
-	public TransactionDTO(int tno, ProductVO pvo, int amount, String tdate, String pro_state, DeliveryVO delivery) {
+	public TransactionDTO(int tno, ProductVO pvo, int amount, String tdate, String pro_state, DeliveryVO delivery,String maker_account) {
 		super();
 		this.tno = tno;
 		this.pvo = pvo;
@@ -22,6 +23,15 @@ public class TransactionDTO {
 		this.tdate = tdate;
 		this.pro_state = pro_state;
 		this.delivery = delivery;
+		this.maker_account=maker_account;
+	}
+
+	public String getMaker_account() {
+		return maker_account;
+	}
+
+	public void setMaker_account(String maker_account) {
+		this.maker_account = maker_account;
 	}
 
 	public TransactionDTO(ProductVO pvo, int amount) {
@@ -81,7 +91,9 @@ public class TransactionDTO {
 	@Override
 	public String toString() {
 		return "TransactionDTO [tno=" + tno + ", pvo=" + pvo + ", amount=" + amount + ", tdate=" + tdate
-				+ ", pro_state=" + pro_state + ", delivery=" + delivery + "]";
+				+ ", pro_state=" + pro_state + ", maker_account=" + maker_account + ", delivery=" + delivery + "]";
 	}
+
+	
 
 }

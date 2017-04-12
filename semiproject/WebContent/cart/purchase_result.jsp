@@ -114,11 +114,15 @@ th, td {
 		<tr align="center">
 			<th>상품번호</th><th>상품명</th><th>수량</th><th>가격</th><th>주문 상태</th>
 		</tr>
+	
 		<tr align="center">
 			<td>${tdto.pvo.pno }</td><td>${tdto.pvo.pname }</td>
 			<td>${tdto.amount}</td><td>${tdto.pvo.price*tdto.amount}</td>
 			<td>${tdto.pro_state }</td>
 		</tr>
+			<tr align="center">
+			<th >입금계좌번호</th><td colspan="3">${requestScope.tdto.maker_account}</td>
+			</tr>
 		<tr>
 			<th colspan="4">배 송 정 보</th>
 		</tr>
