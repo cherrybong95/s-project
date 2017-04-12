@@ -65,7 +65,7 @@ th, td {
 				url:"${pageContext.request.contextPath}/DispatcherServlet",
 				data:"command=updateAmount&amount="+amount+"&pno="+pno,
 				success:function(data){
-					alert(data);
+					$("#total_price").text(data);
 				}
 			}) 
 	   });
@@ -127,8 +127,8 @@ th, td {
 			</div>
 			<br> <br> <br>
 			<div class="w3-content w3-justify" style="max-width: 600px">
-
-
+	
+			<c:set var="total_price" value="0"/>
 				<form id="checkForm" action="DispatcherServlet" name="cartListForm"
 					onsubmit="return checkForm()">
 					<table>
@@ -152,7 +152,7 @@ th, td {
 								<input type="button" class="btn" value="적용" style="width: 40pt; height: 20pt;"></td>
 								<td class="unitPrice">${list.price}</td>
 								<td class="price">${list.price*list.total_amount}</td>
-
+								<c:set var="total_price" value="${total_price+list.price*list.total_amount}"/>
 								<td><input type="button" value="상품삭제" class="deleteCart"></td>
 							<tr>
 						</c:forEach>
@@ -160,15 +160,15 @@ th, td {
 						<c:choose>
 							<c:when test="${requestScope.list!='[]'}">
 								<tr>
-									<td colspan="6" align="right">총 주문액 :<span
-										id="total_price"></span></td>
+									<td colspan="6" align="right">총 주문액 : <span
+										id="total_price">${total_price}</span></td>
 								</tr>
 								<tr>
 									<td colspan="6" align="center"><input type="submit"
 										id="buy" value="구매하기"></td>
 								</tr>
-							</c:when>
-							</c:choose>
+						</c:when>
+						</c:choose>
 					</table>
 					<input type="hidden" name="command" value="getPurchaseForm">
 				</form>

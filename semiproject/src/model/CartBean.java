@@ -61,7 +61,7 @@ public class CartBean {
    public int getTotalPrice(){
       int total=0;
       for(int i=0;i<productList.size();i++){
-         total+=productList.get(i).getPrice();
+         total+=productList.get(i).getPrice()*productList.get(i).getTotal_amount();
       }
       return total;
    }
