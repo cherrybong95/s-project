@@ -82,7 +82,7 @@ th, td {
 		<div class="w3-container w3-main w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
 			<div class="w3-panel  w3-border-bottom w3-border-dark-gray" id="title">
 				
-					<b>Register Product</b>
+					<b>판매상품등록</b>
 				
 			</div>
 			<br> <br> <br>

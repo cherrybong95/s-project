@@ -46,6 +46,11 @@ th, td {
 	float: left; 
 	padding: 10px;
 }
+#title {
+	text-align: left;
+	font-size: 30px;
+	padding: 15px;
+}
 </style>
 <script type="text/javascript">
 function w3_open() {
@@ -79,10 +84,10 @@ function w3_close() {
 
  
 		<div class="w3-container w3-main w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
-			<div class="w3-panel w3-border-bottom w3-border-dark-gray">
-				<h1 align="left">
-					<b><i>주문목록</i></b>
-				</h1>
+			<div class="w3-panel  w3-border-bottom w3-border-dark-gray" id="title">
+				
+					<b>주문목록</b>
+				
 			</div>
 			<br> <br> <br>
 			<div class="w3-content w3-justify w3-center"   style="max-width: 900px">

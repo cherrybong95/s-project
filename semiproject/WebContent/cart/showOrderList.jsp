@@ -14,7 +14,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style type="text/css">
-body, h1, h2, h3, h4, h5, h6,b, .w3-wide {
+body, h1, h2, h3, h4, h5, h6, .w3-wide {
 	font-family: "Montserrat", sans-serif;
 }
 
@@ -32,7 +32,11 @@ table {
 th, td {
     padding: 10px;
 }
-
+#title {
+	text-align: left;
+	font-size: 30px;
+	padding: 15px;
+}
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -90,11 +94,20 @@ th, td {
 			$(this).parent().parent().empty();
 		}); 
 	});//ready
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+		document.getElementById("myOverlay").style.display = "block";
+	}
+
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+		document.getElementById("myOverlay").style.display = "none";
+	}
 
 </script>
 </head>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
-		<!-- Sidebar/menu -->
+<!-- Sidebar/menu -->
 	<jsp:include page="../templet/left.jsp"></jsp:include>
 
    <!-- Top menu on small screens -->
@@ -111,16 +124,14 @@ th, td {
 		
 <!-- !PAGE CONTENT! -->
 	<div class="w3-main" style="margin-left: 250px" id="about">
-	<!-- Push down content on small screens -->
+	<!-- Push down content on small screens --> 
 	<div class="w3-hide-large" style="margin-top: 83px"></div>
-		<div class="w3-container w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
-			<div
-				class="w3-panel w3-center w3-border-bottom w3-border-dark-gray" >
-				<h1 align="left">
-					<b><i>OrderList</i></b>
-				</h1>
+		<div class="w3-container w3-main w3-center w3-row w3-white w3-padding-32 w3-padding-large" style="margin-left: 25px;margin-right:25px;margin-top: 20px;margin-bottom: 20px">
+			<div class="w3-panel  w3-border-bottom w3-border-dark-gray" id="title">
+				
+					<b>구매요청리스트</b>
+				
 			</div>
-			<br> <br> <br>
 			<div class="w3-content w3-justify" style="max-width: 900px">
 				<button class="w3-button w3-margin-bottom pro_state" style="background-color: #BDBDBD"><font color="white">입금대기</font></button>&nbsp;&nbsp;&nbsp;&nbsp;
 				<button class="w3-button w3-margin-bottom pro_state" style="background-color: #8C8C8C"><font color="white">결제완료</font></button>&nbsp;&nbsp;&nbsp;&nbsp;

@@ -26,7 +26,7 @@ public class MockDAO {
 		ResultSet rs=null;
 		try{
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
-			String sql="select pno,pname,price,detail_info,total_amount,simple_info from semi_product where pno=?";
+			String sql="select pno,pname,price,detail_info,total_amount,simple_info,maker_id from semi_product where pno=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(pno));
 			rs=pstmt.executeQuery();
@@ -38,7 +38,7 @@ public class MockDAO {
 					pvo.setDetail_info(rs.getString(4));
 					pvo.setTotal_amount(rs.getInt(5));
 					pvo.setSimple_info(rs.getString(6));
-
+					pvo.setMaker_id(rs.getString("maker_id"));
 				}
 			}finally{
 				closeAll(rs,pstmt,con);
@@ -314,6 +314,7 @@ public class MockDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String maker_id="";
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
 			/*
@@ -322,7 +323,7 @@ public class MockDAO {
 				where t.pno=p.pno and t.tno=1 
 			 */
 			StringBuilder sql=new StringBuilder();
-			sql.append("select t.tno, t.pno, p.pname,p.price,p.simple_info, t.amount, t.tdate, t.pro_state ");
+			sql.append("select t.tno, t.pno, p.pname,p.price,p.simple_info,p.detail_info, t.amount, t.tdate, t.pro_state,p.maker_id ");
 			sql.append("from transaction t, semi_product p ");
 			sql.append("where t.pno=p.pno and t.tno=? ");
 			pstmt=con.prepareStatement(sql.toString());
@@ -336,10 +337,20 @@ public class MockDAO {
 				pvo.setPname(rs.getString("pname"));
 				pvo.setPrice(rs.getInt("price"));
 				pvo.setSimple_info(rs.getString("simple_info"));
+				pvo.setDetail_info(rs.getString("detail_info"));
 				tdto.setPvo(pvo);
 				tdto.setAmount(rs.getInt("amount"));
 				tdto.setPro_state(rs.getString("pro_state"));
 				tdto.setTdate(rs.getString("tdate"));
+				maker_id=rs.getString("maker_id");
+			}
+			pstmt.close();
+			String sql2="select maker_account from maker where maker_id=?";
+			pstmt=con.prepareStatement(sql2);
+			pstmt.setString(1, maker_id);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				tdto.setMaker_account(rs.getString(1));
 			}
 		}finally{
 			closeAll(rs, pstmt, con);
@@ -652,6 +663,31 @@ public class MockDAO {
 			closeAll(null,pstmt, con);
 		}
 		
+	}
+/**
+ * 	주문시 계좌번호 정보 넘기기 위해 아이디와 tdto를 매개변수로 해서 계좌번호를 넘겨주는메소드
+ * PurchasedInfoController 에서 사용됨
+ * @param maker_id
+ * @param tdto
+ * @throws SQLException
+ */
+	public void getMakerAccountById(String maker_id, TransactionDTO tdto) throws SQLException {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{	
+			con=DataSourceManager.getInstance().getDataSource().getConnection();
+		String sql2="select maker_account from maker where maker_id=?";
+		pstmt=con.prepareStatement(sql2);
+		pstmt.setString(1, maker_id);
+		rs=pstmt.executeQuery();
+		if(rs.next()){
+			tdto.setMaker_account(rs.getString(1));;
+		}
+	}finally{
+		closeAll(rs, pstmt, con);
+	}
+	
 	}
 
 }
