@@ -205,5 +205,44 @@ public class MakerDAO {
 		}
 		return i;
 	}
-	
+	 public String findPassById(String id, String tel) throws SQLException{
+	      String password = null;
+	      Connection con=null;
+	      PreparedStatement pstmt=null;
+	      ResultSet rs=null;
+	      try{
+	         con=getConnection();
+	         String sql="select password from Maker where maker_id=? and maker_tel=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setString(1, id);
+	         pstmt.setString(2, tel);
+	         rs=pstmt.executeQuery();
+	         if(rs.next()){
+	            password = rs.getString(1);
+	         }
+	      }finally{
+	         closeAll(rs,pstmt,con);
+	      }
+	      return password;
+	   }
+	 public String findIdByTel(String name, String tel) throws SQLException{
+	      String id = null;
+	      Connection con=null;
+	      PreparedStatement pstmt=null;
+	      ResultSet rs=null;
+	      try{
+	         con=getConnection();
+	         String sql="select maker_id from Maker where maker_name=? and maker_tel=?";
+	         pstmt=con.prepareStatement(sql);
+	         pstmt.setString(1, name);
+	         pstmt.setString(2, tel);
+	         rs=pstmt.executeQuery();
+	         if(rs.next()){
+	            id = rs.getString(1);
+	         }
+	      }finally{
+	         closeAll(rs,pstmt,con);
+	      }
+	      return id;
+	   }
 }

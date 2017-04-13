@@ -76,7 +76,11 @@ public class HandlerMapping {
 			c=new PurchasedInfoController();
 		}else if(command.equals("updateAmount")){
 			c=new UpdateAmountController();
-		}
+		}else if (command.equals("findPassword")) {
+	         c = new FindMemberPass();
+	      }else if(command.equals("findId")){
+	    	  c= new FindMemberId();
+	      }
 		return c;
 	}
 

@@ -272,7 +272,9 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 						<a href="page/joinSelect.jsp" style="text-decoration: none">
 							<button class="w3-button w3-block w3-black w3-margin-bottom">Sign Up</button>
 						</a>
-
+						<div class="w3-section" style="text-align: center">
+							<a href="findId.jsp">아이디 찾기</a> <a href="findPassword.jsp">비밀번호찾기</a>
+						</div>
 					</div>
 				</div>
 			</c:when>
