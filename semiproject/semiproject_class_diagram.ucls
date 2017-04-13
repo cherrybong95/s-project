@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.14" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="model.MockDAO" project="semiproject" file="/semiproject/src/model/MockDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="531" width="350" x="12" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="model.TransactionDTO" project="semiproject" 
+    file="/semiproject/src/model/TransactionDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="477" width="344" x="1043" y="559"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="model.MakerDAO" project="semiproject" file="/semiproject/src/model/MakerDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="293" x="412" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="model.OrderVO" project="semiproject" file="/semiproject/src/model/OrderVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="603" width="303" x="755" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="model.PagingBean" project="semiproject" 
+    file="/semiproject/src/model/PagingBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="179" x="1364" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="model.MakerVO" project="semiproject" file="/semiproject/src/model/MakerVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="567" width="324" x="1704" y="559"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="model.DeliveryVO" project="semiproject" 
+    file="/semiproject/src/model/DeliveryVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="193" x="1043" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="model.MemberVO" project="semiproject" file="/semiproject/src/model/MemberVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="495" width="150" x="2121" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="model.FileManager" project="semiproject" 
+    file="/semiproject/src/model/FileManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="200" x="1881" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="model.ListVO" project="semiproject" file="/semiproject/src/model/ListVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="237" x="1427" y="559"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="model.FileManager.FileAlteration" project="semiproject" 
+    file="/semiproject/src/model/FileManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="105" x="2068" y="559"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="model.BuyerDAO" project="semiproject" file="/semiproject/src/model/BuyerDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="293" x="1098" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="model.ProductVO" project="semiproject" 
+    file="/semiproject/src/model/ProductVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="513" width="250" x="1583" y="1166"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="model.CartBean" project="semiproject" file="/semiproject/src/model/CartBean.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="259" x="2213" y="559"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="model.DuplicateItemException" project="semiproject" 
+    file="/semiproject/src/model/DuplicateItemException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="158" x="1441" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="model.BuyerVO" project="semiproject" file="/semiproject/src/model/BuyerVO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="513" width="310" x="2311" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="model.DataSourceManager" project="semiproject" 
+    file="/semiproject/src/model/DataSourceManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="192" x="1639" y="-84"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="controller.HandlerMapping" project="semiproject" 
+    file="/semiproject/src/controller/HandlerMapping.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1255" y="1636"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="controller.CheckCartController" project="semiproject" 
+    file="/semiproject/src/controller/CheckCartController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2174" y="1955"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="controller.DispatcherServlet" project="semiproject" 
+    file="/semiproject/src/controller/DispatcherServlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1068" y="1810"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="controller.FindMemberId" project="semiproject" 
+    file="/semiproject/src/controller/FindMemberId.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2483" y="1562"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="controller.ShowProductDetailController" project="semiproject" 
+    file="/semiproject/src/controller/ShowProductDetailController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2487" y="1422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="controller.TransactionDetailInfoController" project="semiproject" 
+    file="/semiproject/src/controller/TransactionDetailInfoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2964" y="1856"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="controller.ListController" project="semiproject" 
+    file="/semiproject/src/controller/ListController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2493" y="1827"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="controller.PurchaseListController" project="semiproject" 
+    file="/semiproject/src/controller/PurchaseListController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2489" y="1694"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="controller.ShowCartListController" project="semiproject" 
+    file="/semiproject/src/controller/ShowCartListController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2967" y="1675"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="controller.ShowOrderListController" project="semiproject" 
+    file="/semiproject/src/controller/ShowOrderListController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2948" y="2001"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="controller.MakerLoginController" project="semiproject" 
+    file="/semiproject/src/controller/MakerLoginController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2493" y="2205"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="controller.UpdateItemController" project="semiproject" 
+    file="/semiproject/src/controller/UpdateItemController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2496" y="1950"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="controller.UpdateMakerInfoController" project="semiproject" 
+    file="/semiproject/src/controller/UpdateMakerInfoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2968" y="1530"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="controller.JoinMakerController" project="semiproject" 
+    file="/semiproject/src/controller/JoinMakerController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2171" y="1822"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="controller.PurchasedInfoController" project="semiproject" 
+    file="/semiproject/src/controller/PurchasedInfoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2499" y="2082"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="controller.getPurchaseFormController" project="semiproject" 
+    file="/semiproject/src/controller/getPurchaseFormController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2955" y="1417"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="controller.DeleteItemController" project="semiproject" 
+    file="/semiproject/src/controller/DeleteItemController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2953" y="2207"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="controller.UpdateAmountController" project="semiproject" 
+    file="/semiproject/src/controller/UpdateAmountController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4860" y="1399"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="controller.DuplicateMakerIdCheckController" project="semiproject" 
+    file="/semiproject/src/controller/DuplicateMakerIdCheckController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4866" y="1532"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="controller.UpdateBuyerInfoController" project="semiproject" 
+    file="/semiproject/src/controller/UpdateBuyerInfoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4870" y="1680"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="controller.AddCartController" project="semiproject" 
+    file="/semiproject/src/controller/AddCartController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4876" y="1815"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="controller.checkDestinationController" project="semiproject" 
+    file="/semiproject/src/controller/checkDestinationController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4854" y="1285"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="controller.DuplicateBuyerIdCheckController" project="semiproject" 
+    file="/semiproject/src/controller/DuplicateBuyerIdCheckController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3375" y="2203"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="controller.OrderStateChangeController" project="semiproject" 
+    file="/semiproject/src/controller/OrderStateChangeController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3717" y="2203"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="controller.BuyerLoginController" project="semiproject" 
+    file="/semiproject/src/controller/BuyerLoginController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4059" y="2203"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="controller.DeleteCartController" project="semiproject" 
+    file="/semiproject/src/controller/DeleteCartController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4401" y="2203"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="controller.FindMemberPass" project="semiproject" 
+    file="/semiproject/src/controller/FindMemberPass.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4743" y="2203"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="controller.ShowInsertItemListController" project="semiproject" 
+    file="/semiproject/src/controller/ShowInsertItemListController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4882" y="2076"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="controller.JoinBuyerController" project="semiproject" 
+    file="/semiproject/src/controller/JoinBuyerController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4881" y="1949"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="controller.DeleteMemberController" project="semiproject" 
+    file="/semiproject/src/controller/DeleteMemberController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2466" y="1277"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="48" language="java" name="controller.Controller" project="semiproject" 
+    file="/semiproject/src/controller/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3758" y="1691"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="49" language="java" name="controller.ProductUpdateController" project="semiproject" 
+    file="/semiproject/src/controller/ProductUpdateController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2808" y="1277"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="controller.FileUploadController" project="semiproject" 
+    file="/semiproject/src/controller/FileUploadController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3150" y="1277"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="controller.ShowOrderStateListController" project="semiproject" 
+    file="/semiproject/src/controller/ShowOrderStateListController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3492" y="1277"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="controller.PurchaseController" project="semiproject" 
+    file="/semiproject/src/controller/PurchaseController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3834" y="1277"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="53" language="java" name="controller.LogoutController" project="semiproject" 
+    file="/semiproject/src/controller/LogoutController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4177" y="1277"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="54" language="java" name="controller.CheckPasswordController" project="semiproject" 
+    file="/semiproject/src/controller/CheckPasswordController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4518" y="1277"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="55">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="56">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="57">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="58">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="59" name="instance"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="61">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="62">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="63">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="64">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="65" name="mvo"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="67">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="68" name="instance"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="70">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="71">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="72">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="73">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="74" name="cart"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="76">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="77">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="78">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="79" name="instance"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="81">    
+    <end type="SOURCE" refId="53"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <nesting id="82">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
+  </nesting>  
+  <association id="83">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="84" name="productList"/>      
+      <multiplicity id="85" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="86">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="87">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="88" name="dao"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="91" name="cart"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="93">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="94">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="95">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="96">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="97">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="98">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="99">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="100">    
+    <end type="SOURCE" refId="45"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="101">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="102" name="list"/>      
+      <multiplicity id="103" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="104">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="105">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="106">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="107">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="108">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="109" name="pagingBean"/>      
+      <multiplicity id="110" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="111">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="112">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="113" name="pvo"/>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="115">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="116">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="117">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="118">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="119">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="120" name="delivery"/>      
+      <multiplicity id="121" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="122">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="123">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="124">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="125" name="dao"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="127">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <realization id="128">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
