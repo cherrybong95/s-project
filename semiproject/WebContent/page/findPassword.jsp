@@ -49,7 +49,7 @@ text-align: center;
 				data:"command=findPassword&id="+$("#id").val()+"&tel="+$("#tel").val()+"&mcode="+mcode.mcode.value,
 				success:function(data){
 					if(data=="빵"){
-						$("#passwordResult").text("아이디와 전화번호에 해당하는 비밀번호가 없어!");
+						$("#passwordResult").text("아이디와 전화번호에 해당하는 비밀번호가 없숩니다");
 					}else{
 						$("#passwordResult").text("비밀번호 : "+data);						
 					}
@@ -59,7 +59,7 @@ text-align: center;
 	 }
 			//alert(mcode.mcode.value);	
 	}); 
-	
+	 
 		
 	}); 
 </script>

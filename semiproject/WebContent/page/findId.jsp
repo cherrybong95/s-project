@@ -49,7 +49,7 @@ text-align: center;
 				data:"command=findId&name="+$("#name").val()+"&tel="+$("#tel").val()+"&mcode="+mcode.mcode.value,
 				success:function(data){
 					if(data=="빵"){
-						$("#idResult").text("해당하는 정보에 맞는 아이디가 없다구!");
+						$("#idResult").text("해당하는 정보에 맞는 아이디가 없습니다!");
 					}else{
 						$("#idResult").text("아이디 : "+data);						
 					}
@@ -60,7 +60,7 @@ text-align: center;
 			//alert(mcode.mcode.value);	
 	}); 
 	
-		
+		 
 	}); 
 </script>
 <body class="w3-light-grey w3-content" style="max-width: 1600px">
