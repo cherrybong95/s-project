@@ -111,15 +111,14 @@ th, td {
 	         }else if(amount.val()==""||amount.val()=="0"){
 	            alert("수량을 입력하세요");
 	            return false;
-	         }else if(amount.val()!=check_amount.val()){
-	            alert("수량 적용 버튼을 클릭해주시기 바랍니다.");
-	            return false;
-	         }else{
+	        }else if(checkbox.length>1){
+	        	alert("상품을 하나만 선택해 주세요");	        	
+	        }else{
 	            var pno="";
 	            checkbox.each(function(){
 	                pno+=("&pno="+$(this).next().val());
 	            });
-	            alert(pno);
+	            //alert(pno);
 	            location.href="${pageContext.request.contextPath}/DispatcherServlet?command=getPurchaseForm"+pno;
 	         }
 	      });//buy
