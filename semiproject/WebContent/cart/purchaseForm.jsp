@@ -112,6 +112,9 @@ th, td {
 				<td>${pno}</td><td>${purchaseList.pname}</td>
 				<td>${purchaseList.price*amount}</td><td>${amount}</td>
 			</tr>
+			<tr>
+				<td align="right" colspan="4">총 결제액 : </td>
+			</tr>
 		</c:forEach>
 	</table>
 	
