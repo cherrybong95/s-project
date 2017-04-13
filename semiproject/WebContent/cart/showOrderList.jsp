@@ -85,7 +85,7 @@ th, td {
 			//alert($(this).parent().parent().children().eq(1).text());
 				var tno=$(this).parent().parent().children().eq(2).text();
 				var update_state=$(this).text();
-				alert($(this).text());
+				//alert($(this).text());
  			$.ajax({
 				type:"get",
 				url:"DispatcherServlet",
