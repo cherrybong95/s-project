@@ -2,6 +2,6 @@
 	pageEncoding="UTF-8"%>
 
 	<script type="text/javascript">
-		alert("로그인 실패");
-		location.href = "../index.jsp";
+		alert("로그인 실패"); //alert으로 로그인실패 후,
+		location.href = "../index.jsp"; //location.href를 이용, index로 간다.
 	</script>

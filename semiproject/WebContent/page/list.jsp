@@ -72,11 +72,11 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 <script type="text/javascript">
 	function checkForm() {
 		var lf = document.loginForm;
-		if (lf.mcode.value == 2) {
+		if (lf.mcode.value == 2) { //mcode value가 2일때 구매자 로그인컨트롤러로 이동
 			location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=buyerLogin&Id=" + lf.Id.value + "&Password=" + lf.Password.value + "&mcode=" + lf.mcode.value;
-		} else if (lf.mcode.value == 1) {
+		} else if (lf.mcode.value == 1) { //mcode value가 1일때 구매자 로그인컨트롤러로 이동
 			location.href = "${pageContext.request.contextPath}/DispatcherServlet?command=makerLogin&Id="	+ lf.Id.value + "&Password="	+ lf.Password.value	+ "&mcode=" + lf.mcode.value;
-		} else if (lf.mcode.value == "") {
+		} else if (lf.mcode.value == "") { //선택안할시 alert 선택해주세요가 뜨고 로그인은 되지 않음. 
 			alert("판매자/구매자 선택해주세요");
 		}
 	}
@@ -255,9 +255,11 @@ body, h1, h2, h3, h4, h5, h6, .w3-wide {
 							<div class="w3-section" style="text-align: center">
 								<b>
 								<input type="button" class="w3-button w3-black w3-margin-bottom" id="sellerBtn" value="판매자"></b>&nbsp;&nbsp; 
-								<input type="radio" name="mcode" value="1" id="seller">&nbsp;&nbsp; <b> 
+								<input type="radio" name="mcode" value="1" id="seller"><%--로그인시 판매자로 선택할때,mcode value를 1로 준다. --%>
+								&nbsp;&nbsp; <b> 
 								<input type="button" class="w3-button w3-grey w3-margin-bottom" id="buyerBtn" value="구매자">
-								</b>&nbsp;&nbsp; <input type="radio" name="mcode" value="2" id="buyer"><br><br>
+								</b>&nbsp;&nbsp; <input type="radio" name="mcode" value="2" id="buyer"><%--로그인시 구매자로 선택할때,mcode value를 2로 준다. --%>
+								<br><br>
 							</div>
 							<div class="w3-section">
 								<label>Id</label>
