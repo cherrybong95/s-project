@@ -10,4 +10,4 @@
 	<h3>바이핸드 바이핸드</h3>
 	<jsp:forward page="DispatcherServlet?command=list"></jsp:forward>
 </body>
-</html>
+</html> 
