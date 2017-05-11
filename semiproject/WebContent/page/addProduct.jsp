@@ -90,6 +90,7 @@ th, td {
 			
 		<h4>Product Name &nbsp;-&nbsp;<small><b>${requestScope.productDetail.pname }</b></small></h4>
 		<p>
+		<!-- enctype때문에 request를 파라미터로 받을 수 없음. binary로 전송하기 때문에 일반 객체로 못받음. 그래서 multipart객체로 받아온다. -->
   		<form action="${pageContext.request.contextPath}/DispatcherServlet?command=addProduct" method="post" enctype="multipart/form-data" id="addForm" onsubmit="return checkForm()">
 			상품명 : <input type="text" class="form-control"  name="pname" required="required" placeholder="Enter 상품명"><br><br>
 			가격 : <input type="text" class="form-control" name="price" required="required" placeholder="숫자로 입력"><br><br>
