@@ -1,5 +1,17 @@
 package model;
+/*
+ *  이클립스에서 실행하지 않고 WAS(Tomcat)자체에서 실행하기 위한 환경설정 
 
+ 컴퓨터 -> 마.오 -> 속성 -> 고급시스템 설정 -> 환경변수 -> 시스템 변수
+ 아래 두가지를 추가한다. (자신의 환경에 맞게)
+ 변수이름 : JAVA_HOME
+ 값 : C:\Program Files\Java\jdk1.8.x
+ 변수이름 : CATALINA_HOME 
+ 값 : C:\java-kosta\WAS\spring-tomcat
+ 
+ C:\java-kosta\WAS\web-tomcat\bin 에 있는 startup.bat 를 실행하면 
+ 톰캣이 실행한 후 브라우저로 테스트해본다 
+ */
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
