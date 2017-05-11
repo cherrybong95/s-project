@@ -134,8 +134,6 @@ private HttpServletRequest request;
 			String simple_info=(String)mRequest.getParameter("simple_info");
 			String path="uploaded/"+newFileName;
 			String userId=((MakerVO)request.getSession().getAttribute("mvo")).getMaker_id();
-			System.out.println(pname+price+total_amount+simple_info);
-			System.out.println(newFilePath);
 			int pno=0;
 		try{
 				con=DataSourceManager.getInstance().getDataSource().getConnection();

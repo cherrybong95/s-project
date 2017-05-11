@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.FileManager;
-import model.MakerVO;
 
 //상품 등록시
 public class FileUploadController implements Controller {
