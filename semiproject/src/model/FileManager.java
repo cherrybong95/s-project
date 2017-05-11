@@ -15,12 +15,13 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 
 public class FileManager {
-private HttpServletRequest request;
-	private MultipartRequest mRequest;
+private HttpServletRequest request; 
+	private MultipartRequest mRequest; // 파일 업로드를 위한 객체 COS.lib가 필요하다
 	private MakerVO mvo;
-	private int postMaxSize = 10 * 1024 * 1024;   //10MB
-	private String encoding = "UTF-8";
+	private int postMaxSize = 10 * 1024 * 1024;   //10MB 업로드파일의 최대크기지정
+	private String encoding = "UTF-8"; 
 	private String newFilePath="C:\\java-kosta\\WAS\\jquery-tomcat\\webapps\\semiproject\\uploaded";
+	//이미지 파일을 저장할 위치를 지정
 	//private String newFilePath ;
 	//private String newFilePath="C:\\Users\\KOSTA\\git\\s-project\\semiproject\\WebContent\\uploaded";
 	private String newFileFullName;
@@ -43,7 +44,7 @@ private HttpServletRequest request;
 		public void setNewFilePath(String newFilePath) {
 			this.newFilePath = newFilePath;
 		}
-
+ //파일의 경로와 이름을 나타내는 변수
 	public String getNewFileFullName() {
 			return newFileFullName;
 		}
@@ -51,7 +52,7 @@ private HttpServletRequest request;
 		public void setNewFileFullName(String newFileFullName) {
 			this.newFileFullName = newFileFullName;
 		}
-
+		
 	public MultipartRequest getmRequest() {
 			return mRequest;
 		}
@@ -61,10 +62,13 @@ private HttpServletRequest request;
 		}
 		
 		
-		// file upload method
+		// file upload method 
+		// 기존 request 를 이용하여 mRequest를 만든다
+		// 기존 request로 부턴 form에 있는 다양한 인풋값을 얻어올 수 없다
 	public FileManager(HttpServletRequest request) throws IOException {
 		this.request=request;
 		//setNewFilePath(request.getServletContext().getRealPath("/uploaded"));
+		//기존 request와 파일저장경로,사이즈,인코딩,업로드파일이름설정을 통해 request로 부터 파일저장한다
 		mRequest = new MultipartRequest(request, newFilePath, postMaxSize, encoding, new FileAlteration());
 		
 	}
@@ -114,9 +118,9 @@ private HttpServletRequest request;
  	        		System.getProperty("file.separator") + newFileName;
 
  	        
-
+ 	        //파일경로에 파일을 생성한다
  	        file = new File(newFileFullName);
-
+ 	        //파일의 타입을 표현한다
  	        String mimeType = new MimetypesFileTypeMap().getContentType(file);
 
  	        System.out.println("마임타입="+mimeType);
@@ -129,7 +133,7 @@ private HttpServletRequest request;
 
  	}
 //****************************db에 상품정보 저장
-	
+	//db에 이미지 파일이 저장된 경로 및 form에 있는 상품정보를 저장한다
 	public String addProduct() throws SQLException{
 		Connection con=null;
 		PreparedStatement pstmt=null;
