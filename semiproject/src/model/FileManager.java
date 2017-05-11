@@ -16,17 +16,14 @@ import com.oreilly.servlet.multipart.FileRenamePolicy;
 
 public class FileManager {
 private HttpServletRequest request; 
-	private MultipartRequest mRequest; // 파일 업로드를 위한 객체 COS.lib가 필요하다
+	private MultipartRequest mRequest; // 파일 업로드를 위한 객체, COS.lib가 필요하다
 	private MakerVO mvo;
 	private int postMaxSize = 10 * 1024 * 1024;   //10MB 업로드파일의 최대크기지정
 	private String encoding = "UTF-8"; 
 	private String newFilePath="C:\\java-kosta\\WAS\\jquery-tomcat\\webapps\\semiproject\\uploaded";
 	//이미지 파일을 저장할 위치를 지정
-	//private String newFilePath ;
-	//private String newFilePath="C:\\Users\\KOSTA\\git\\s-project\\semiproject\\WebContent\\uploaded";
 	private String newFileFullName;
 	private  String newFileName;
-	private String userId;
 	//set/get method
 	public MakerVO getMvo() {
 			return mvo;
@@ -69,6 +66,7 @@ private HttpServletRequest request;
 		this.request=request;
 		//setNewFilePath(request.getServletContext().getRealPath("/uploaded"));
 		//기존 request와 파일저장경로,사이즈,인코딩,업로드파일이름설정을 통해 request로 부터 파일저장한다
+		//FileAlteration() : 파일 업로드시 등록하고 싶은 파일 명을 지정
 		mRequest = new MultipartRequest(request, newFilePath, postMaxSize, encoding, new FileAlteration());
 		
 	}
@@ -78,41 +76,23 @@ private HttpServletRequest request;
 	class FileAlteration implements FileRenamePolicy {
 
  		@Override 
-
  		public File rename(File file) {
 
- 			String parentDir = file.getParent();
-
- 			String fileName = file.getName();
+ 			String parentDir = file.getParent(); //내부적으로 파일을 전달, 파일로부터 상위폴더 정보를 받아온다.
+ 			String fileName = file.getName(); //파일명을 받아온다.
  			
- 			//String newFileFullName=null;
- 			
-
- 			//Get the extension if the file has one
-
- 	        String fileExt = "";
+ 	        String fileExt = ""; //확장자
  	        	
  	        int i = -1;
-
- 	        if(( i = fileName.indexOf(".")) != -1){
-
+ 	        //fileName.indexOf() : .이 있는 곳의 index를 받아와서 확장자와 파일명을 지정한다.
+ 	        if(( i = fileName.indexOf(".")) != -1){ 
  	            fileExt = fileName.substring(i);
-
  	            fileName = fileName.substring(0,i);
-
  	        }
- 	       System.out.println("실행");
- 	        //Add the timestamp and user ID
- 	     //  mvo = (MakerVO) request.getSession().getAttribute("mvo");
- 	    //   userId=mvo.getMaker_id();
  	     
- 	       // String newFileName=null;
- 	      // newFileName = /*fileName + "_"+ */userId +("_"+( new Date( ).getTime( ) / 1000)) + fileExt;
- 	       newFileName = /*fileName + "_"+ */("_"+( new Date( ).getTime( ) / 1000)) + fileExt;
+ 	       newFileName = /*fileName + "_"+ 시간 + 확장자*/("_"+( new Date( ).getTime( ) / 1000)) + fileExt;
  	       
-
- 	        //piece together the filename
-
+ 	       //전체 경로
  	        newFileFullName = parentDir + 
 
  	        		System.getProperty("file.separator") + newFileName;
@@ -122,8 +102,6 @@ private HttpServletRequest request;
  	        file = new File(newFileFullName);
  	        //파일의 타입을 표현한다
  	        String mimeType = new MimetypesFileTypeMap().getContentType(file);
-
- 	        System.out.println("마임타입="+mimeType);
 
  			return file;
 

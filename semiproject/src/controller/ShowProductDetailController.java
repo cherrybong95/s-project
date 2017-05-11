@@ -12,7 +12,8 @@ public class ShowProductDetailController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String url="";
 		int productNo=Integer.parseInt(request.getParameter("productNo"));
-		ProductVO pvo=MockDAO.getInstance().getProductDetail(productNo);
+		//상품번호에 해당하는 상품의 상세정보를 반환받는다.
+		ProductVO pvo=MockDAO.getInstance().getProductDetail(productNo); 
 		if(pvo==null)
 			url="error.jsp";
 		else {
