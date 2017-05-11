@@ -10,14 +10,7 @@ public class MockDAO {
 	private static MockDAO instance=new MockDAO();
 	public static MockDAO getInstance(){return instance;}
 	
-	//--------------------장바구니
-	//MemberVO mvo = new MemberVO();
-	//--------------------임시멤버
-/*	public MemberVO createMember(){
-		mvo.setId("java");
-		mvo.setMname("박다혜");
-		return mvo;
-	}*/
+
 	//--------------------상품넘버로 상품찾기
 	public ProductVO findProductByNo(String pno) throws SQLException{
 		ProductVO pvo = null;
@@ -45,7 +38,15 @@ public class MockDAO {
 			}
 		return pvo;
 	}
-	//--------------------상품넘버로 상품찾고 수량 설정하기
+	/**
+	 * 상품 넘버(pno)로 상품을 찾고
+	 *  찾은 상품에 입력받은 수량을 setting한다.
+	 * 
+	 * @param pno
+	 * @param amount
+	 * @return
+	 * @throws SQLException
+	 */
 	public ProductVO findProductByNo(String pno, int amount) throws SQLException{
 		ProductVO pvo = null;
 		Connection con=null;
@@ -261,7 +262,15 @@ public class MockDAO {
 			closeAll(pstmt, con);
 		}
 	}
-	//id에 따른 전체 거래정보가져오기
+	/**
+	 * buyer_id에 해당하는 전체 거래정보중에서
+	 * 현재 페이지에 해당하는 거래정보 목록만 검색하여 반환한다.
+	 * 
+	 * @param id
+	 * @param pb
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<TransactionDTO> getTransactionInfo(String id, PagingBean pb) throws SQLException {
 		ArrayList<TransactionDTO> transactionList=new ArrayList<TransactionDTO>();
 		Connection con = null;
@@ -269,15 +278,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select t.rnum,
-			 * t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.
-			 * simple_info,t.amount*p.price as total_price from( select
-			 * row_number() over(order by tdate asc) as rnum,
-			 * tno,pno,pro_state,tdate,amount from transaction where
-			 * buyer_id='java' )t, semi_product p where t.pno=p.pno and rnum
-			 * between 1 and 9 order by rnum desc;
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select t.rnum, t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.simple_info,p.detail_info,t.amount*p.price as total_price from(  ");
 			sql.append("select row_number() over(order by tdate desc) as rnum, tno,pno,pro_state,tdate,amount  from transaction where buyer_id=? ");
@@ -286,7 +286,6 @@ public class MockDAO {
 			pstmt.setString(1, id);
 			pstmt.setInt(2, pb.getStartRowNumber());
 			pstmt.setInt(3, pb.getEndRowNumber());
-			System.out.println(pb.getStartRowNumber()+"    "+pb.getEndRowNumber());
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				TransactionDTO tdto= new TransactionDTO();
@@ -308,7 +307,15 @@ public class MockDAO {
 		}
 		return transactionList;
 	}
-	//거래번호로 상세 거래정보찾기
+	/**
+	 * 거래번호로
+	 * 거래테이블의 상품번호와 상품테이블의 상품번호를 JOIN하여 
+	 * 거래정보(거래번호, 상품번호, 거래 날짜, 거래수량, 거래 상태)와 상품정보를
+	 * TransactionDTO객체로 반환한다.
+	 * @param tno
+	 * @return
+	 * @throws SQLException
+	 */
 	public TransactionDTO findTransactionInfoByTno(int tno) throws SQLException {
 		TransactionDTO tdto=null;
 		Connection con = null;
@@ -317,11 +324,6 @@ public class MockDAO {
 		String maker_id="";
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select t.tno, t.pno, p.pname,p.price,p.simple_info, t.amount, t.tdate, t.pro_state 
-				from transaction t, semi_product p 
-				where t.pno=p.pno and t.tno=1 
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select t.tno, t.pno, p.pname,p.price,p.simple_info,p.detail_info, t.amount, t.tdate, t.pro_state,p.maker_id ");
 			sql.append("from transaction t, semi_product p ");
@@ -345,6 +347,7 @@ public class MockDAO {
 				maker_id=rs.getString("maker_id");
 			}
 			pstmt.close();
+			rs.close();
 			String sql2="select maker_account from maker where maker_id=?";
 			pstmt=con.prepareStatement(sql2);
 			pstmt.setString(1, maker_id);
@@ -357,7 +360,13 @@ public class MockDAO {
 		}
 		return tdto;
 	}
-    //거래번호로 배송정보 불러오기
+    /**
+     * 거래번호로 거래테이블과 배송테이블을 JOIN하여
+     * 거래번호에 해당하는 배송정보를 반환한다.
+     * @param tno
+     * @return
+     * @throws SQLException
+     */
 	public DeliveryVO findDeliveryInfoByTno(int tno) throws SQLException {
 		DeliveryVO dvo=null;
 		Connection con = null;
@@ -365,11 +374,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select t.tno, d.receiver, d.destination,d.contact 
-				from delivery d, transaction t
-				where t.tno=d.tno and t.tno=1 ;
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select t.tno, d.receiver, d.destination,d.contact ");
 			sql.append("from delivery d, transaction t ");
@@ -389,7 +393,15 @@ public class MockDAO {
 		}
 		return dvo;
 	}
-	//입금대기목록 가져오기
+	/**
+	 * 판매자 아이디에 해당하는 주문목록중에서
+	 * 상태명에 해당하는 주문목록을 반환한다.
+	 * ex) 입금대기상태목록, 결제대기상태목록
+	 * @param maker_id
+	 * @param pro_state
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<OrderVO> getDepositList(String maker_id,String pro_state) throws SQLException {
 		ArrayList<OrderVO> orderStateList=new ArrayList<OrderVO>();
 		Connection con = null;
@@ -397,16 +409,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select row_number() over(order by a.tdate asc)as rnum,
-			 * a.pno,a.pname,a.price*a.amount as
-			 * total_price,a.tno,a.tdate,a.buyer_id,b.buyer_tel,a.pro_state
-			 * from( select
-			 * p.pno,p.pname,p.price,t.amount,t.tno,t.tdate,t.buyer_id,t.
-			 * pro_state from( select * from TRANSACTION where pro_state='입금대기'
-			 * )t, semi_product p where t.pno=p.pno and p.maker_id='java' )a,
-			 * buyer b where a.buyer_id=b.buyer_id
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select row_number() over(order by a.tdate asc)as rnum, a.pno,a.pname,a.price*a.amount as total_price,a.tno,a.tdate,a.buyer_id,b.buyer_tel,a.pro_state  ");
 			sql.append("from( select p.pno,p.pname,p.price,t.amount,t.tno,t.tdate,t.buyer_id,t.pro_state ");
@@ -435,7 +437,12 @@ public class MockDAO {
 		}
 		return orderStateList;
 	}
-
+	/**
+	 * 거래번호에 해당하는 주문상태를 변경한다.
+	 * @param tno
+	 * @param update_state
+	 * @throws SQLException
+	 */
 	public void updateChange(int tno, String update_state) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -457,7 +464,7 @@ public class MockDAO {
 	
 	/**
 	 * 상품을 주문한 고객의 기존 정보를 가져오는 메서드
-	 * @param buyer_id
+	 * @param buyer_id : 구매자 아이디
 	 * @return
 	 * @throws SQLException
 	 */
@@ -469,7 +476,7 @@ public class MockDAO {
 		
 		try{
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
-			String sql="select buyer_name,buyer_add,buyer_tel from buyer where buyer_id=?";
+			String sql="select buyer_name,buyer_add,buyer_tel from buyer where buyer_id=?"; //구매자 아이디에 해당되는 회원 정보를 가져온다.
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, buyer_id);
 			rs=pstmt.executeQuery();
@@ -486,10 +493,10 @@ public class MockDAO {
 	
 	/**
 	 * 기존정보가 아닌 새롭게 입력된 배송정보를 거래번호에 매칭하여 입력시키는 메서드.
-	 * @param receiver
-	 * @param destination
-	 * @param contact
-	 * @param tno
+	 * @param receiver : 수령인
+	 * @param destination : 수령지
+	 * @param contact : 수령인 연락처
+	 * @param tno : 해당 거래번호
 	 * @throws SQLException
 	 */
 	public void addDeliveryInfo(String receiver,String destination,String contact,int tno) throws SQLException {
@@ -498,7 +505,8 @@ public class MockDAO {
 
 		try{
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
-			String sql="insert into delivery(tno,receiver,destination,contact) values(?,?,?,?)";
+			
+			String sql="insert into delivery(tno,receiver,destination,contact) values(?,?,?,?)"; //배송테이블에 거래번호,수령인정보를 저장한다.
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, tno);
 			pstmt.setString(2, receiver);
@@ -512,9 +520,9 @@ public class MockDAO {
 	
 	/**
 	 * 주문 완료 후 주문 완료 리스트에 올라가는 메서드
-	 * @param pno
-	 * @param amount
-	 * @param buyer_id
+	 * @param pno : 상품번호 
+	 * @param amount : 구매자가 주문한 상품의 수량
+	 * @param buyer_id : 구매자 아이디
 	 * @return
 	 * @throws SQLException
 	 */
@@ -522,10 +530,8 @@ public class MockDAO {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		int tno=0;
+		int tno=0; //현재 거래번호를 저장할 변수
 		try{
-			
-			
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
 
 			String sql="select tno_seq.nextval from dual"; //배송테이블에 현재 거래번호를 넘기기 위한 sql문
@@ -535,14 +541,14 @@ public class MockDAO {
 				tno=rs.getInt(1);
 			}
 			pstmt.close();
-		    sql="insert into transaction(tno,pno,amount,tdate,buyer_id) values(?,?,?,sysdate,?)";
+			
+		    sql="insert into transaction(tno,pno,amount,tdate,buyer_id) values(?,?,?,sysdate,?)"; //거래테이블에 거래정보를 등록한다.
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, tno);
 			pstmt.setInt(2, pno);
 			pstmt.setInt(3, amount);
 			pstmt.setString(4, buyer_id);
 			pstmt.executeUpdate();
-			
 		}finally {
 			closeAll(rs,pstmt, con);
 		}
@@ -552,12 +558,12 @@ public class MockDAO {
 	
 	
 	/**
-	 * 주문한 상품을 보여주는 메서드. "상품이 주문 되었습니다!!"
-	 * @param pno
-	 * @param pname
-	 * @param price
-	 * @param amount
-	 * @param buyer_id
+	 * 주문한 상품을 보여주는 메서드.
+	 * @param pno : 상품 번호
+	 * @param pname : 상품 이름
+	 * @param price : 상품 단가
+	 * @param amount : 상품 주문 수량
+	 * @param buyer_id : 구매자 아이디
 	 * @return
 	 * @throws SQLException
 	 */
@@ -570,27 +576,27 @@ public class MockDAO {
 		try{
 			con=DataSourceManager.getInstance().getDataSource().getConnection();
 			StringBuilder sql=new StringBuilder();
+			
+			//거래테이블과 배송테이블의 조인을 통해
+			//거래 시간의 내림차순으로 출력하고 전달받은 구매자 아이디에 해당되는
+			//거래번호,거래날짜,수령인,수령인 연락처,수령지,거래상태를 출력해줌
 			sql.append("select t.tno,t.tdate,d.receiver,d.contact,d.destination,t.pro_state ");
 			sql.append("from transaction t, delivery d where t.buyer_id=? and t.tno=d.tno order by tdate desc");
 			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setString(1, buyer_id);
 			rs=pstmt.executeQuery();
 			
-			if(rs.next()){ //
-				//tdto=new TransactionDTO();//tdto 객체를 저장함
-				//tdto.setTno(rs.getInt("t.tno"));
-				tdto.setTno(rs.getInt(1));
-				//tdto.setTdate(rs.getString("t.tdate"));
-				tdto.setTdate(rs.getString(2));
-				
-				DeliveryVO dvo=new DeliveryVO();
-				//dvo.setReceiver(rs.getString("d.receiver"));
-				dvo.setReceiver(rs.getString(3));
-				//dvo.setContact(rs.getString("d.contact"));
-				dvo.setContact(rs.getString(4));
+			if(rs.next()){
+				//배송VO의 객체(dvo)를 생성하고 수령인,수령인 연락처,수령지를 저장시킨후
+				DeliveryVO dvo=new DeliveryVO(); 
+				dvo.setReceiver(rs.getString(3)); // = dvo.setReceiver(rs.getString("d.receiver"));
+				dvo.setContact(rs.getString(4)); // = dvo.setContact(rs.getString("d.contact"));
 				dvo.setDestination(rs.getString(5));
-				tdto.setDelivery(dvo);
 				
+				//거래DTO의 객체에 거래번호,거래날짜,배송vo객체와 거래상태를 저장시킴.
+				tdto.setTno(rs.getInt(1)); // = tdto.setTno(rs.getInt("t.tno"));
+				tdto.setTdate(rs.getString(2)); // = tdto.setTdate(rs.getString("t.tdate"));
+				tdto.setDelivery(dvo);
 				tdto.setPro_state(rs.getString(6));
 			}
 		}finally {
@@ -599,8 +605,9 @@ public class MockDAO {
 	}
 
 	/**
-	 * 상품을 주문하면 상품재고량이 줄어드는 메서드
-	 * @param pno
+	 * 구매자가 상품을 주문하면 판매되고있는 상품의 재고량이 줄어드는 메서드
+	 * @param pno : 상품 번호
+	 * @param amount : 상품의 총 재고
 	 * @throws SQLException
 	 */
 	public void declineTotalCount(int pno,int amount) throws SQLException{
@@ -620,7 +627,14 @@ public class MockDAO {
 			closeAll(rs, pstmt, con);
 		}
 	}
-
+	
+	/**
+	 * buyer_id에 해당하는 
+	 * 전체 거래정보의 수를 가져온다.
+	 * @param buyer_id
+	 * @return
+	 * @throws SQLException
+	 */
 	public int getTotalPurchaseNo(String buyer_id) throws SQLException {
 		int totalPurchaseNo=0;
 		Connection con = null;
@@ -628,9 +642,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select count(*) from transaction where buyer_id='java';
-			 */
 			String sql="select count(*) from transaction where buyer_id=? ";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, buyer_id);
@@ -664,30 +675,31 @@ public class MockDAO {
 		}
 		
 	}
-/**
- * 	주문시 계좌번호 정보 넘기기 위해 아이디와 tdto를 매개변수로 해서 계좌번호를 넘겨주는메소드
- * PurchasedInfoController 에서 사용됨
- * @param maker_id
- * @param tdto
- * @throws SQLException
- */
-	public void getMakerAccountById(String maker_id, TransactionDTO tdto) throws SQLException {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		try{	
-			con=DataSourceManager.getInstance().getDataSource().getConnection();
-		String sql2="select maker_account from maker where maker_id=?";
-		pstmt=con.prepareStatement(sql2);
-		pstmt.setString(1, maker_id);
-		rs=pstmt.executeQuery();
-		if(rs.next()){
-			tdto.setMaker_account(rs.getString(1));;
-		}
-	}finally{
-		closeAll(rs, pstmt, con);
-	}
 	
-	}
+	/**
+	 * tdto에 판매자 계좌번호를 저장시키기 위함( PurchasedInfoController 에서 사용됨 )
+	 * @param maker_id : 판매자 아이디
+	 * @param tdto : 거래DTO(VO)타입으로 상품정보와 주문한 수량을 저장시킨 객체
+	 * @throws SQLException
+	 */
+		public void getMakerAccountById(String maker_id, TransactionDTO tdto) throws SQLException {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try{	
+				con=DataSourceManager.getInstance().getDataSource().getConnection();
+				
+				String sql2="select maker_account from maker where maker_id=?"; //maker테이블에서 판매자 아이디에 해당되는 판매자 계좌정보를 보여줌.
+				pstmt=con.prepareStatement(sql2);
+				pstmt.setString(1, maker_id);
+				rs=pstmt.executeQuery();
+				if(rs.next()){
+					tdto.setMaker_account(rs.getString(1)); //tdto에 판매자 계좌정보를 저장한다.
+				}
+		}finally{
+			closeAll(rs, pstmt, con);
+		}
+		
+		}
 
 }

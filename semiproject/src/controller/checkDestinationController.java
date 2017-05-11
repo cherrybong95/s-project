@@ -11,6 +11,11 @@ import org.json.JSONObject;
 import model.BuyerVO;
 import model.MockDAO;
 
+/**
+ * 주문하기 페이지에서 기존 배송지 정보를 가져오기 위한 컨트롤러
+ * @author KOSTA
+ *
+ */
 public class checkDestinationController implements Controller {
 
 	@Override
@@ -24,10 +29,12 @@ public class checkDestinationController implements Controller {
 		if(session!=null&mvo!=null){
 			BuyerVO bvo=MockDAO.getInstance().getMemberInfo(mvo.getBuyer_id()); //주문하는 멤버의 정보를 불러옴
 			JSONObject ja = new JSONObject();
+			
 			ja.put("buyer_name", bvo.getBuyer_name());
 			ja.put("buyer_add",bvo.getBuyer_add());
 			ja.put("buyer_tel", bvo.getBuyer_tel());
 			out.print(ja.toString());
+			
 			System.out.println("사람:"+bvo.toString());
 		}
 		out.close();

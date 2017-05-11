@@ -18,14 +18,12 @@ public class ShowOrderStateListController implements Controller {
 		response.setContentType("text/html;charset=utf-8");
 		String pro_state=request.getParameter("pro_state");
 		String maker_id=request.getParameter("maker_id");
-		System.out.println(pro_state);
 		PrintWriter out = response.getWriter();
+		//판매자 아이디에 해당하는 주문목록중에서 주문상태(pro_state)에 해당하는 목록을 반환받는다.
 		ArrayList<OrderVO> orderStateList=MockDAO.getInstance().getDepositList(maker_id,pro_state);
-		System.out.println(orderStateList);
 		JSONArray ja=new JSONArray(orderStateList);
 		out.print(ja.toString());
 		out.close();
 		return "Ajax";
 	}
-
 }
