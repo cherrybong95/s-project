@@ -15,15 +15,11 @@ public class CheckCartController implements Controller {
 		PrintWriter out = response.getWriter();
 		String pno=request.getParameter("pno"); 
 		HttpSession session = request.getSession(false);
-		BuyerVO mvo = (BuyerVO) session.getAttribute("mvo"); // 세션으로부터
-		// 회원정보를
-		// 받아온다.
+		BuyerVO mvo = (BuyerVO) session.getAttribute("mvo"); 
 		int index=-1;
 		if(session !=null && mvo!=null) {
-			index=mvo.getCart().findIndexByNo(Integer.parseInt(pno)); //카트에 있는지 없는지 검사한다.
-
+			index=mvo.getCart().findIndexByNo(Integer.parseInt(pno)); //카트에 선택된 상품이 있는지 없는지 검사한다.
 		}
-		System.out.println("check index"+index);
 		out.print(index);
 		out.close();
 		return "Ajax";

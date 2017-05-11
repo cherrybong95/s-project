@@ -12,13 +12,10 @@ public class DeleteCartController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String path="index.jsp";
 		String pno = request.getParameter("pno");
-		// 나중에 세션 존재하는지 확인하고 세션 네임 확인해서 mvo에 추가하면 됨!
 		HttpSession session = request.getSession(false);
-		BuyerVO mvo = (BuyerVO) session.getAttribute("mvo"); // 세션으로부터
-		// 회원정보를
-		// 받아온다.
+		BuyerVO mvo = (BuyerVO) session.getAttribute("mvo"); 
 		if(session !=null && mvo!=null) {
-			mvo.getCart().removeProduct(Integer.parseInt(pno));
+			mvo.getCart().removeProduct(Integer.parseInt(pno)); //선택된 상품을 장바구니에서 삭제한다.
 			path="redirect:DispatcherServlet?command=showCartList";
 		}
 		return path;

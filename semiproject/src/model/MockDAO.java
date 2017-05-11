@@ -10,14 +10,7 @@ public class MockDAO {
 	private static MockDAO instance=new MockDAO();
 	public static MockDAO getInstance(){return instance;}
 	
-	//--------------------장바구니
-	//MemberVO mvo = new MemberVO();
-	//--------------------임시멤버
-/*	public MemberVO createMember(){
-		mvo.setId("java");
-		mvo.setMname("박다혜");
-		return mvo;
-	}*/
+
 	//--------------------상품넘버로 상품찾기
 	public ProductVO findProductByNo(String pno) throws SQLException{
 		ProductVO pvo = null;
@@ -45,7 +38,15 @@ public class MockDAO {
 			}
 		return pvo;
 	}
-	//--------------------상품넘버로 상품찾고 수량 설정하기
+	/**
+	 * 상품 넘버(pno)로 상품을 찾고
+	 *  찾은 상품에 입력받은 수량을 setting한다.
+	 * 
+	 * @param pno
+	 * @param amount
+	 * @return
+	 * @throws SQLException
+	 */
 	public ProductVO findProductByNo(String pno, int amount) throws SQLException{
 		ProductVO pvo = null;
 		Connection con=null;
@@ -261,7 +262,15 @@ public class MockDAO {
 			closeAll(pstmt, con);
 		}
 	}
-	//id에 따른 전체 거래정보가져오기
+	/**
+	 * buyer_id에 해당하는 전체 거래정보중에서
+	 * 현재 페이지에 해당하는 거래정보 목록만 검색하여 반환한다.
+	 * 
+	 * @param id
+	 * @param pb
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<TransactionDTO> getTransactionInfo(String id, PagingBean pb) throws SQLException {
 		ArrayList<TransactionDTO> transactionList=new ArrayList<TransactionDTO>();
 		Connection con = null;
@@ -269,15 +278,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select t.rnum,
-			 * t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.
-			 * simple_info,t.amount*p.price as total_price from( select
-			 * row_number() over(order by tdate asc) as rnum,
-			 * tno,pno,pro_state,tdate,amount from transaction where
-			 * buyer_id='java' )t, semi_product p where t.pno=p.pno and rnum
-			 * between 1 and 9 order by rnum desc;
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select t.rnum, t.tno,t.pro_state,t.tdate,t.amount,p.pno,p.pname,p.price,p.simple_info,p.detail_info,t.amount*p.price as total_price from(  ");
 			sql.append("select row_number() over(order by tdate desc) as rnum, tno,pno,pro_state,tdate,amount  from transaction where buyer_id=? ");
@@ -286,7 +286,6 @@ public class MockDAO {
 			pstmt.setString(1, id);
 			pstmt.setInt(2, pb.getStartRowNumber());
 			pstmt.setInt(3, pb.getEndRowNumber());
-			System.out.println(pb.getStartRowNumber()+"    "+pb.getEndRowNumber());
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				TransactionDTO tdto= new TransactionDTO();
@@ -308,7 +307,15 @@ public class MockDAO {
 		}
 		return transactionList;
 	}
-	//거래번호로 상세 거래정보찾기
+	/**
+	 * 거래번호로
+	 * 거래테이블의 상품번호와 상품테이블의 상품번호를 JOIN하여 
+	 * 거래정보(거래번호, 상품번호, 거래 날짜, 거래수량, 거래 상태)와 상품정보를
+	 * TransactionDTO객체로 반환한다.
+	 * @param tno
+	 * @return
+	 * @throws SQLException
+	 */
 	public TransactionDTO findTransactionInfoByTno(int tno) throws SQLException {
 		TransactionDTO tdto=null;
 		Connection con = null;
@@ -317,11 +324,6 @@ public class MockDAO {
 		String maker_id="";
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select t.tno, t.pno, p.pname,p.price,p.simple_info, t.amount, t.tdate, t.pro_state 
-				from transaction t, semi_product p 
-				where t.pno=p.pno and t.tno=1 
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select t.tno, t.pno, p.pname,p.price,p.simple_info,p.detail_info, t.amount, t.tdate, t.pro_state,p.maker_id ");
 			sql.append("from transaction t, semi_product p ");
@@ -345,6 +347,7 @@ public class MockDAO {
 				maker_id=rs.getString("maker_id");
 			}
 			pstmt.close();
+			rs.close();
 			String sql2="select maker_account from maker where maker_id=?";
 			pstmt=con.prepareStatement(sql2);
 			pstmt.setString(1, maker_id);
@@ -357,7 +360,13 @@ public class MockDAO {
 		}
 		return tdto;
 	}
-    //거래번호로 배송정보 불러오기
+    /**
+     * 거래번호로 거래테이블과 배송테이블을 JOIN하여
+     * 거래번호에 해당하는 배송정보를 반환한다.
+     * @param tno
+     * @return
+     * @throws SQLException
+     */
 	public DeliveryVO findDeliveryInfoByTno(int tno) throws SQLException {
 		DeliveryVO dvo=null;
 		Connection con = null;
@@ -365,11 +374,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select t.tno, d.receiver, d.destination,d.contact 
-				from delivery d, transaction t
-				where t.tno=d.tno and t.tno=1 ;
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select t.tno, d.receiver, d.destination,d.contact ");
 			sql.append("from delivery d, transaction t ");
@@ -389,7 +393,15 @@ public class MockDAO {
 		}
 		return dvo;
 	}
-	//입금대기목록 가져오기
+	/**
+	 * 판매자 아이디에 해당하는 주문목록중에서
+	 * 상태명에 해당하는 주문목록을 반환한다.
+	 * ex) 입금대기상태목록, 결제대기상태목록
+	 * @param maker_id
+	 * @param pro_state
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<OrderVO> getDepositList(String maker_id,String pro_state) throws SQLException {
 		ArrayList<OrderVO> orderStateList=new ArrayList<OrderVO>();
 		Connection con = null;
@@ -397,16 +409,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select row_number() over(order by a.tdate asc)as rnum,
-			 * a.pno,a.pname,a.price*a.amount as
-			 * total_price,a.tno,a.tdate,a.buyer_id,b.buyer_tel,a.pro_state
-			 * from( select
-			 * p.pno,p.pname,p.price,t.amount,t.tno,t.tdate,t.buyer_id,t.
-			 * pro_state from( select * from TRANSACTION where pro_state='입금대기'
-			 * )t, semi_product p where t.pno=p.pno and p.maker_id='java' )a,
-			 * buyer b where a.buyer_id=b.buyer_id
-			 */
 			StringBuilder sql=new StringBuilder();
 			sql.append("select row_number() over(order by a.tdate asc)as rnum, a.pno,a.pname,a.price*a.amount as total_price,a.tno,a.tdate,a.buyer_id,b.buyer_tel,a.pro_state  ");
 			sql.append("from( select p.pno,p.pname,p.price,t.amount,t.tno,t.tdate,t.buyer_id,t.pro_state ");
@@ -435,7 +437,12 @@ public class MockDAO {
 		}
 		return orderStateList;
 	}
-
+	/**
+	 * 거래번호에 해당하는 주문상태를 변경한다.
+	 * @param tno
+	 * @param update_state
+	 * @throws SQLException
+	 */
 	public void updateChange(int tno, String update_state) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -620,7 +627,13 @@ public class MockDAO {
 			closeAll(rs, pstmt, con);
 		}
 	}
-
+	/**
+	 * buyer_id에 해당하는 
+	 * 전체 거래정보의 수를 가져온다.
+	 * @param buyer_id
+	 * @return
+	 * @throws SQLException
+	 */
 	public int getTotalPurchaseNo(String buyer_id) throws SQLException {
 		int totalPurchaseNo=0;
 		Connection con = null;
@@ -628,9 +641,6 @@ public class MockDAO {
 		ResultSet rs = null;
 		try{
 			con = DataSourceManager.getInstance().getDataSource().getConnection();
-			/*
-			 * select count(*) from transaction where buyer_id='java';
-			 */
 			String sql="select count(*) from transaction where buyer_id=? ";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, buyer_id);
