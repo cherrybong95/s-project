@@ -10,6 +10,11 @@ import model.BuyerVO;
 import model.MockDAO;
 import model.ProductVO;
 
+/**
+ * 장바구니 내역을 보여주는 컨트롤러
+ * @author KOSTA
+ *
+ */
 public class ShowCartListController implements Controller {
 
    @Override
